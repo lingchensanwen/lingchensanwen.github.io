@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="John Doe">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="John Doe">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content>
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>sanwen&#39;s Blog</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/public/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href="/public/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/public/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href="/public/assets/favicon.ico">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/public/scripts/main.js" as="script">
+    <link rel="preload" as="font" href="/public/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/public/">sanwen&#39;s blog.</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name"></a>
+            </div>
+    </div>
+    
+    <a class="home-link" href="/public/">sanwen's blog.</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:20vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/public/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            [Untitled Post]
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/07/19</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/public/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/public/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="从大工到Columbia-UT-Utokyo"><a href="#从大工到Columbia-UT-Utokyo" class="headerlink" title="从大工到Columbia/UT/Utokyo"></a>从大工到Columbia/UT/Utokyo</h2><h3 id="录取情况："><a href="#录取情况：" class="headerlink" title="录取情况："></a>录取情况：</h3><ul>
+<li><p>AD：Columbia CS，UT Austin ECE Software Engineering Systems(强烈安利), USC CS general, UCI MCS</p>
+</li>
+<li><p>REJ: CMU MSCV, Stanford EE, UIUC MCS, UT Austin MSCS，UCB EECS Meng, Brown CE, Duke MSCS, UCSD CS, CMU MCDS, Umich CSE，Rice MCS, TAMU MCS, CMU ECE, CMU SESV</p>
+</li>
+</ul>
+<h3 id="GPA"><a href="#GPA" class="headerlink" title="GPA:"></a>GPA:</h3><ul>
+<li>92/100</li>
+</ul>
+<h3 id="语言成绩："><a href="#语言成绩：" class="headerlink" title="语言成绩："></a>语言成绩：</h3><ul>
+<li><p>T: 103(20) &amp; 101(23)</p>
+</li>
+<li><p>G: 157+167+3.5</p>
+</li>
+</ul>
+<h3 id="其他背景："><a href="#其他背景：" class="headerlink" title="其他背景："></a>其他背景：</h3><ul>
+<li>日本东京大学交换留学一年，东大研究室一年经历，一篇日本国内水会，还有一些电赛经历等</li>
+</ul>
+<h3 id="推荐信："><a href="#推荐信：" class="headerlink" title="推荐信："></a>推荐信：</h3><ul>
+<li>两封日本东大老师推，其中一封来自研究室老板，三封理工推，是的，因为申请学校太多了，一共找了5位老师帮我推荐</li>
+</ul>
+<h3 id="过来人的经验"><a href="#过来人的经验" class="headerlink" title="过来人的经验"></a>过来人的经验</h3><ul>
+<li><p>GPA：大四出去交换，GPA用的是大三之前的成绩，还是希望越高越好吧，有点遗憾的是没刷过分</p>
+</li>
+<li><p>T：103还是不太够，对比较厉害的项目来说只能说比较一般，布朗CS强卡105，改申了CE然后好像还是被刷掉（笑），同学们刷到105以上，甚至110以上比较好</p>
+</li>
+<li><p>G：感觉对我来说G算是短期内比较好考的，只考了一次，哈哈哈哈感觉也比较一般，尽量刷到325和330以上吧</p>
+</li>
+<li><p>语言成绩</p>
+<blockquote>
+<p>对于语言成绩，大家GPA都很高其他背景都很强的时候，可能稍微弱一点就会成为被刷的理由，所以要尽力刷高，不要相信地里说够了够了就放弃了，无论如何要刷够100+320以上，不然申请季会很惨的，当然也有例外，在我申请的所有项目里，UT Austin ECE相关项目是不太在意语言分数的，但在其他方面会有强制要求，例如UT Austin我安利的这个track据我所知录取的都是EE/CE/CS本科，大家GPA都很高在90+附近等</p>
+</blockquote>
+</li>
+<li><p>关于科研&amp;实习</p>
+<blockquote>
+<p>这个不说了，哈哈哈哈哈感觉自己有点菜，就是利用机会吧，大家早进实验室肯定是最好的，大创和交换留学都可以找到很棒的机会，如果真的找不到或者做不好的话，一份强势的实习在申请季也大大会有帮助，一般来说实习帮助：外企&gt;国内大厂&gt;国内小厂&gt;没有，不过注意要专业相关实习才比较有帮助</p>
+</blockquote>
+</li>
+<li><p>文书</p>
+<blockquote>
+<p>申请季我申请了18个项目，全部diy完成，大概是我先写好一个初稿，然后找我教雅思/托福/GRE的朋友帮忙改改，淘宝上也提供相应服务，不过当时没有选，所有项目12月7日之前都完成申请，其实当时也有想过找中介，现场调研了几个，但是和他们聊的过程中感觉都不是很靠谱，所以还是选择了自己申请</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><h3 id="先从我录取的项目介绍吧"><a href="#先从我录取的项目介绍吧" class="headerlink" title="先从我录取的项目介绍吧"></a>先从我录取的项目介绍吧</h3><ul>
+<li><p>Columbia MSCS</p>
+<blockquote>
+<p>哥大往年录取质量不清楚，但今年很高很高，豆瓣找到了一个中介？爬到的数据,<a href="https://www.douban.com/note/723093339/" target="_blank" rel="noopener">可以参考一下</a>，在里面找到了我自己和朋友们，应该还是靠谱的，哥大T据说会卡103，G也325以上比较好，感觉偏向录取海本和经历丰富的学生，不管是实习还是出国交换，都会加分。哥大项目时常15个月</p>
+</blockquote>
+</li>
+<li><p>UT Austin ECE</p>
+<blockquote>
+<p>是我一开始申请时候的梦校，他家CS排第七，ECE排第九，是个很强的工科院校，SES track录取的朋友们GPA都相对比较高，不是CS就是CE或是CS的本科，但是语言成绩就没强制要求了，感觉很佛的一个学校，他家转track十分容易，如果觉得SES难的话，可以申请相对容易的项目，<a href="https://gradschool.utexas.edu/admissions/where-to-begin/admissions-and-enrollment-statistics" target="_blank" rel="noopener">官方有放出来每年的录取数据</a><br>他家SES项目历来就业率百分之百，学费和生活成本低廉，更不用说当TA的话学费可以被减免到1500刀，每个月发2000刀工资，所在地奥斯汀是新型的科技城市，被誉为硅山，有Indeed的总部，Google，Facebook，Apple等，近年由于加州高昂的房价和生活成本，有越来越多的科技公司和码农从加州跑到奥斯汀来，与此同时该项目转PHD容易，只需要找到心仪导师更新签证长度到5年或者更长即可，ECE可以和CS部门互找导师，<a href="https://www.1point3acres.com/bbs/thread-513839-1-1.html" target="_blank" rel="noopener">这里有转PHD相关信息</a>，奥斯汀项目时常两年，可以选择一年半/两年/两年半毕业</p>
+</blockquote>
+</li>
+<li><p>USC CS general：</p>
+<blockquote>
+<p>项目28学分，时常两年，近些年录取同学的GPA越来越高，感觉本科计算机系88分以上稳一些，该项目转专业不友好，如果本科不是CS的话，请直接申请CS37，USC这个项目时常两年</p>
+</blockquote>
+</li>
+<li><p>UCI MCS：</p>
+<blockquote>
+<p>今年这个项目录取bar很迷，拒了一堆有过他家暑研经历的，和一些大佬，估计学校是想找最可能去的人吧，项目时常16个月</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="再来说说拒绝我的项目"><a href="#再来说说拒绝我的项目" class="headerlink" title="再来说说拒绝我的项目"></a>再来说说拒绝我的项目</h3><ul>
+<li><p>CMU MSCV，MCDS和Stanford都是顶级项目，彩票并没有刮开</p>
+</li>
+<li><p>UCB Meng我觉得是我的GT太低了，也是偏彩票的项目，依然没有刮开</p>
+</li>
+<li><p>UIUC MCS今年的bar很高很高，之前还怀抱一点点希望，但依然没有刮开（笑</p>
+</li>
+<li><p>Umich CSE</p>
+<blockquote>
+<p>本以为还是比较有希望的，他家项目比较贵，和哥大差不多，地理位置不是很好，项目本身还是不错的，UCSD每天下午3点？准时发offer导致我下午神经紧张了好几个月，学费低项目地理位置好，学校本身的CS也很好</p>
+</blockquote>
+</li>
+<li><p>Brown我就来说说CS吧，项目时间相对长一些，课程设置合理，就业也不错，还是藤校，同学们T够105的话请一定试试哦</p>
+</li>
+<li><p>CMU的ECE和SESV，就业超级棒，官网可以查到数据，就业率每年都百分之90多</p>
+</li>
+<li><p>Duke，Rice，TAMU这三个学校比较迷，也不是很了解具体录取标准，就略过了</p>
+</li>
+<li><p>请让我吐槽一下TAMU</p>
+<blockquote>
+<p>TAMU的申请费最贵158刀，5月给我发邮件给了我个账户让我激活，然后发现被拒了，哈哈哈哈哈很高冷的学校，不过他家学费很便宜，一年好像还不到1万刀？生活费也是，同时，由于有CO-OP政策，学生可以选择某一个学期出去实习，以及可以一年半/两年/两年半毕业模式，就业相当不错，还是安利一下</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="最后一点唠叨"><a href="#最后一点唠叨" class="headerlink" title="最后一点唠叨"></a>最后一点唠叨</h2><blockquote>
+<p><em>我们往往拼尽全力往前冲，却忘了问问自己真的想要什么</em></p>
+</blockquote>
+<p>申请季结束了，我却在选择哥大还是奥斯汀上犹豫了很久，最后发现我可能哪个也不太想去hhhhh，这也是我为什么标题这样写，也许最后还是回到Utokyo了。同学们申请之前一定问一问自己去美帝的原因是什么，对我来说，当时是想认识更厉害的人，因为我认识的厉害的中国人/日本人都去美帝了，后来我发现其实我还是喜欢东京多一些，将来也想回到东京工作，在日本Google/Indeed这样的公司里，新人可以拿到接近1000万日元，（请吃我安利）日语好的话在东京可以生活得很惬意了。在都心住的话30分钟电车可以到达博物馆，美术馆，水族馆，公园，神社，甚至迪士尼，日本的医保政策也很好，每年缴纳几千的保险，可以报销百分之70的大小疾病，离家也很近。日本东京大学的CS的研究生的话，自由度最高的是電子情報工学，一年两次考试。擦边球的话，可以报考先端理工，和IME项目，可以少考几门。</p>
+<p><strong>请大家出发前务必想清楚自己真正想要什么，然后为之努力就好啦，以上～</strong></p>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/public/2019/06/11/hexo使用说明/" title="hexo使用说明">
+                    <div class="prevTitle">hexo使用说明</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:924484703@mail.dlut.edu.cn" class="iconfont-archer email" title="email"></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/lingchensanwen" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:20vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#从大工到Columbia-UT-Utokyo"><span class="toc-number">1.</span> <span class="toc-text">从大工到Columbia/UT/Utokyo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#录取情况："><span class="toc-number">1.1.</span> <span class="toc-text">录取情况：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPA"><span class="toc-number">1.2.</span> <span class="toc-text">GPA:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语言成绩："><span class="toc-number">1.3.</span> <span class="toc-text">语言成绩：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他背景："><span class="toc-number">1.4.</span> <span class="toc-text">其他背景：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#推荐信："><span class="toc-number">1.5.</span> <span class="toc-text">推荐信：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#过来人的经验"><span class="toc-number">1.6.</span> <span class="toc-text">过来人的经验</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目介绍"><span class="toc-number">2.</span> <span class="toc-text">项目介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#先从我录取的项目介绍吧"><span class="toc-number">2.1.</span> <span class="toc-text">先从我录取的项目介绍吧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再来说说拒绝我的项目"><span class="toc-number">2.2.</span> <span class="toc-text">再来说说拒绝我的项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后一点唠叨"><span class="toc-number">3.</span> <span class="toc-text">最后一点唠叨</span></a></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 4
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/19</span><a class="archive-post-title" href="/public/2019/07/19/从大工到Columbia-UT-Utokyo/">[Untitled Post]</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/11</span><a class="archive-post-title" href="/public/2019/06/11/hexo使用说明/">hexo使用说明</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href="/public/2019/03/14/申请季-3-14/">焦虑的申请季</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/14</span><a class="archive-post-title" href="/public/2019/03/14/重新整理/">重新整理博客</a>
+        </li>
+    
+    </ul></div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br>
+    1、请确保node版本大于6.2<br>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/public/",
+        author: "John Doe"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/public/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/public/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/public/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
