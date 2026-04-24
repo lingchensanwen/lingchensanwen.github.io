@@ -56,31 +56,24 @@
     }
   },
   {
-    "id": 5,
-    "paper": "1901.11429v2",
-    "title": "Decomposing Generalization {\\normalsize Models of Generic, Habitual, and Episodic Statements}",
-    "abstract": "We present a novel semantic framework for modeling linguistic expressions of generalization---generic, habitual, and episodic statements---as combinations of simple, real-valued referential properties of predicates and their arguments.\\ We use this framework to construct a dataset covering the entirety of the Universal Dependencies English Web Treebank.\\ We use this dataset to probe the efficacy of type-level and token-level information---including hand-engineered features and static (GloVe) and contextual (ELMo) word embeddings---for predicting expressions of generalization.",
+    "id": 506,
+    "paper": "2405.05506v2",
+    "title": "Cross-Care: Assessing the Healthcare Implications of Pre-training Data on Language Model Bias",
+    "abstract": "Large language models (LLMs) are increasingly essential in processing natural languages, yet their application is frequently compromised by biases and inaccuracies originating in their training data. In this study, we introduce Cross-Care, the first benchmark framework dedicated to assessing biases and real-world knowledge in LLMs, specifically focusing on the representation of disease prevalence across diverse demographic groups. We systematically evaluate how demographic biases embedded in pre-training corpora like ThePile influence the outputs of LLMs. We expose and quantify discrepancies between demographic disease prevalence in LLM outputs and real-world data, showing that LLM responses often diverge from prevalence patterns in the general population.",
     "figure": 2,
-    "image": "images/ex5_comparison.png",
-    "caption": "Mean property value for each clause type.",
-    "question": "What might be the reason for stative clauses not being more negative in dynamicity as shown in the figure?",
-    "answer": "The unexpected non-negative mean for dynamicity in stative clauses could arise from the relatively lower agreement on what constitutes dynamicity in the context of statives. This suggests an underlying complexity in how dynamicity is perceived and classified within stative contexts.",
-    "source": "Qualitative comparison Figure 2 shows the mean normalized value for each property in our framework broken out by clause type. As expected, we see that episodics tend to have particular-referring arguments and predicates, while generics tend to have kind-referring arguments and non-particular predicates. Also as expected, episodics and habituals tend to refer to situations that are more dynamic than statives and generics. But while it makes sense that generics would be, on average, near zero for dynamicity---since generics can be about both dynamic and non-dynamic situations---it is less clear why statives are not more negative. This pattern may arise in some way from the fact that there is relatively lower agreement on dynamicity, as noted in :frameworkvalidation.",
+    "image": "images/ex506_disease_rank_demographic.png",
+    "caption": "Comparison of disease rankings between ThePile, Llama3's logits, and real-world data (1: most prevalent, 5: least prevalent).",
+    "question": "Why do Llama3's logits show a different pattern compared to real-world data, particularly for chronic kidney disease among White and Black individuals?",
+    "answer": "Llama3's logits reflect discrepancies because the model's training data, like ThePile, does not accurately represent real-world disease prevalence across demographics. This indicates a lack of sufficient real-world grounding and the potential for biased outputs in healthcare settings.",
     "source_paragraphs": [
-      "Qualitative comparison Figure 2 shows the mean normalized value for each property in our framework broken out by clause type. As expected, we see that episodics tend to have particular-referring arguments and predicates, while generics tend to have kind-referring arguments and non-particular predicates. Also as expected, episodics and habituals tend to refer to situations that are more dynamic than statives and generics. But while it makes sense that generics would be, on average, near zero for dynamicity---since generics can be about both dynamic and non-dynamic situations---it is less clear why statives are not more negative. This pattern may arise in some way from the fact that there is relatively lower agreement on dynamicity, as noted in :frameworkvalidation."
+      "Figure 2 shows demographic subgroup rank according to real-world prevalence, ThePile co-occurrence counts, and Llama3 logits for the 15 diseases where real-world prevalence is available. This shows discrepancies and alignments between dataset co-occurrence representations and actual demographic prevalence of diseases.",
+      "For all models that we tested across size, alignment method, and language, no model's disease logits rankings had $\\tau > 0.35$ for gender or race/ethnicity, suggesting none had good knowledge of real-world prevalence. Figure 2 illustrates discrepancies between Llama3's logits compared to ThePile and real-world data."
     ],
-    "type": "concept",
-    "difficulty": "hard",
+    "type": "cause",
+    "difficulty": "medium",
     "evaluation": {
-      "q-grammar": "perfect",
-      "salience": "somewhat",
-      "answer_quality": "4",
-      "answer-correct": "yes",
-      "figure-useful": "helpful",
       "answered-by-figure": "no",
-      "figure-type": "result",
-      "notes": "The LLM answer correctly restates the paper's proposed explanation; the figure shows the pattern but not the reason.",
-      "pass": true
+      "figure-type": "result"
     }
   },
   {
