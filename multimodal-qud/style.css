@@ -59,6 +59,41 @@ main { padding: 36px 0 48px; }
 .intro em { color: var(--ink); font-style: normal; font-weight: 600; }
 .meta { margin-top: 14px; font-size: 0.85rem; color: var(--muted); }
 
+.compare-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 16px;
+  max-width: 760px;
+}
+.compare-list li {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  padding: 8px 14px;
+  margin-bottom: 4px;
+  border-left: 3px solid var(--border);
+  background: #fbfaf5;
+  border-radius: 3px;
+}
+.compare-list li:last-child {
+  border-left-color: var(--accent);
+  background: #eef2f7;
+}
+.compare-list .src {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+.compare-list li:last-child .src { color: var(--accent); font-weight: 600; }
+.compare-list q {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.compare-list q:before { content: "“"; }
+.compare-list q:after { content: "”"; }
+
 #gallery {
   display: flex;
   flex-direction: column;
