@@ -1,6 +1,6 @@
-# AstroQUD — Web Preview
+# Multimodal QUD — Web Preview
 
-A tiny static site showcasing 5 curated examples from the AstroQUD dataset. Designed to drop into
+A tiny static site showcasing 5 curated examples from the Multimodal QUD dataset. Designed to drop into
 [`lingchensanwen.github.io`](https://lingchensanwen.github.io) as a subpage.
 
 ## Files
@@ -32,7 +32,7 @@ cd lingchensanwen.github.io
 scp -r yw23374@<compling-host>:~/astroqud/web ./astroqud
 
 git add astroqud
-git commit -m "Add AstroQUD example gallery subpage"
+git commit -m "Add Multimodal QUD example gallery subpage"
 git push
 ```
 
@@ -42,7 +42,7 @@ The page will then be live at:
 https://lingchensanwen.github.io/astroqud/
 ```
 
-Link to it from your homepage with `<a href="/astroqud/">AstroQUD demo</a>`.
+Link to it from your homepage with `<a href="/astroqud/">Multimodal QUD demo</a>`.
 
 ### Why this works as a subpage
 
