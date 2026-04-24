@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AstroQUD — Example Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="home-link" href="https://lingchensanwen.github.io/">← back to homepage</a>
+    <h1>AstroQUD</h1>
+    <p class="sub">A curated sample of figure-grounded questions from scientific papers, with extracted context and answers.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <p>
+      Each card below is one example from the AstroQUD dataset. <b>Click a card to expand</b> and see
+      three panels mirroring Figure 1 of the paper: <em>Trigger Context</em> (paper title, abstract,
+      figure, caption), <em>Question Generation</em> (the inquisitive question a reader might ask),
+      and <em>Answering the Question</em> (the answer, together with the supporting passage when the
+      answer is grounded in paper text).
+    </p>
+    <div id="meta" class="meta"></div>
+  </section>
+
+  <section id="gallery"></section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>AstroQUD dataset preview · <span id="count"></span> examples</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+[
+  {
+    "id": 423,
+    "paper": "2505.17127v2",
+    "title": "Visual CounterFact: Balancing Factual Association vs.\\ Visual Perception in Vision-Language Models",
+    "abstract": "\\renewcommand{\\thefootnote}{\\fnsymbol{footnote}} Multimodal Large Language Models (MLLMs) perform well on tasks such as visual question answering, but it remains unclear whether their reasoning relies more on memorized world knowledge or on the visual information present in the input image. To investigate this, we introduce Visual CounterFact, a new dataset of visually-realistic counterfactuals that put world knowledge priors (e.g, red strawberry) into direct conflict with visual input (e.g, blue strawberry). Using Visual CounterFact, we show that model predictions initially reflect memorized priors, but shift toward visual evidence in mid-to-late layers. This dynamic reveals a competition between the two modalities, with visual input ultimately overriding priors during evaluation. To control this behavior, we propose Pixels Versus Priors (PvP) steering vectors, a mechanism for controlling model outputs toward either world knowledge or visual input through activation-level interventions. On average, PvP successfully shifts 99.3",
+    "figure": 6,
+    "image": "images/ex423_strawberry_attention_map_2.png",
+    "caption": "Impact of intervention on attention distribution. We observe more attention on text before intervention, and see a shift in attention towards the image and away from the text after intervention.",
+    "question": "Why does the attention shift from the text to the image after the intervention in the right panel?",
+    "answer": "The intervention using Pixels Versus Priors (PvP) steering vectors is designed to guide the model's attention away from memorized world knowledge (text) and towards visual evidence (image). This shift highlights the model's ability to override textual priors with visual input when guided by the intervention, reflecting the dynamic competition between the two modalities.",
+    "source": "Among all models, LLaVA-Next shows the strongest and most consistent shifts in attention when interventions are applied, followed by Qwen2-VL and then Janus-Pro. For the size task, steering vectors must act earlier in the network and across more layers to be effective, reflecting the fact that size requires integrating more visual features than color. In contrast, the color task is more localized and easier to influence with a smaller intervention window. Figure 6 illustrates how attention moves across layers in response to both prompt changes and steering task interventions in LLaVA-Next. To illustrate the same effect but with a concrete example, Figure 9, shows the attention before intervention being heavily focused on text, with \"strawberries\" highlighted in red (highest attention). After intervention, attention shifts to the image, with most red regions being inside the image, rather than over the text.",
+    "source_paragraphs": [
+      "Among all models, LLaVA-Next shows the strongest and most consistent shifts in attention when interventions are applied, followed by Qwen2-VL and then Janus-Pro. For the size task, steering vectors must act earlier in the network and across more layers to be effective, reflecting the fact that size requires integrating more visual features than color. In contrast, the color task is more localized and easier to influence with a smaller intervention window. Figure 6 illustrates how attention moves across layers in response to both prompt changes and steering task interventions in LLaVA-Next. To illustrate the same effect but with a concrete example, Figure 9, shows the attention before intervention being heavily focused on text, with \"strawberries\" highlighted in red (highest attention). After intervention, attention shifts to the image, with most red regions being inside the image, rather than over the text."
+    ],
+    "type": "cause",
+    "difficulty": "medium",
+    "evaluation": {
+      "q-grammar": "perfect",
+      "salience": "yes",
+      "answer_quality": "4",
+      "answer-correct": "yes",
+      "figure-useful": "essential",
+      "answered-by-figure": "yes",
+      "figure-type": "result",
+      "notes": "Answer correctly attributes the shift to the steering/intervention (PvP) that redirects attention from text priors to visual evidence, consistent with the cited paragraph and figure.",
+      "pass": true
+    }
+  },
+  {
+    "id": 1137,
+    "paper": "2312.03066v2",
+    "title": "A Triple Scenario for the Formation of Wide Black Hole Binaries Such As Gaia BH1",
+    "abstract": "Recently, several non-interacting black hole-stellar binaries have been identified in Gaia data. For example, Gaia BH1, where a Sun-like star is in a moderate eccentricity (e=0.44), 185-day orbit around a black hole. This orbit is difficult to explain through binary evolution. The present-day separation suggests the progenitor system would have undergone an episode of common envelope evolution, but a common envelope should shrink the period below the observed one. Since the majority of massive stars form in higher multiplicity systems, a triple evolution scenario is more likely for the progenitors of BH binaries. Here we show that such systems can indeed be more easily explained via evolution in hierarchical triple systems. von Zeipel-Lidov-Kozai oscillations or instabilities can delay the onset of the common envelope phase in the inner binary of the triple, so that the black hole progenitor and low-mass star are more widely separated when it begins, leading to the formation of wider binaries. There are also systems with similar periods but larger eccentricities, where the BH progenitor is a merger product of the inner binary in the triple. Such mergers lead to a more top-heavy black hole mass function.",
+    "figure": 3,
+    "image": "images/ex1137_p_e_tripi_1.png",
+    "caption": "Initial periods and eccentricities for stars that end up in BH-main sequence binaries with periods < 1300 days after triple (top) and binary evolution (bottom). For triples, the stellar companion was initially the tertiary star 80\\% of the time.",
+    "question": "How do the patterns of initial period and eccentricity in the top panels differ between systems that follow triple evolution and those that evolve in isolation?",
+    "answer": "The top panels of Figure 3 show that systems following triple evolution tend to have a wider range of initial periods and eccentricities compared to those evolved in isolation. The text indicates that in triple evolution, von Zeipel-Lidov-Kozai oscillations can delay the common envelope phase, allowing for greater initial separations. This results in a broader distribution of these parameters compared to isolated evolution.",
+    "source": "The top panels of Figure~fig:tripic1 show the initial period and eccentricity of stars that end up in BH-main sequence binaries with periods < 1300 days, following triple evolution...The bottom panels of Figures~fig:tripic1 and Figures~fig:tripRes1 and~fig:tripRes2 show the same distributions for binaries evolved in isolation.",
+    "source_paragraphs": [
+      "The top panels of Figure~fig:tripic1 show the initial period and eccentricity of stars that end up in BH-main sequence binaries with periods < 1300 days, following triple evolution...The bottom panels of Figures~fig:tripic1 and Figures~fig:tripRes1 and~fig:tripRes2 show the same distributions for binaries evolved in isolation."
+    ],
+    "type": "comparison",
+    "difficulty": "medium",
+    "evaluation": {
+      "q-grammar": "perfect",
+      "salience": "yes",
+      "answer_quality": "3",
+      "answer-correct": "partial",
+      "figure-useful": "essential",
+      "answered-by-figure": "no",
+      "figure-type": "comparison",
+      "notes": "The answer is plausible and cites a relevant mechanism (Kozai oscillations) but the cited paragraph/figure caption do not explicitly state the comparison; the claim of a broader distribution is not directly supported by the provided caption alone.",
+      "pass": true
+    }
+  },
+  {
+    "id": 5,
+    "paper": "1901.11429v2",
+    "title": "Decomposing Generalization {\\normalsize Models of Generic, Habitual, and Episodic Statements}",
+    "abstract": "We present a novel semantic framework for modeling linguistic expressions of generalization---generic, habitual, and episodic statements---as combinations of simple, real-valued referential properties of predicates and their arguments.\\ We use this framework to construct a dataset covering the entirety of the Universal Dependencies English Web Treebank.\\ We use this dataset to probe the efficacy of type-level and token-level information---including hand-engineered features and static (GloVe) and contextual (ELMo) word embeddings---for predicting expressions of generalization.",
+    "figure": 2,
+    "image": "images/ex5_comparison.png",
+    "caption": "Mean property value for each clause type.",
+    "question": "What might be the reason for stative clauses not being more negative in dynamicity as shown in the figure?",
+    "answer": "The unexpected non-negative mean for dynamicity in stative clauses could arise from the relatively lower agreement on what constitutes dynamicity in the context of statives. This suggests an underlying complexity in how dynamicity is perceived and classified within stative contexts.",
+    "source": "Qualitative comparison Figure 2 shows the mean normalized value for each property in our framework broken out by clause type. As expected, we see that episodics tend to have particular-referring arguments and predicates, while generics tend to have kind-referring arguments and non-particular predicates. Also as expected, episodics and habituals tend to refer to situations that are more dynamic than statives and generics. But while it makes sense that generics would be, on average, near zero for dynamicity---since generics can be about both dynamic and non-dynamic situations---it is less clear why statives are not more negative. This pattern may arise in some way from the fact that there is relatively lower agreement on dynamicity, as noted in :frameworkvalidation.",
+    "source_paragraphs": [
+      "Qualitative comparison Figure 2 shows the mean normalized value for each property in our framework broken out by clause type. As expected, we see that episodics tend to have particular-referring arguments and predicates, while generics tend to have kind-referring arguments and non-particular predicates. Also as expected, episodics and habituals tend to refer to situations that are more dynamic than statives and generics. But while it makes sense that generics would be, on average, near zero for dynamicity---since generics can be about both dynamic and non-dynamic situations---it is less clear why statives are not more negative. This pattern may arise in some way from the fact that there is relatively lower agreement on dynamicity, as noted in :frameworkvalidation."
+    ],
+    "type": "concept",
+    "difficulty": "hard",
+    "evaluation": {
+      "q-grammar": "perfect",
+      "salience": "somewhat",
+      "answer_quality": "4",
+      "answer-correct": "yes",
+      "figure-useful": "helpful",
+      "answered-by-figure": "no",
+      "figure-type": "result",
+      "notes": "The LLM answer correctly restates the paper's proposed explanation; the figure shows the pattern but not the reason.",
+      "pass": true
+    }
+  },
+  {
+    "id": 13,
+    "paper": "2010.02494v1",
+    "title": "Help! Need Advice on Identifying Advice",
+    "abstract": "Humans use language to accomplish a wide variety of tasks -- asking for and giving advice being one of them. In online advice forums, advice is mixed in with non-advice, like emotional support, and is sometimes stated explicitly, sometimes implicitly. Understanding the language of advice would equip systems with a better grasp of language pragmatics; practically, the ability to identify advice would drastically increase the efficiency of advice-seeking online, as well as advice-giving in natural language generation systems. We present a dataset in English from two Reddit advice forums -- r/AskParents and r/needadvice -- annotated for whether sentences in posts contain advice or not. Our analysis reveals rich linguistic phenomena in advice discourse. We present preliminary models showing that while pre-trained language models are able to capture advice better than rule-based systems, advice identification is challenging, and we identify directions for future research.",
+    "figure": 1,
+    "image": "images/ex13_edu-a-though.png",
+    "caption": "Frequency of discourse connective *though*. X-axis: Frequency, Y-axis: Percentage progress through a reply, 0 is beginning and 100 is end of reply.",
+    "question": "To what extent does the frequency of 'though' vary across different positions in the advice text?",
+    "answer": "The frequency of 'though' varies significantly across the advice text, showing lower usage at the beginning and middle, and peaking towards the end. This variation suggests a strategic use of the connective to introduce contrast as the advice reaches its conclusion.",
+    "source": "The discourse marker \"though\" is frequently used for signalling concession and contrast Prasad et al. (2003). This intuition is confirmed by an analysis of the discourse connective \"though\" among all posts we collected, which revealed a clear tendency towards the end of a reply, as illustrated in Figure 1.The lexical discourse marker \"though\" was found by splitting a large collection of posts and replies from r/AskParents into Elementary Discourse Units Mann and Thompson (1988), using a neural discourse segmenter Wang et al. (2018).",
+    "source_paragraphs": [
+      "The discourse marker \"though\" is frequently used for signalling concession and contrast Prasad et al. (2003). This intuition is confirmed by an analysis of the discourse connective \"though\" among all posts we collected, which revealed a clear tendency towards the end of a reply, as illustrated in Figure 1.The lexical discourse marker \"though\" was found by splitting a large collection of posts and replies from r/AskParents into Elementary Discourse Units Mann and Thompson (1988), using a neural discourse segmenter Wang et al. (2018)."
+    ],
+    "type": "extent",
+    "difficulty": "medium",
+    "evaluation": {
+      "q-grammar": "perfect",
+      "salience": "yes",
+      "answer_quality": "4",
+      "answer-correct": "yes",
+      "figure-useful": "essential",
+      "answered-by-figure": "yes",
+      "figure-type": "result",
+      "notes": "Answer accurately reflects the figure and cited text: 'though' is less frequent early/mid and peaks toward the end of replies.",
+      "pass": true
+    }
+  },
+  {
+    "id": 34,
+    "paper": "2108.07344v2",
+    "title": "IsoScore: Measuring the Uniformity of Embedding Space Utilization",
+    "abstract": "The recent success of distributed word representations has led to an increased interest in analyzing the properties of their spatial distribution. Several studies have suggested that contextualized word embedding models do not isotropically project tokens into vector space. However, current methods designed to measure isotropy, such as average random cosine similarity and the partition score, have not been thoroughly analyzed and are not appropriate for measuring isotropy. We propose IsoScore: a novel tool that quantifies the degree to which a point cloud uniformly utilizes the ambient vector space. Using rigorously designed tests, we demonstrate that IsoScore is the only tool available in the literature that accurately measures how uniformly distributed variance is across dimensions in vector space. Additionally, we use IsoScore to challenge a number of recent conclusions in the NLP literature that have been derived using brittle metrics of isotropy. We caution future studies from using existing tools to measure isotropy in contextualized embedding space as resulting conclusions will be misleading or altogether inaccurate.",
+    "figure": 3,
+    "image": "images/ex34_spec.png",
+    "caption": "Points sampled from a 0 mean, 2D Gaussian with covariance $\\begin{psmallmatrix} x & 0 0 & 1 \\end{psmallmatrix}$ where $x = 1, 3, 75$.",
+    "question": "What are the implications of the middle panel's shape on dimensional utilization?",
+    "answer": "The middle panel's elliptical shape indicates that the point cloud is utilizing somewhere between one and two dimensions of space. The predicted dimensional usage heuristic suggests that dimensions are not being uniformly utilized, as seen by the intermediate isotropy score.",
+    "source": "Having a diagonal sample covariance matrix implies there are no correlations between any coordinates of $X$. In Section~, we reduce the general case of $X$ to the case where the covariance matrix of $X$ is diagonal. Figure~Figure 3 illustrates three point clouds in $R^2$ that each utilize $2$ dimensions. We argue that it is of practical importance to differentiate between the cases in Figure~Figure 3. The leftmost panel uniformly utilizes all dimensions of $R^2$, while the rightmost panel does not uniformly utilize two dimensions of space. Note that average random cosine similarity returns maximal isotropy scores for each point cloud pictured in Figure 3. 3: Maximum Variance. As we increase the difference between the maximum variance value in our covariance matrix and the average variance value of the remaining dimensions, isotropy scores should monotonically decrease to zero. Figure 3 illustrates the effect of increasing the difference between the average variance value and the maximum value in the covariance matrix. Increasing the difference between the maximum variance value and the average variance value increases the amount of variance explained by the first principal component of the data. Namely, larger maximum variance values reduce the efficiency of spatial utilization. Because IsoScore covers a continuous spectrum, one should carefully interpret what we mean when we say that $X$ occupies approximately $k$ dimensions of $R^n$. For example, consider the 2D Gaussian distributions depicted in Figure 3. Heuristic heuristic predicts $k=1.9996,1.6105,1.0281$ dimensions are used when $x=1,3,75$, respectively. These should be interpreted as follows: \"when $x=75$, the points sampled are mostly using one direction of space\" and \"when $x=3$, the points sampled are using somewhere between one and two dimensions of space.\" Test 3: Maximum Variance. An effective score should monotonically decrease to $0$ as we increase the difference between the maximum variance value and average variance. Steps 4 and 5 of IsoScore ensure that the less equitably the mass in the covariance vector is distributed, the greater the isotropy defect will be. Figure 3 visualizes this phenomenon for a 2 Dimensional Gaussian. The ID Score fails this test since the intrinsic dimensionality estimate is 2.0 for all point clouds depicted in Figure 3.",
+    "source_paragraphs": [
+      "Having a diagonal sample covariance matrix implies there are no correlations between any coordinates of $X$. In Section~, we reduce the general case of $X$ to the case where the covariance matrix of $X$ is diagonal. Figure~Figure 3 illustrates three point clouds in $R^2$ that each utilize $2$ dimensions. We argue that it is of practical importance to differentiate between the cases in Figure~Figure 3. The leftmost panel uniformly utilizes all dimensions of $R^2$, while the rightmost panel does not uniformly utilize two dimensions of space. Note that average random cosine similarity returns maximal isotropy scores for each point cloud pictured in Figure 3.",
+      "3: Maximum Variance. As we increase the difference between the maximum variance value in our covariance matrix and the average variance value of the remaining dimensions, isotropy scores should monotonically decrease to zero. Figure 3 illustrates the effect of increasing the difference between the average variance value and the maximum value in the covariance matrix. Increasing the difference between the maximum variance value and the average variance value increases the amount of variance explained by the first principal component of the data. Namely, larger maximum variance values reduce the efficiency of spatial utilization.",
+      "Because IsoScore covers a continuous spectrum, one should carefully interpret what we mean when we say that $X$ occupies approximately $k$ dimensions of $R^n$. For example, consider the 2D Gaussian distributions depicted in Figure 3. Heuristic heuristic predicts $k=1.9996,1.6105,1.0281$ dimensions are used when $x=1,3,75$, respectively. These should be interpreted as follows: \"when $x=75$, the points sampled are mostly using one direction of space\" and \"when $x=3$, the points sampled are using somewhere between one and two dimensions of space.\"",
+      "Test 3: Maximum Variance. An effective score should monotonically decrease to $0$ as we increase the difference between the maximum variance value and average variance. Steps 4 and 5 of IsoScore ensure that the less equitably the mass in the covariance vector is distributed, the greater the isotropy defect will be. Figure 3 visualizes this phenomenon for a 2 Dimensional Gaussian. The ID Score fails this test since the intrinsic dimensionality estimate is 2.0 for all point clouds depicted in Figure 3."
+    ],
+    "type": "consequence",
+    "difficulty": "medium",
+    "evaluation": {
+      "q-grammar": "perfect",
+      "salience": "yes",
+      "answer_quality": "4",
+      "answer-correct": "yes",
+      "figure-useful": "essential",
+      "answered-by-figure": "no",
+      "figure-type": "comparison",
+      "notes": "Correctly reflects the paper's point that the middle panel (x=3) occupies between one and two dimensions (\u22481.61) and is non-uniformly utilized.",
+      "pass": true
+    }
+  }
+]
