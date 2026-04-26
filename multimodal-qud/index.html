@@ -7,27 +7,113 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav class="topbar">
+  <div class="wrap nav-wrap">
+    <a class="brand" href="./" aria-label="Multimodal QUD home">
+      <img class="brand-mark" src="images/mqud_project_mark.png" alt="" aria-hidden="true">
+      <span>Multimodal QUD</span>
+    </a>
+  </div>
+</nav>
+
 <header>
   <div class="wrap">
-    <a class="home-link" href="https://lingchensanwen.github.io/">← back to homepage</a>
-    <h1>Multimodal QUD:</h1>
-    <p class="sub">Inquisitive Questions from Scientific Figures</p>
+    <div class="hero">
+      <div class="hero-copy">
+        <div class="hero-title-row">
+          <img class="hero-mark" src="images/mqud_project_mark.png" alt="" aria-hidden="true">
+          <h1>Multimodal QUD: Inquisitive Questions from Scientific Figures</h1>
+        </div>
+        <p class="sub">
+          A dataset and benchmark for questions that arise from figure-text interaction
+          in scientific papers and require reasoning across both modalities.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="#gallery">Examples</a>
+          <a class="button ghost" href="#overview">Overview</a>
+        </div>
+      </div>
+
+      <div class="overview-board" aria-label="Example scientific figures from the Multimodal QUD gallery">
+        <figure class="board-card wide">
+          <img src="images/ex423_strawberry_attention_map_2.png" alt="Attention map scientific figure">
+        </figure>
+        <figure class="board-card">
+          <img src="images/ex506_disease_rank_demographic.png" alt="Disease ranking figure">
+        </figure>
+        <figure class="board-card">
+          <img src="images/ex34_spec.png" alt="Embedding utilization figure">
+        </figure>
+      </div>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
-  <section class="intro">
-    <p>Three questions you could ask about a scientific figure:</p>
-    <ul class="compare-list">
-      <li><span class="src">ChartQA</span> <q>Which year has the highest unemployment rate?</q></li>
-      <li><span class="src">SPIQA</span> <q>What evaluation metric is used in Figure 2?</q></li>
-      <li><span class="src">Multimodal QUD</span> <q>Why does the attention shift to the image after the intervention?</q></li>
-    </ul>
+  <section id="overview" class="intro">
+    <div class="intro-top">
+      <div>
+        <p class="section-kicker">Overview</p>
+        <h2>Existing figure QA often asks what is directly visible. Multimodal QUD asks what scientific readers wonder next.</h2>
+      </div>
+      <div id="meta" class="meta"></div>
+    </div>
     <p>
-      The first two you can answer just from the figure. The third needs the figure and the
-      paragraphs of text around it. That's the gap this dataset is for. Click a card to expand.
+      Existing scientific figure QA benchmarks often focus on extracting visible information:
+      labels, values, captions, or direct visual comparisons. Multimodal QUD instead targets
+      questions raised by figure-text interaction, including mechanisms, evidence, implications,
+      and the role a figure plays in the paper's argument.
     </p>
-    <div id="meta" class="meta"></div>
+    <div class="promise-grid">
+      <article>
+        <span>Input</span>
+        <strong>Figure plus paper context</strong>
+        <p>Questions are conditioned on the title, abstract, figure, caption, and surrounding paper passages.</p>
+      </article>
+      <article>
+        <span>Target</span>
+        <strong>Researcher-like curiosity</strong>
+        <p>The task captures open-ended questions that emerge when visual patterns interact with a paper's claims.</p>
+      </article>
+      <article>
+        <span>Grounding</span>
+        <strong>Answer traces</strong>
+        <p>Each example pairs the visible figure with answer evidence from the surrounding paper context.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="question-band">
+    <div>
+      <p class="section-kicker">Representative questions</p>
+      <h2>From extracting answers to asking why</h2>
+      <p class="band-note">Representative questions show how MQUD moves beyond reading off values or best-performing methods toward explaining why a figure pattern matters.</p>
+    </div>
+    <ul class="compare-list">
+      <li>
+        <span class="src">ChartQA</span>
+        <span class="contrast-type">value extraction</span>
+        <q>What is the difference in value between Lamb and Corn?</q>
+      </li>
+      <li>
+        <span class="src">SPIQA</span>
+        <span class="contrast-type">figure lookup</span>
+        <q>Which pooling method is the most accurate for the AFEW database?</q>
+      </li>
+      <li>
+        <span class="src">Multimodal QUD</span>
+        <span class="contrast-type">figure-text inquiry</span>
+        <q>Why does the attention shift from text to image after the intervention?</q>
+      </li>
+    </ul>
+  </section>
+
+  <section class="toolbar" aria-label="Example filters">
+    <div>
+      <p class="section-kicker">Example gallery</p>
+      <h2>Filter the sample gallery</h2>
+    </div>
+    <div id="filters" class="filters"></div>
   </section>
 
   <section id="gallery"></section>
@@ -35,7 +121,7 @@
 
 <footer>
   <div class="wrap">
-    <span>Multimodal QUD · <span id="count"></span> example preview</span>
+    <span>Multimodal QUD · <span id="count"></span> curated examples</span>
   </div>
 </footer>
 

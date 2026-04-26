@@ -2,6 +2,7 @@
   const gallery = document.getElementById('gallery');
   const countEl = document.getElementById('count');
   const metaEl = document.getElementById('meta');
+  const filtersEl = document.getElementById('filters');
 
   let data;
   try {
@@ -13,10 +14,59 @@
   }
 
   countEl.textContent = data.length;
-  const withCap = data.filter(d => (d.caption || '').trim()).length;
-  metaEl.textContent = `Showing ${data.length} examples — ${withCap} with figure captions, ${data.length - withCap} caption-free.`;
+  const types = Array.from(new Set(data.map(d => d.type).filter(Boolean))).sort();
+  metaEl.innerHTML = `
+    <strong>Figure-text interaction</strong>
+    <span>scientific-paper context</span>
+    <span>tracked answer evidence</span>
+  `;
 
-  const escape = (s) => (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const cleanText = (s) => {
+    let out = String(s || '')
+      .replace(/\\renewcommand\s*\{\\thefootnote\}\s*\{\\fnsymbol\{footnote\}\}/g, ' ')
+      .replace(/covariance\s+\$?\\begin\{psmallmatrix\}\s*x\s*&\s*0\s*0\s*&\s*1\s*\\end\{psmallmatrix\}\$?/gi, 'covariance diag(x, 1)');
+    for (let i = 0; i < 3; i++) {
+      out = out
+        .replace(/\\(?:textbf|textit|textsc|texttt|emph)\{([^{}]*)\}/g, '$1')
+        .replace(/\\(?:begin|end)\{[^{}]*\}/g, ' ')
+        .replace(/\\renewcommand\{[^{}]*\}\{[^{}]*\}/g, ' ');
+    }
+    return out
+      .replace(/(Figures?)~fig:[A-Za-z0-9:_-]+/g, '$1')
+      .replace(/\s+and~fig:[A-Za-z0-9:_-]+/g, '')
+      .replace(/~fig:[A-Za-z0-9:_-]+/g, '')
+      .replace(/Figures?~(?:Figures?~)?(?:fig:)?[A-Za-z0-9:_-]+/g, 'Figure')
+      .replace(/Figure~Figure\s*/g, 'Figure ')
+      .replace(/In Section[, ]+/g, 'In the paper, ')
+      .replace(/\\tau/g, 'τ')
+      .replace(/\\approx/g, '≈')
+      .replace(/\\sim/g, '~')
+      .replace(/\\texttimes/g, 'x')
+      .replace(/\\texttt\{([^{}]*)\}/g, '$1')
+      .replace(/\\%/g, '%')
+      .replace(/\\_/g, '_')
+      .replace(/\\&/g, '&')
+      .replace(/\\#/g, '#')
+      .replace(/\\\$/g, '$')
+      .replace(/\\\s+/g, ' ')
+      .replace(/\\,/g, ' ')
+      .replace(/~+/g, ' ')
+      .replace(/\$+/g, '')
+      .replace(/\\[a-zA-Z]+[*]?/g, ' ')
+      .replace(/\\\s*/g, ' ')
+      .replace(/\s+([,.;:!?])/g, '$1')
+      .replace(/([.!?])(?=[A-Z])/g, '$1 ')
+      .replace(/\.\.\./g, '...')
+      .replace(/[{}]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
+  const escape = (s) => String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const renderText = (s) => escape(cleanText(s))
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+    .replace(/`([^`]+)`/g, '<code>$1</code>');
+  const text = renderText;
   const escapeRegExp = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
   const arxivLink = (p) => {
@@ -34,7 +84,7 @@
 
   const extractAnswerElements = (answer) => {
     if (!answer) return { words: new Set(), phrases: [] };
-    const tokens = (answer.toLowerCase().match(/\b[a-z0-9'-]+\b/g) || []);
+    const tokens = (cleanText(answer).toLowerCase().match(/\b[a-z0-9'-]+\b/g) || []);
     const words = new Set();
     const phrases = new Set();
     let buf = [];
@@ -61,7 +111,7 @@
   };
 
   const scoreSentence = (sentence, el) => {
-    const norm = sentence.toLowerCase();
+    const norm = cleanText(sentence).toLowerCase();
     let score = 0, hits = 0;
     el.words.forEach(w => {
       const r = new RegExp(`\\b${escapeRegExp(w)}\\b`, 'gi');
@@ -80,7 +130,7 @@
   // Wrap whole sentences whose content-word overlap with the answer is high
   // enough to count as direct support (single level — no word-level noise).
   const highlightPassage = (passageText, el) => {
-    const rawSentences = passageText.split(/(?<=[.!?])\s+/).filter(s => s.trim().length);
+    const rawSentences = cleanText(passageText).split(/(?<=[.!?])\s+/).filter(s => s.trim().length);
     if (!rawSentences.length) return escape(passageText);
     const scores = rawSentences.map(s => scoreSentence(s, el));
     const maxScore = Math.max(...scores, 0);
@@ -94,9 +144,27 @@
     }).join(' ');
   };
 
+  const filterButtons = ['all', ...types];
+  filtersEl.innerHTML = filterButtons.map((type, i) => `
+    <button class="filter ${i === 0 ? 'active' : ''}" type="button" data-type="${escape(type)}">
+      ${escape(type)}
+    </button>
+  `).join('');
+
+  filtersEl.addEventListener('click', (event) => {
+    const button = event.target.closest('button[data-type]');
+    if (!button) return;
+    const type = button.dataset.type;
+    filtersEl.querySelectorAll('.filter').forEach(b => b.classList.toggle('active', b === button));
+    gallery.querySelectorAll('.card').forEach(card => {
+      card.hidden = type !== 'all' && card.dataset.type !== type;
+    });
+  });
+
   data.forEach((ex, i) => {
     const card = document.createElement('details');
     card.className = 'card';
+    card.dataset.type = ex.type || '';
 
     const link = arxivLink(ex.paper);
     const paperLink = link
@@ -109,25 +177,21 @@
     if (typeof ex.figure === 'number') tags.push(`<span class="tag">figure ${ex.figure}</span>`);
 
     const captionHtml = (ex.caption || '').trim()
-      ? `<p class="caption"><strong>Caption.</strong> ${escape(ex.caption)}</p>`
+      ? `<p class="caption"><strong>Caption.</strong> ${text(ex.caption)}</p>`
       : `<p class="caption empty">[no caption provided with this figure]</p>`;
 
     const sourceParas = Array.isArray(ex.source_paragraphs) && ex.source_paragraphs.length
       ? ex.source_paragraphs
       : (ex.source ? [ex.source] : []);
 
-    const figureOnly = ex.evaluation && ex.evaluation['answered-by-figure'] === 'yes';
-    const groundingBadge = figureOnly
-      ? `<span class="grounding grounding-figure">answer grounded in figure</span>`
-      : `<span class="grounding grounding-text">answer grounded in paper text</span>`;
-
     const answerElements = extractAnswerElements(ex.answer);
+    const sourceCount = sourceParas.length;
     const passageHtml = sourceParas.length
       ? `
         <div class="subsection">
           <div class="sub-label">
-            Supporting passage${sourceParas.length > 1 ? 's' : ''} from paper
-            <span class="hl-note">highlighted sentences overlap most with the answer</span>
+            Evidence passage${sourceParas.length > 1 ? 's' : ''} from paper
+            <span class="hl-note">highlight marks closest supporting sentence${sourceParas.length > 1 ? 's' : ''}</span>
           </div>
           ${sourceParas.map(p => `<blockquote class="passage">${highlightPassage(p, answerElements)}</blockquote>`).join('')}
         </div>`
@@ -139,49 +203,52 @@
           <span class="example-num">Example ${i + 1}</span>
           <span class="paper-id">${paperLink}</span>
         </div>
-        <h2 class="summary-title">${escape(ex.title)}</h2>
-        <p class="summary-q">${escape(ex.question)}</p>
+        <h2 class="summary-title">${text(ex.title)}</h2>
+        <p class="summary-q">${text(ex.question)}</p>
+        <div class="summary-metrics">
+          <span class="metric">${sourceCount} evidence passage${sourceCount === 1 ? '' : 's'}</span>
+        </div>
         <div class="tags">${tags.join(' ')}</div>
-        <span class="expand-hint">click to expand details ▾</span>
+        <span class="expand-hint" aria-hidden="true">⌄</span>
       </summary>
 
       <div class="card-body">
 
         <section class="panel panel-trigger">
           <h3 class="panel-title">Trigger Context</h3>
-          <p class="panel-sub">What the reader sees before asking a question</p>
+          <p class="panel-sub">Figure and paper context that trigger the question</p>
 
           <div class="subsection">
             <div class="sub-label">Paper title</div>
-            <p class="paper-title-full">${escape(ex.title)}${link ? ` &nbsp;·&nbsp; <a href="${link}" target="_blank" rel="noopener">${escape(ex.paper)}</a>` : ''}</p>
+            <p class="paper-title-full">${text(ex.title)}${link ? ` &nbsp;·&nbsp; <a href="${link}" target="_blank" rel="noopener">${escape(ex.paper)}</a>` : ''}</p>
           </div>
 
           <div class="subsection">
             <div class="sub-label">Abstract</div>
-            <p class="abstract-text">${escape(ex.abstract)}</p>
+            <p class="abstract-text">${text(ex.abstract)}</p>
           </div>
 
           <div class="subsection">
             <div class="sub-label">Figure${typeof ex.figure === 'number' ? ` ${ex.figure}` : ''}</div>
             <div class="figure">
-              <img src="${escape(ex.image)}" alt="Figure ${ex.figure || ''} from ${escape(ex.title)}" loading="lazy">
+              <img src="${escape(ex.image)}" alt="Figure ${ex.figure || ''} from ${text(ex.title)}" loading="lazy">
               ${captionHtml}
             </div>
           </div>
         </section>
 
         <section class="panel panel-question">
-          <h3 class="panel-title">Question Generation</h3>
-          <p class="panel-sub">The inquisitive question prompted by the trigger context</p>
-          <blockquote class="question-box">${escape(ex.question)}</blockquote>
+          <h3 class="panel-title">Inquisitive Question</h3>
+          <p class="panel-sub">A research-oriented question raised by the figure-text context</p>
+          <blockquote class="question-box">${text(ex.question)}</blockquote>
         </section>
 
         <section class="panel panel-answer">
-          <h3 class="panel-title">Answering the Question</h3>
-          <p class="panel-sub">${groundingBadge}</p>
+          <h3 class="panel-title">Answer and Evidence</h3>
+          <p class="panel-sub">Answer with evidence from the surrounding paper context</p>
           <div class="subsection">
             <div class="sub-label">Answer</div>
-            <div class="answer-box">${escape(ex.answer)}</div>
+            <div class="answer-box">${text(ex.answer)}</div>
           </div>
           ${passageHtml}
         </section>
