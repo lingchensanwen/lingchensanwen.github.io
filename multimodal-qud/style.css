@@ -670,3 +670,180 @@ footer {
   .panel { padding: 16px; }
   .expand-hint { right: 16px; }
 }
+
+@media print {
+  @page {
+    margin: 0.6in;
+    size: letter;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: #fff;
+    color: #1f2024;
+    font-size: 10pt;
+  }
+
+  .wrap {
+    max-width: none;
+    padding: 0;
+  }
+
+  .topbar {
+    position: static;
+    border-bottom: 1px solid #ddd8cc;
+    background: #fff;
+    backdrop-filter: none;
+  }
+
+  .nav-wrap {
+    min-height: 38pt;
+  }
+
+  .brand {
+    font-size: 13pt;
+  }
+
+  .brand-mark {
+    width: 26pt;
+    height: 25pt;
+  }
+
+  header {
+    background: #fff;
+    color: #1f2024;
+  }
+
+  .hero {
+    display: block;
+    min-height: 0;
+    padding: 24pt 0 16pt;
+  }
+
+  .hero-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12pt;
+    max-width: none;
+  }
+
+  .hero-mark {
+    width: 38pt;
+    height: 36pt;
+    border: 1px solid #ded8ea;
+    border-radius: 7pt;
+    box-shadow: none;
+  }
+
+  header h1 {
+    max-width: none;
+    color: #1f2024;
+    font-size: 23pt;
+    line-height: 1.15;
+  }
+
+  .sub {
+    max-width: 6.6in;
+    color: #4d525a;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .hero-actions,
+  .overview-board,
+  .filters,
+  .expand-hint,
+  footer {
+    display: none;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .intro,
+  .question-band,
+  .toolbar,
+  .card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-top: 12pt;
+    padding: 12pt;
+    border: 1px solid #ddd8cc;
+    border-radius: 6pt;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .intro-top,
+  .question-band,
+  .promise-grid,
+  .compare-list {
+    display: block;
+  }
+
+  .section-kicker,
+  .example-num,
+  .src,
+  .sub-label {
+    color: #2f807a;
+  }
+
+  .intro h2,
+  .question-band h2,
+  .toolbar h2,
+  .summary-title {
+    font-size: 15pt;
+    line-height: 1.2;
+  }
+
+  .meta,
+  .promise-grid article,
+  .compare-list li,
+  .card-summary {
+    margin-top: 8pt;
+  }
+
+  .promise-grid article,
+  .compare-list li,
+  .panel {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 10pt;
+    border: 1px solid #ddd8cc;
+    background: #fff;
+    box-shadow: none;
+  }
+
+  .compare-list li:last-child {
+    border-color: #9bcbbf;
+    background: #edf7f4;
+  }
+
+  .card-summary {
+    padding: 0;
+  }
+
+  .summary-q,
+  .question-box {
+    color: #87384b;
+  }
+
+  .card-body {
+    padding: 10pt 0 0;
+  }
+
+  .figure img {
+    max-height: 260pt;
+  }
+
+  .passage {
+    font-size: 8.5pt;
+    line-height: 1.45;
+  }
+}
