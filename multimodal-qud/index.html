@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multimodal QUD — Inquisitive Questions from Scientific Figures</title>
-<link rel="stylesheet" href="style.css?v=20260426c">
+<link rel="stylesheet" href="style.css?v=20260428c">
 </head>
 <body>
 <nav class="topbar">
@@ -29,20 +29,40 @@
           in scientific papers and require reasoning across both modalities.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="#gallery">Examples</a>
+          <a class="button primary" href="https://arxiv.org/abs/2604.23733" target="_blank" rel="noopener">arXiv paper</a>
           <a class="button ghost" href="#overview">Overview</a>
+          <a class="button ghost" href="#gallery">Examples</a>
         </div>
+        <p class="release-note">Code, data, and model release links will be added here when available.</p>
       </div>
 
-      <div class="overview-board" aria-label="Example scientific figures from the Multimodal QUD gallery">
+      <div class="overview-board" aria-label="Example scientific figures and Multimodal QUD questions">
         <figure class="board-card wide">
-          <img src="images/ex423_strawberry_attention_map_2.png" alt="Attention map scientific figure">
+          <div class="board-image">
+            <img src="images/ex423_strawberry_attention_map_2.png" alt="Attention map scientific figure">
+          </div>
+          <figcaption class="board-question">
+            <span>MQUD question</span>
+            <q>Why does the attention shift from the text to the image after the intervention?</q>
+          </figcaption>
         </figure>
         <figure class="board-card">
-          <img src="images/ex506_disease_rank_demographic.png" alt="Disease ranking figure">
+          <div class="board-image">
+            <img src="images/ex506_disease_rank_demographic.png" alt="Disease ranking figure">
+          </div>
+          <figcaption class="board-question">
+            <span>MQUD question</span>
+            <q>Why do Llama3's logits show a different pattern from real-world disease prevalence?</q>
+          </figcaption>
         </figure>
         <figure class="board-card">
-          <img src="images/ex34_spec.png" alt="Embedding utilization figure">
+          <div class="board-image">
+            <img src="images/ex34_spec.png" alt="Embedding utilization figure">
+          </div>
+          <figcaption class="board-question">
+            <span>MQUD question</span>
+            <q>What are the implications of the middle panel's shape on dimensional utilization?</q>
+          </figcaption>
         </figure>
       </div>
     </div>
@@ -117,6 +137,30 @@
   </section>
 
   <section id="gallery"></section>
+
+  <section id="resources" class="end-resources">
+    <div class="end-resource-head">
+      <p class="section-kicker">Project links</p>
+      <div class="end-links" aria-label="Project resources">
+        <a href="https://arxiv.org/abs/2604.23733" target="_blank" rel="noopener">Paper</a>
+        <span>Code soon</span>
+        <span>Data soon</span>
+        <span>Model soon</span>
+      </div>
+    </div>
+    <details class="compact-bibtex">
+      <summary>arXiv preprint BibTeX</summary>
+      <pre><code>@misc{wu2026multimodalqud,
+  title={Multimodal QUD: Inquisitive Questions from Scientific Figures},
+  author={Wu, Yating and Rudman, William and Govindarajan, Venkata S. and Dimakis, Alexandros G. and Li, Junyi Jessy},
+  year={2026},
+  eprint={2604.23733},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2604.23733}
+}</code></pre>
+    </details>
+  </section>
 </main>
 
 <footer>
