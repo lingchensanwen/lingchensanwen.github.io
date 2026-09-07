@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Modeling Bilingual Disfluencies with Large Language Models | Yating Wu</title>
+<link rel="canonical" href="https://yatingwu.info/bilingual-disfluencies/">
+<meta name="description" content="A study of language model surprisal and linguistic predictors of monolingual and bilingual speech disfluencies. ICML 2024 Workshop on LLMs and Cognition.">
+<meta property="og:title" content="Modeling Bilingual Disfluencies with Large Language Models | Yating Wu">
+<meta property="og:description" content="A study of language model surprisal and linguistic predictors of monolingual and bilingual speech disfluencies. ICML 2024 Workshop on LLMs and Cognition.">
+<meta property="og:url" content="https://yatingwu.info/bilingual-disfluencies/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Modeling Bilingual Disfluencies with Large Language Models | Yating Wu">
+<meta name="twitter:description" content="A study of language model surprisal and linguistic predictors of monolingual and bilingual speech disfluencies. ICML 2024 Workshop on LLMs and Cognition.">
+<meta name="citation_title" content="Modeling Bilingual Disfluencies with Large Language Models">
+<meta name="citation_publication_date" content="2024">
+<meta name="citation_author" content="Negin Raoof">
+<meta name="citation_author" content="Yating Wu">
+<meta name="citation_author" content="Carlos Bonilla">
+<meta name="citation_author" content="Junyi Jessy Li">
+<meta name="citation_author" content="Stephanie M Grasso">
+<meta name="citation_author" content="Alexandros G. Dimakis">
+<meta name="citation_author" content="Zoi Gkalitsiou">
+<meta name="citation_conference_title" content="ICML 2024 Workshop on LLMs and Cognition">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://yatingwu.info/bilingual-disfluencies/#paper",
+      "name": "Modeling Bilingual Disfluencies with Large Language Models",
+      "url": "https://yatingwu.info/bilingual-disfluencies/",
+      "sameAs": "https://openreview.net/forum?id=rrNAqNYRLA",
+      "description": "A study of language model surprisal and linguistic predictors of monolingual and bilingual speech disfluencies. ICML 2024 Workshop on LLMs and Cognition.",
+      "datePublished": "2024",
+      "inLanguage": "en",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Negin Raoof"
+        },
+        {
+          "@type": "Person",
+          "name": "Yating Wu",
+          "@id": "https://yatingwu.info/#yating-wu",
+          "url": "https://yatingwu.info/"
+        },
+        {
+          "@type": "Person",
+          "name": "Carlos Bonilla"
+        },
+        {
+          "@type": "Person",
+          "name": "Junyi Jessy Li"
+        },
+        {
+          "@type": "Person",
+          "name": "Stephanie M Grasso"
+        },
+        {
+          "@type": "Person",
+          "name": "Alexandros G. Dimakis"
+        },
+        {
+          "@type": "Person",
+          "name": "Zoi Gkalitsiou"
+        }
+      ],
+      "isPartOf": {
+        "@type": "CreativeWork",
+        "name": "ICML 2024 Workshop on LLMs and Cognition"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Yating Wu",
+          "item": "https://yatingwu.info/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research projects",
+          "item": "https://yatingwu.info/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Bilingual disfluencies",
+          "item": "https://yatingwu.info/bilingual-disfluencies/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../research/project.css?v=20260906c"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
+</head><body class="project-page" style="--accent:#744c73;--tint:#f6eff6">
+<a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Main"><div class="shell nav-inner"><a href="../" class="wordmark">Yating Wu</a><div class="nav-links"><a href="../research/">Research projects</a><a href="../#publications">Publications</a></div></div></nav>
+<main id="main" class="shell">
+<header class="hero"><div class="paper-heading"><p class="eyebrow">ICML · LLMs and Cognition Workshop</p><p class="paper-year">2024</p></div><h1>Bilingual disfluencies</h1>
+<p class="paper-title">Modeling Bilingual Disfluencies with Large Language Models</p>
+<div class="paper-details"><p class="authors">Negin Raoof<sup>†</sup>, <a href="../">Yating Wu</a><sup>†</sup>, Carlos Bonilla<sup>†</sup>, Junyi Jessy Li, Stephanie M Grasso, Alexandros G. Dimakis, Zoi Gkalitsiou</p><p class="venue">ICML Workshop on LLMs and Cognition · 2024</p>
+<p class="note">† Equal contribution.</p>
+</div><div class="actions"><a href="https://openreview.net/forum?id=rrNAqNYRLA" class="action primary">paper</a><a href="#citation" class="action">BibTeX</a></div></header>
+<div class="page-grid"><aside class="toc" aria-label="On this page"><a href="#overview">Overview</a><a href="#example">Example</a><a href="#resources">Method</a><a href="#citation">Citation</a></aside><div class="content">
+<section id="overview"><div class="section-heading"><h2>Overview</h2></div><div class="study-copy"><p>We study which properties of words predict disfluencies in monolingual and bilingual speech. Separate models combine linguistic features with GPT-2 surprisal, a measure of how unexpected a word is in its preceding context.</p><p>Higher surprisal is associated with disfluencies in both groups. Other predictors differ, including word frequency and phonological neighborhood density. We examine words on both sides of each disfluency.</p></div><p class="source"><a href="https://openreview.net/forum?id=rrNAqNYRLA">Paper</a></p></section>
+<section id="example" class="example-section"><div class="section-heading"><h2>Which word comes before the pause?</h2></div><p class="example-intro">These examples from the appendix show why the words before and after a pause are treated separately.</p><div class="example-layout layout-speech"><article class="example-item role-utterance"><div class="item-label"><h3>Pause after the noun</h3></div><blockquote cite="https://openreview.net/pdf/0673ae1419de15594db575e96264285f32142489.pdf#page=7">give me the stethoscope <mark>uhm</mark> to hear your heart</blockquote><p class="example-note">Preceding word: stethoscope. Following word: to.</p></article><article class="example-item role-utterance"><div class="item-label"><h3>Pause before the noun</h3></div><blockquote cite="https://openreview.net/pdf/0673ae1419de15594db575e96264285f32142489.pdf#page=7">give me the <mark>uhm</mark> stethoscope to hear your heart</blockquote><p class="example-note">Preceding word: the. Following word: stethoscope.</p></article></div><p class="example-reading">In the bilingual model, lower frequency of the preceding word is associated with between-word disfluencies. In the monolingual model, the corresponding association involves fewer phonological neighbors of the following word.</p><div class="source-note"><span>Source</span><p><a href="https://openreview.net/pdf/0673ae1419de15594db575e96264285f32142489.pdf#page=7">Appendix A.0.1, page 7</a>. Illustrative sentences from Appendix A.0.1, not participant transcripts. Feature interpretations paraphrased.</p></div></section>
+<section id="resources"><div class="section-heading"><h2>What the models predict</h2></div><div class="usage-notes usage-definitions">
+<p class="usage-intro">We fit one logistic regression classifier per disfluency type for each speaker group. GPT-2 provides word surprisal; the classifiers also use lexical, syntactic, and phonetic features.</p>
+<div class="usage-layout"><div class="usage-copy">
+<dl class="usage-facts">
+<div><dt>Between words</dt><dd>Pauses and fillers between words.</dd></div>
+<div><dt>Within a word</dt><dd>Broken words and repetitions of sounds or syllables.</dd></div>
+<div><dt>Repetitions</dt><dd>Repeated words or short phrases.</dd></div>
+</dl>
+<p class="usage-note">Training and test sets are separated by participant. Features of the preceding and following words are analyzed separately.</p>
+</div>
+</div>
+<div class="usage-sources"><span>Source</span><p><a href="https://openreview.net/pdf/0673ae1419de15594db575e96264285f32142489.pdf#page=2">Tasks, features, and evaluation: Sections 2.3–2.5</a></p></div></div><dl class="resource-list"><div class="resource-row"><dt><a href="https://openreview.net/pdf?id=rrNAqNYRLA">PDF</a></dt><dd>Features, models, and results.</dd></div></dl></section>
+
+<section id="citation"><div class="section-heading"><h2>Citation</h2></div><div class="citation-actions"><a class="action" href="citation.bib" download>Download BibTeX</a><button class="action" type="button" data-copy-citation="bibtex" aria-describedby="copy-status" hidden>Copy BibTeX</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></div><details class="bibtex-disclosure"><summary>View BibTeX</summary><pre><code id="bibtex">@inproceedings{bilingualdisfluencies2024,
+  title={{Modeling Bilingual Disfluencies with Large Language Models}},
+  author={Raoof, Negin and Wu, Yating and Bonilla, Carlos and Li, Junyi Jessy and Grasso, Stephanie M and Dimakis, Alexandros G. and Gkalitsiou, Zoi},
+  year={2024},
+  booktitle={ICML 2024 Workshop on LLMs and Cognition},
+  url={https://openreview.net/forum?id=rrNAqNYRLA}
+}</code></pre></details></section>
+</div></div></main><footer class="site-footer"><div class="shell"><a href="../">Yating Wu</a> · <a href="../research/">All research projects</a> · <a href="../publications.bib">Bibliography</a></div></footer></body></html>

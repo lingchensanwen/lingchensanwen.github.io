@@ -1,0 +1,185 @@
+{
+  "contextweaver": {
+    "title": "Two debugging trajectories",
+    "intro": "The paper compares these SWE-bench tasks over five paired runs each.",
+    "blocks": [
+      {
+        "label": "Django · Changes across files",
+        "role": "case",
+        "text": "The fix requires coordinated edits to several components. ContextWeaver retains the early architectural analysis; the sliding window often loses it and repeats exploration or makes incompatible partial fixes.",
+        "note": "django__django-14631",
+        "outcome": "ContextWeaver wins 4 of 5 comparisons"
+      },
+      {
+        "label": "pytest · A change in one location",
+        "role": "case",
+        "text": "The fix is confined to one location in one file. Recent edit history is sufficient here. Extra branches in ContextWeaver’s memory divert attention from the immediate change.",
+        "note": "pytest-dev__pytest-7205",
+        "outcome": "Sliding window wins 4 of 5 comparisons"
+      }
+    ],
+    "conclusion": "",
+    "source_url": "https://arxiv.org/html/2604.23069v1#S4.SS3",
+    "source_label": "Section 4.3, case studies",
+    "provenance": "Case descriptions and comparison outcomes paraphrased from Section 4.3.",
+    "layout": "cases"
+  },
+  "qudsim": {
+    "title": "Different explanations, the same discourse role",
+    "intro": "Two models receive the same fictional story prompt. In both stories, a leader questions a secret and another character defends keeping it.",
+    "blocks": [
+      {
+        "label": "Question answered by both passages",
+        "role": "question",
+        "text": "What is the reason given for the deception?",
+        "quote": true
+      },
+      {
+        "label": "Gemini Flash 1.5",
+        "role": "passage",
+        "text": "Exposing the secret would threaten social stability.",
+        "note": "The character defends concealment as protection against upheaval."
+      },
+      {
+        "label": "GPT-4o",
+        "role": "passage",
+        "text": "A shared belief unites people and makes progress possible.",
+        "note": "The character defends concealment as a way to maintain cooperation."
+      }
+    ],
+    "conclusion": "",
+    "source_url": "https://arxiv.org/pdf/2504.09373v2#page=2",
+    "source_label": "Figure 1 and Section 2, page 2",
+    "provenance": "Question from Figure 1. The two story passages are paraphrased.",
+    "layout": "alignment"
+  },
+  "qsalience": {
+    "title": "Questions after a cease-fire violation",
+    "intro": "A news report describes artillery fire in Grozny during a cease-fire. Annotators rated these two questions differently.",
+    "blocks": [
+      {
+        "label": "Q3 · Original question",
+        "role": "question",
+        "score": 5,
+        "quote": true,
+        "text": "What was the reason behind the artillery fire in Grozny on Tuesday despite the agreed cease-fire?",
+        "note": "An explanation for the violation would help the reader assess the peace talks. A later sentence says the negotiators lack control over some fighters."
+      },
+      {
+        "label": "Q4 · Paraphrased question",
+        "role": "question",
+        "score": 3,
+        "text": "What further details are available about the reported missile attacks?",
+        "note": "More detail about the attack adds less to the reader’s understanding of the peace talks."
+      }
+    ],
+    "conclusion": "",
+    "source_url": "https://aclanthology.org/2024.emnlp-main.1114.pdf#page=2",
+    "source_label": "Figure 1, page 2",
+    "provenance": "Human ratings of GPT-4 questions. Q3 is quoted; Q4 and the rationales are paraphrased.",
+    "layout": "salience"
+  },
+  "qudeval": {
+    "title": "When a question borrows from its answer",
+    "intro": "The questions below are meant to be answered by sentence 7, which introduces restrictions on nuclear exports. The preceding sentences describe accumulated nuclear material and export licenses.",
+    "blocks": [
+      {
+        "label": "ChatGPT · Anchor: sentence 5",
+        "role": "error",
+        "text": "What are the restrictions on nuclear exports and transfer of nuclear materials to a third country?",
+        "quote": true,
+        "mark": "transfer of nuclear materials to a third country",
+        "note": "The marked detail appears only in the answer sentence. The anchor discusses accumulated nuclear material and does not raise this question."
+      },
+      {
+        "label": "Human DCQA annotation · Anchor: sentence 6",
+        "role": "reference",
+        "text": "What restrictions exist on nuclear material exports?",
+        "quote": true,
+        "note": "The question follows the discussion of export licenses without introducing the later restriction."
+      }
+    ],
+    "conclusion": "",
+    "source_url": "https://aclanthology.org/2023.emnlp-main.325.pdf#page=6",
+    "source_label": "Figure 3, page 6",
+    "provenance": "Questions, anchors, and error annotations from Figure 3; explanations paraphrased.",
+    "layout": "evaluation"
+  },
+  "elabqud": {
+    "title": "The reason behind a skills gap",
+    "intro": "New jobs in New Haven require skills that many local young people lack. In the simplified article, the editor adds an explanation.",
+    "blocks": [
+      {
+        "label": "Implicit question",
+        "text": "Why don’t people acquire the necessary skills?",
+        "quote": true,
+        "role": "question"
+      },
+      {
+        "label": "Sentence added by the editor",
+        "text": "Many do not have the money to get the training they need.",
+        "quote": true,
+        "role": "answer"
+      }
+    ],
+    "conclusion": "",
+    "source_url": "https://aclanthology.org/2023.emnlp-main.336.pdf#page=1",
+    "source_label": "Figure 1, page 1; discussion on page 2",
+    "provenance": "Question and added sentence quoted from Figure 1. The article example is from Srikanth and Li (2021); context paraphrased.",
+    "layout": "insertion"
+  },
+  "qud-parsing": {
+    "title": "From an aid package to a funding gap",
+    "intro": "Sentence 4 answers a question raised by sentence 3. That question labels the dependency between them.",
+    "blocks": [
+      {
+        "label": "Sentence 3 · Anchor",
+        "text": "The House approves a smaller relief package than California had requested.",
+        "role": "anchor"
+      },
+      {
+        "label": "Question on the dependency edge",
+        "text": "What would the shortfall be?",
+        "quote": true,
+        "role": "question"
+      },
+      {
+        "label": "Sentence 4 · Answer",
+        "text": "California still faces a funding gap of roughly $2 billion to $4 billion.",
+        "role": "answer"
+      }
+    ],
+    "conclusion": "",
+    "source_url": "https://aclanthology.org/2023.findings-acl.710.pdf#page=2",
+    "source_label": "Figure 1(a), page 2",
+    "provenance": "Annotated DCQA example in Figure 1(a). Question quoted; anchor and answer paraphrased.",
+    "layout": "dependency"
+  },
+  "bilingual-disfluencies": {
+    "title": "Which word comes before the pause?",
+    "intro": "These examples from the appendix show why the words before and after a pause are treated separately.",
+    "blocks": [
+      {
+        "label": "Pause after the noun",
+        "text": "give me the stethoscope uhm to hear your heart",
+        "quote": true,
+        "role": "utterance",
+        "mark": "uhm",
+        "note": "Preceding word: stethoscope. Following word: to."
+      },
+      {
+        "label": "Pause before the noun",
+        "text": "give me the uhm stethoscope to hear your heart",
+        "quote": true,
+        "role": "utterance",
+        "mark": "uhm",
+        "note": "Preceding word: the. Following word: stethoscope."
+      }
+    ],
+    "conclusion": "In the bilingual model, lower frequency of the preceding word is associated with between-word disfluencies. In the monolingual model, the corresponding association involves fewer phonological neighbors of the following word.",
+    "source_url": "https://openreview.net/pdf/0673ae1419de15594db575e96264285f32142489.pdf#page=7",
+    "source_label": "Appendix A.0.1, page 7",
+    "provenance": "Illustrative sentences from Appendix A.0.1, not participant transcripts. Feature interpretations paraphrased.",
+    "layout": "speech"
+  }
+}

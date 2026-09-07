@@ -1,0 +1,326 @@
+{
+  "mqud": {
+    "title": "The dataset",
+    "nav": "Data",
+    "intro": [
+      "Download the JSONL for a flat table of questions, figures, and paper passages. The Hub viewer groups the same information into nested fields."
+    ],
+    "facts": [
+      [
+        "Questions",
+        "`question`, `answer`, `question_type`, and `difficulty`. Each answer is extracted from the paper."
+      ],
+      [
+        "Figures",
+        "`image` gives the image path. `paper_title`, `paper_abstract`, and `figure_caption` supply the context."
+      ],
+      [
+        "Evidence",
+        "`source_text` and `source_paragraphs` contain the supporting passages. Use `paper_id` to group questions from the same paper."
+      ],
+      [
+        "Split",
+        "All 1,250 examples are in the Hub’s `train` split; the release has no separate test split."
+      ]
+    ],
+    "code": [
+      {
+        "label": "Read one question",
+        "language": "python",
+        "before": "Uses the Python standard library.",
+        "text": "import json\nfrom urllib.request import urlopen\n\nrevision = \"295b4efc36226ad19429edcd4bccc151b72971d0\"\nurl = (\n    \"https://huggingface.co/datasets/lingchensanwen/mqud/\"\n    f\"resolve/{revision}/data/mqud.jsonl\"\n)\nwith urlopen(url) as response:\n    row = json.loads(response.readline())\n\nprint(row[\"id\"], row[\"paper_id\"])\nprint(row[\"question\"])\nprint(row[\"answer\"])\nprint(row[\"image\"])",
+        "after": "The `image` value is a path in the dataset repository."
+      }
+    ],
+    "notes": [],
+    "sources": [
+      [
+        "Dataset card",
+        "https://huggingface.co/datasets/lingchensanwen/mqud/blob/295b4efc36226ad19429edcd4bccc151b72971d0/README.md"
+      ],
+      [
+        "Release counts",
+        "https://huggingface.co/datasets/lingchensanwen/mqud/blob/295b4efc36226ad19429edcd4bccc151b72971d0/metadata/dataset_summary.json"
+      ],
+      [
+        "Dataset viewer",
+        "https://huggingface.co/datasets/lingchensanwen/mqud/viewer/default/train"
+      ]
+    ],
+    "layout": "reference"
+  },
+  "qsalience": {
+    "title": "Try QSalience",
+    "nav": "Try it",
+    "intro": [
+      "Start with the example files in the repository, or supply your own questions and article."
+    ],
+    "facts": [
+      [
+        "Questions",
+        "A CSV with two columns: `question` and `sentence_id`."
+      ],
+      [
+        "Article",
+        "A text file with sentences numbered from 1. Only the text through `sentence_id` is passed to the model."
+      ],
+      [
+        "Output",
+        "`T5_predictions.csv` contains one predicted salience score per question, in input order. The scale runs from 1 to 5."
+      ]
+    ],
+    "code": [
+      {
+        "label": "Run with T5",
+        "language": "bash",
+        "before": "In a local checkout, install the README dependencies, then run:",
+        "text": "cd code/preprocess\npython preprocess.py \\\n  --question_csv_path example_question.csv \\\n  --article_txt_path example_article.txt\n\ncd ..\npython predict_salience.py \\\n  --model_name t5 \\\n  --input_file preprocess/example.json",
+        "after": "Preprocessing writes `example.json`. The second command loads the released T5 model and writes the predictions."
+      }
+    ],
+    "sources": [
+      [
+        "Preprocessing",
+        "https://github.com/ritikamangla/QSalience/blob/0e72fbd0f69859ecee32cfd80e4c6ed9f6c0a5a9/code/preprocess/preprocess.py"
+      ],
+      [
+        "Prediction code",
+        "https://github.com/ritikamangla/QSalience/blob/0e72fbd0f69859ecee32cfd80e4c6ed9f6c0a5a9/code/predict_salience.py"
+      ]
+    ],
+    "layout": "reference"
+  },
+  "qudsim": {
+    "title": "Scores and document pairs",
+    "nav": "Data & code",
+    "intro": [
+      "Read the published scores below, or use the demo notebook to compare your own texts."
+    ],
+    "facts": [
+      [
+        "Scores",
+        "`dataset/similarity.json` has 650 rows. Each row includes document IDs, segment scores, and a `Similarity` value."
+      ],
+      [
+        "Your own texts",
+        "The notebook accepts JSON or CSV with `Document 1`, `Document 2`, `Model 1`, and `Model 2` columns."
+      ],
+      [
+        "Questions",
+        "Level 0 keeps questions specific to the content; level 1 abstracts it. New comparisons require the repository’s API setup."
+      ]
+    ],
+    "code": [
+      {
+        "label": "Read the scores",
+        "language": "python",
+        "before": "Requires pandas.",
+        "text": "import pandas as pd\n\nrevision = \"f146127b870e866c661ab67a04da5122f9b6805a\"\nurl = (\n    \"https://raw.githubusercontent.com/AlliteraryAlligator/QUDsim/\"\n    f\"{revision}/dataset/similarity.json\"\n)\nscores = pd.read_json(url)\nprint(scores[[\"Source ID\", \"Target ID\", \"Similarity\"]].head())"
+      }
+    ],
+    "notes": [
+      "In the linked CLI version, `--unique` and `args.with_replacement` refer to different names. Use `demo.ipynb` until this is corrected."
+    ],
+    "sources": [
+      [
+        "Dataset schema",
+        "https://github.com/AlliteraryAlligator/QUDsim/blob/f146127b870e866c661ab67a04da5122f9b6805a/schema.py"
+      ],
+      [
+        "Demo notebook",
+        "https://github.com/AlliteraryAlligator/QUDsim/blob/f146127b870e866c661ab67a04da5122f9b6805a/demo.ipynb"
+      ],
+      [
+        "CLI source",
+        "https://github.com/AlliteraryAlligator/QUDsim/blob/f146127b870e866c661ab67a04da5122f9b6805a/qudsim.py"
+      ]
+    ],
+    "layout": "reference",
+    "notes_label": "Command-line setup"
+  },
+  "qudeval": {
+    "title": "Human annotations",
+    "nav": "Annotations",
+    "intro": [
+      "The CSV contains 2,190 questions and their human judgments. The source articles are linked separately in the data README."
+    ],
+    "facts": [
+      [
+        "Question",
+        "`questions` contains the text; `system` records where it came from."
+      ],
+      [
+        "Context",
+        "`essay_id`, `anchor_id`, and `answer_id` locate the article and the two sentences needed to evaluate the question."
+      ],
+      [
+        "Judgments",
+        "`criteria1` through `criteria4` contain the annotations. Label definitions are in the paper."
+      ]
+    ],
+    "code": [
+      {
+        "label": "Read the CSV",
+        "language": "python",
+        "before": "Requires pandas.",
+        "text": "import pandas as pd\n\nrevision = \"62eeb3df2ee3e382c878eb0eb92fecd2c1fe6d04\"\nurl = (\n    \"https://raw.githubusercontent.com/lingchensanwen/QUDeval/\"\n    f\"{revision}/data/data-collection.csv\"\n)\nannotations = pd.read_csv(url, index_col=0)\ncolumns = [\"essay_id\", \"anchor_id\", \"answer_id\", \"questions\", \"system\"]\nprint(annotations[columns].head())"
+      }
+    ],
+    "notes": [
+      "Some judgments were revised after submission to resolve annotator disagreement. The example uses a fixed data revision so the results can be checked."
+    ],
+    "sources": [
+      [
+        "Data and revision note",
+        "https://github.com/lingchensanwen/QUDeval/blob/62eeb3df2ee3e382c878eb0eb92fecd2c1fe6d04/data/README.md"
+      ],
+      [
+        "Evaluation protocol",
+        "https://aclanthology.org/2023.emnlp-main.325.pdf#page=3"
+      ]
+    ],
+    "layout": "reference",
+    "notes_label": "Data version"
+  },
+  "elabqud": {
+    "title": "Question–target annotations",
+    "nav": "Data",
+    "intro": [
+      "There are 2,878 question–target annotations for 1,299 elaborations. An elaboration may have more than one annotation."
+    ],
+    "facts": [
+      [
+        "Elaboration",
+        "`file_num` identifies the article; `elab_line` gives the line containing the added explanation."
+      ],
+      [
+        "Annotation",
+        "`question` is the implicit question. `target` and `target_line` locate the earlier text that prompted it; `worker_num` identifies the annotator."
+      ],
+      [
+        "Articles",
+        "Full Newsela articles require separate access. The data README links the source-text access route."
+      ]
+    ],
+    "code": [
+      {
+        "label": "Read the TSV",
+        "language": "python",
+        "before": "Requires pandas.",
+        "text": "import pandas as pd\n\nrevision = \"8a253a8f014c642d5156333313f9d1573a031767\"\nurl = (\n    \"https://raw.githubusercontent.com/sheffwb/elabQUD/\"\n    f\"{revision}/data/targets_and_questions.tsv\"\n)\nannotations = pd.read_csv(url, sep=\"\\t\")\nprint(len(annotations))  # 2878 question–target pairs\nprint(annotations.groupby([\"file_num\", \"elab_line\"]).ngroups)  # 1299"
+      }
+    ],
+    "sources": [
+      [
+        "Annotation fields",
+        "https://github.com/sheffwb/elabQUD/blob/8a253a8f014c642d5156333313f9d1573a031767/data/README.md"
+      ],
+      [
+        "Released TSV",
+        "https://github.com/sheffwb/elabQUD/blob/8a253a8f014c642d5156333313f9d1573a031767/data/targets_and_questions.tsv"
+      ]
+    ],
+    "layout": "reference"
+  },
+  "qud-parsing": {
+    "title": "Run the parser",
+    "nav": "Code",
+    "intro": [
+      "The Colab notebook runs the pipeline from numbered sentences to questions and their anchors."
+    ],
+    "facts": [
+      [
+        "Prepare the text",
+        "Put one sentence per line in `inputa/`, with a sentence number, a tab, and the sentence."
+      ],
+      [
+        "Find an anchor",
+        "For each answer sentence, predict an earlier sentence that raises the question."
+      ],
+      [
+        "Generate questions",
+        "Generate candidate questions from the predicted anchor, then rank them."
+      ],
+      [
+        "Read the parse",
+        "Each question labels an edge between the answer sentence and its anchor."
+      ]
+    ],
+    "notes": [
+      "The original setup uses the bundled Transformers code and separate model downloads. Follow the repository’s environment instructions."
+    ],
+    "sources": [
+      [
+        "Input format and pipeline",
+        "https://github.com/lingchensanwen/DCQA-QUD-parsing/blob/9640795b27d7dff706e6efa5c98e5c6fcfddfe7b/README.md"
+      ]
+    ],
+    "layout": "process"
+  },
+  "contextweaver": {
+    "title": "How context is built",
+    "nav": "Method",
+    "intro": [
+      "After each step, ContextWeaver updates the dependency graph and prepares the context for the next action."
+    ],
+    "facts": [
+      [
+        "Add a node",
+        "Represent the latest history entry as a node in the graph."
+      ],
+      [
+        "Choose its parents",
+        "Rank earlier steps by dependency likelihood and keep up to `m` parents. Exclude nodes marked Failed or Superseded."
+      ],
+      [
+        "Follow the dependencies",
+        "After warmup, collect the selected parents and their ancestors, up to the `W`-node limit."
+      ],
+      [
+        "Build the context",
+        "Keep the selected entries in full and compress the others. Preserve their original order."
+      ]
+    ],
+    "notes": [
+      "During warmup, the agent receives the full history. Algorithm 1 gives the complete procedure."
+    ],
+    "sources": [
+      [
+        "Algorithm 1 and Section 3.1",
+        "https://arxiv.org/html/2604.23069v1#S3.SS1"
+      ]
+    ],
+    "layout": "process"
+  },
+  "bilingual-disfluencies": {
+    "title": "What the models predict",
+    "nav": "Method",
+    "intro": [
+      "We fit one logistic regression classifier per disfluency type for each speaker group. GPT-2 provides word surprisal; the classifiers also use lexical, syntactic, and phonetic features."
+    ],
+    "facts": [
+      [
+        "Between words",
+        "Pauses and fillers between words."
+      ],
+      [
+        "Within a word",
+        "Broken words and repetitions of sounds or syllables."
+      ],
+      [
+        "Repetitions",
+        "Repeated words or short phrases."
+      ]
+    ],
+    "notes": [
+      "Training and test sets are separated by participant. Features of the preceding and following words are analyzed separately."
+    ],
+    "sources": [
+      [
+        "Tasks, features, and evaluation: Sections 2.3–2.5",
+        "https://openreview.net/pdf/0673ae1419de15594db575e96264285f32142489.pdf#page=2"
+      ]
+    ],
+    "layout": "definitions"
+  }
+}

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents | Yating Wu</title>
+<link rel="canonical" href="https://yatingwu.info/contextweaver/">
+<meta name="description" content="ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on SWE-bench Verified and Lite.">
+<meta property="og:title" content="ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents | Yating Wu">
+<meta property="og:description" content="ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on SWE-bench Verified and Lite.">
+<meta property="og:url" content="https://yatingwu.info/contextweaver/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents | Yating Wu">
+<meta name="twitter:description" content="ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on SWE-bench Verified and Lite.">
+<meta name="citation_title" content="ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents">
+<meta name="citation_publication_date" content="2026">
+<meta name="citation_author" content="Yating Wu">
+<meta name="citation_author" content="Yuhao Zhang">
+<meta name="citation_author" content="Sayan Ghosh">
+<meta name="citation_author" content="Sourya Basu">
+<meta name="citation_author" content="Anoop Deoras">
+<meta name="citation_author" content="Jun Huan">
+<meta name="citation_author" content="Gaurav Gupta">
+<meta name="citation_arxiv_id" content="2604.23069">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://yatingwu.info/contextweaver/#paper",
+      "name": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents",
+      "url": "https://yatingwu.info/contextweaver/",
+      "sameAs": "https://arxiv.org/abs/2604.23069",
+      "description": "ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on SWE-bench Verified and Lite.",
+      "datePublished": "2026",
+      "inLanguage": "en",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Yating Wu",
+          "@id": "https://yatingwu.info/#yating-wu",
+          "url": "https://yatingwu.info/"
+        },
+        {
+          "@type": "Person",
+          "name": "Yuhao Zhang"
+        },
+        {
+          "@type": "Person",
+          "name": "Sayan Ghosh"
+        },
+        {
+          "@type": "Person",
+          "name": "Sourya Basu"
+        },
+        {
+          "@type": "Person",
+          "name": "Anoop Deoras"
+        },
+        {
+          "@type": "Person",
+          "name": "Jun Huan"
+        },
+        {
+          "@type": "Person",
+          "name": "Gaurav Gupta"
+        }
+      ],
+      "identifier": "arXiv:2604.23069",
+      "creativeWorkStatus": "Preprint"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Yating Wu",
+          "item": "https://yatingwu.info/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research projects",
+          "item": "https://yatingwu.info/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ContextWeaver",
+          "item": "https://yatingwu.info/contextweaver/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../research/project.css?v=20260906c"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
+</head><body class="project-page" style="--accent:#275d77;--tint:#edf4f8">
+<a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Main"><div class="shell nav-inner"><a href="../" class="wordmark">Yating Wu</a><div class="nav-links"><a href="../research/">Research projects</a><a href="../#publications">Publications</a></div></div></nav>
+<main id="main" class="shell">
+<header class="hero"><div class="paper-heading"><p class="eyebrow">Preprint</p><p class="paper-year">2026</p></div><h1>ContextWeaver</h1>
+<p class="paper-title">ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</p>
+<div class="paper-details"><p class="authors"><a href="../">Yating Wu</a>, Yuhao Zhang, Sayan Ghosh, Sourya Basu, Anoop Deoras, Jun Huan, Gaurav Gupta</p><p class="venue">Preprint · 2026</p>
+
+</div><div class="actions"><a href="https://arxiv.org/abs/2604.23069" class="action primary">paper</a><a href="#citation" class="action">BibTeX</a></div></header>
+<div class="page-grid"><aside class="toc" aria-label="On this page"><a href="#overview">Overview</a><a href="#example">Example</a><a href="#resources">Method</a><a href="#citation">Citation</a></aside><div class="content">
+<section id="overview"><div class="section-heading"><h2>Overview</h2></div><div class="study-copy"><p>A coding agent may need an observation made many steps earlier. ContextWeaver links each step to the observations and decisions it depends on, then uses those links to choose what to keep in the next context. Execution feedback tracks steps that have failed or been superseded.</p><p>On SWE-bench Verified and Lite, Claude Sonnet 4 improves over a sliding window. The model building the memory matters: GPT-5 benefits when Claude Sonnet 4 constructs its dependency graph.</p></div><p class="source"><a href="https://arxiv.org/html/2604.23069v1">Paper</a></p></section>
+<section id="example" class="example-section"><div class="section-heading"><h2>Two debugging trajectories</h2></div><p class="example-intro">The paper compares these SWE-bench tasks over five paired runs each.</p><div class="example-layout layout-cases"><article class="example-item role-case"><div class="item-label"><h3>Django · Changes across files</h3></div><p class="example-text">The fix requires coordinated edits to several components. ContextWeaver retains the early architectural analysis; the sliding window often loses it and repeats exploration or makes incompatible partial fixes.</p><p class="example-note">django__django-14631</p><p class="case-outcome">ContextWeaver wins 4 of 5 comparisons</p></article><article class="example-item role-case"><div class="item-label"><h3>pytest · A change in one location</h3></div><p class="example-text">The fix is confined to one location in one file. Recent edit history is sufficient here. Extra branches in ContextWeaver’s memory divert attention from the immediate change.</p><p class="example-note">pytest-dev__pytest-7205</p><p class="case-outcome">Sliding window wins 4 of 5 comparisons</p></article></div><div class="source-note"><span>Source</span><p><a href="https://arxiv.org/html/2604.23069v1#S4.SS3">Section 4.3, case studies</a>. Case descriptions and comparison outcomes paraphrased from Section 4.3.</p></div></section>
+<section id="resources"><div class="section-heading"><h2>How context is built</h2></div><div class="usage-notes usage-process">
+<p class="usage-intro">After each step, ContextWeaver updates the dependency graph and prepares the context for the next action.</p>
+<div class="usage-layout"><div class="usage-copy">
+<ol class="usage-steps">
+<li><h3>Add a node</h3><p>Represent the latest history entry as a node in the graph.</p></li>
+<li><h3>Choose its parents</h3><p>Rank earlier steps by dependency likelihood and keep up to <code>m</code> parents. Exclude nodes marked Failed or Superseded.</p></li>
+<li><h3>Follow the dependencies</h3><p>After warmup, collect the selected parents and their ancestors, up to the <code>W</code>-node limit.</p></li>
+<li><h3>Build the context</h3><p>Keep the selected entries in full and compress the others. Preserve their original order.</p></li>
+</ol>
+<p class="usage-note">During warmup, the agent receives the full history. Algorithm 1 gives the complete procedure.</p>
+</div>
+</div>
+<div class="usage-sources"><span>Source</span><p><a href="https://arxiv.org/html/2604.23069v1#S3.SS1">Algorithm 1 and Section 3.1</a></p></div></div><dl class="resource-list"><div class="resource-row"><dt><a href="https://arxiv.org/html/2604.23069v1">Preprint</a></dt><dd>Method, experiments, ablations, and case studies.</dd></div></dl></section>
+
+<section id="citation"><div class="section-heading"><h2>Citation</h2></div><div class="citation-actions"><a class="action" href="citation.bib" download>Download BibTeX</a><button class="action" type="button" data-copy-citation="bibtex" aria-describedby="copy-status" hidden>Copy BibTeX</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></div><details class="bibtex-disclosure"><summary>View BibTeX</summary><pre><code id="bibtex">@misc{contextweaver2026,
+  title={{ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents}},
+  author={Wu, Yating and Zhang, Yuhao and Ghosh, Sayan and Basu, Sourya and Deoras, Anoop and Huan, Jun and Gupta, Gaurav},
+  year={2026},
+  eprint={2604.23069},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2604.23069}
+}</code></pre></details></section>
+</div></div></main><footer class="site-footer"><div class="shell"><a href="../">Yating Wu</a> · <a href="../research/">All research projects</a> · <a href="../publications.bib">Bibliography</a></div></footer></body></html>

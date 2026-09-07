@@ -1,0 +1,221 @@
+/* Research handscroll using the homepage's Helvetica typography and blue links. */
+.research-overview-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 20px 0 10px;
+}
+.research-overview-heading h3 { margin: 0; scroll-margin-top: 24px; }
+.research-map-jump {
+  color: #0088cc;
+  font: inherit;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-color: #9ecbe1;
+  text-underline-offset: 4px;
+}
+.research-map-jump span { margin-left: 4px; }
+.research-map-jump:hover { color: #005580; text-decoration-color: currentColor; }
+.research-map-jump:focus-visible { outline: 2px solid #0088cc; outline-offset: 5px; }
+.inquiry-map {
+  --ink: #333333;
+  --muted: #627f90;
+  --line: #d8e8f1;
+  --accent: #0088cc;
+  --river: #2d7198;
+  font-family: inherit;
+  border-top: 0;
+  margin-top: 40px;
+  scroll-margin-top: 24px;
+}
+.inquiry-heading { padding: 10px 8px 22px; }
+.inquiry-map:not([open]) { width: min(700px, calc(100vw - 24px)); margin-top: 32px; margin-bottom: 32px; }
+.inquiry-map > .inquiry-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+}
+.inquiry-heading::-webkit-details-marker { display: none; }
+.inquiry-heading::marker { content: ""; }
+.inquiry-heading:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.inquiry-heading h3 { display: block; width: 100%; }
+.inquiry-heading .inquiry-eyebrow { display: block; font-family: inherit; font-weight: 400; line-height: 1.5; }
+.inquiry-heading:hover h3 { color: #005580; }
+.inquiry-summary-line { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.inquiry-toggle { color: var(--accent); font: 400 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif; white-space: nowrap; }
+.inquiry-when-open, .inquiry-map[open] .inquiry-when-closed { display: none; }
+.inquiry-map[open] .inquiry-when-open { display: inline; }
+.inquiry-preview { display: block; height: 86px; margin-top: 14px; overflow: hidden; border-block: 1px solid var(--line); background: #f2f8fc; }
+.inquiry-preview img { display: block; width: 100%; height: 100%; max-width: none; object-fit: cover; object-position: 50% 34%; opacity: .82; }
+.inquiry-map[open] .inquiry-preview { display: none; }
+.inquiry-map h3 { font: 700 24.5px/40px "Helvetica Neue", Helvetica, Arial, sans-serif; letter-spacing: 0; color: var(--accent); }
+.inquiry-eyebrow { letter-spacing: .08em; }
+.inquiry-discourse { --branch: #0088cc; }
+.inquiry-science { --branch: #2481b4; }
+.inquiry-speech { --branch: #61879f; }
+.inquiry-agents { --branch: #446faf; }
+.inquiry-sheet[inert] { pointer-events: none; }
+.inquiry-map.is-unrolling .inquiry-canvas { will-change: clip-path; }
+.inquiry-filters { padding: 0 0 18px; gap: 5px 14px; }
+.inquiry-filters button { border: 0; border-bottom: 1px solid transparent; border-radius: 0; padding: 7px 3px; }
+.inquiry-filters button:hover { background: transparent; color: var(--accent); }
+.inquiry-filters button[aria-pressed="true"] { background: transparent; color: #005580; border-color: var(--accent); }
+.inquiry-canvas {
+  aspect-ratio: 3 / 2;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  background: #f2f8fc;
+  box-shadow: 0 6px 24px #356e9210;
+}
+.inquiry-scenery { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .86; pointer-events: none; user-select: none; }
+.inquiry-routes { z-index: 1; pointer-events: none; }
+.inquiry-stream path { stroke: var(--stream); stroke-width: 1.7px; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; opacity: 0; }
+.inquiry-stream.is-related path { stroke: var(--river); stroke-width: 2px; opacity: 1; }
+.inquiry-stream.is-dimmed path { opacity: 0; }
+/* Keep connection arrowheads without retracing and darkening shared river strokes. */
+.inquiry-evidence path { stroke: var(--river); stroke-width: 0; stroke-dasharray: none; vector-effect: non-scaling-stroke; filter: none; opacity: 1; }
+.inquiry-evidence path[data-to="mqud"] { stroke: var(--river); }
+.inquiry-evidence path.is-dimmed { opacity: 0; }
+.inquiry-root { display: none; z-index: 1; left: 5%; top: 48%; padding: 0; background: transparent; color: #3f5f49; text-shadow: none; font: italic 14px/1.3 Georgia, serif; }
+.inquiry-node, .inquiry-node[data-project="bilingual-disfluencies"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: block;
+  z-index: 2;
+  pointer-events: none;
+}
+.inquiry-pin {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 32px;
+  height: 32px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+.inquiry-dot {
+  display: block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  background: #fff;
+  border: 2px solid var(--river);
+  border-radius: 50%;
+  box-shadow: none;
+}
+.inquiry-dot::after { display: none; }
+.inquiry-node-copy {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: max-content;
+  max-width: 184px;
+  height: auto;
+  overflow: visible;
+  clip-path: none;
+  transform: translate(-50%, 19px);
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 1px;
+  padding: 4px 7px;
+  margin: 0;
+  background: #fffffff2;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: none;
+  pointer-events: auto;
+}
+.inquiry-node[data-label="above"] .inquiry-node-copy { top: var(--y); bottom: auto; transform: translate(-50%, calc(-100% - 19px)); }
+.inquiry-node[data-label="left"] .inquiry-node-copy { left: var(--x); right: auto; top: var(--y); transform: translate(calc(-100% - 19px), -50%); text-align: right; align-items: flex-end; }
+.inquiry-node[data-label="right"] .inquiry-node-copy { left: var(--x); top: var(--y); transform: translate(19px, -50%); text-align: left; align-items: flex-start; }
+.inquiry-node strong { font-size: 17px; font-weight: 600; letter-spacing: 0; line-height: 1.25; color: #33566b; order: -1; }
+.inquiry-node-meta { font-size: 12px; color: var(--muted); }
+.inquiry-node-label { display: none; }
+.inquiry-node:hover, .inquiry-node:focus-visible { z-index: 3; }
+.inquiry-node:hover strong, .inquiry-node:focus-visible strong { text-decoration: underline; text-underline-offset: 4px; }
+.inquiry-node:hover .inquiry-dot, .inquiry-node:focus-visible .inquiry-dot { box-shadow: none; }
+.inquiry-map .inquiry-node:focus-visible { outline: none; }
+.inquiry-node:focus-visible .inquiry-node-copy { outline: 2px solid var(--accent); outline-offset: 3px; }
+.inquiry-node.is-selected .inquiry-dot { background: var(--river); box-shadow: 0 0 0 3px #fff; }
+.inquiry-node.is-selected .inquiry-node-copy { background: #fff; }
+.inquiry-node.is-selected strong { color: #005580; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.inquiry-node.is-dimmed strong { font-weight: 500; color: #627f90; }
+.inquiry-node.is-dimmed .inquiry-dot { background: #e8f2f8; border: 2px solid #8ca8b9; }
+.inquiry-map-caption { padding: 16px 0; margin: 0 8px; }
+.inquiry-legend-arrow { color: var(--river); }
+.inquiry-details { padding: 25px 8px 29px; }
+.inquiry-map h4 { font: 700 20px/1.35 "Helvetica Neue", Helvetica, Arial, sans-serif; color: var(--ink); }
+.inquiry-detail-links a, .inquiry-connection a { color: var(--accent); }
+.inquiry-map a:focus-visible, .inquiry-map button:focus-visible, .inquiry-details:focus-visible { outline-color: var(--accent); }
+@media (max-width: 850px) {
+  .inquiry-node strong { font-size: 15px; }
+  .inquiry-node-copy { max-width: 156px; padding: 3px 5px; }
+  .inquiry-node[data-project="bilingual-disfluencies"] .inquiry-node-copy { transform: translate(-12%, 19px); }
+}
+@media (max-width: 720px) {
+  .inquiry-map { width: calc(100% - 24px); }
+  .inquiry-heading { padding: 12px 2px 18px; }
+  .inquiry-map h3 { font-size: 24.5px; }
+  .inquiry-filters { padding-bottom: 13px; gap: 3px 13px; }
+  .inquiry-filters button { font-size: 13px; padding: 5px 2px; }
+  .inquiry-canvas { aspect-ratio: 3 / 2; padding: 0; border-radius: 0; }
+  .inquiry-routes { display: block; }
+  .inquiry-route-label, .inquiry-root { display: none; }
+  .inquiry-nodes { display: block; }
+  .inquiry-node, .inquiry-node[data-project="bilingual-disfluencies"] {
+    position: absolute; inset: 0; width: 100%; height: 100%; transform: none;
+    margin: 0; padding: 0; border: 0; display: block;
+  }
+  .inquiry-pin { width: 44px; height: 44px; }
+  .inquiry-dot { flex: 0 0 12px; margin: 0; }
+  .inquiry-node-copy { align-items: center; text-align: center; }
+  .inquiry-node-meta { display: none; }
+  .inquiry-node.is-dimmed { display: block; }
+  .inquiry-map-caption { margin: 0 2px; }
+  .inquiry-details { padding: 20px 2px; }
+}
+/* Compact labels get their own slots; river markers stay at the same coordinates. */
+@media (max-width: 520px) {
+  .inquiry-map .inquiry-node[data-label] .inquiry-node-copy {
+    left: var(--label-x); top: var(--label-y); right: auto; bottom: auto;
+    transform: none; width: max-content; max-width: var(--label-width, 112px);
+    text-align: left; align-items: flex-start; padding: 3px 4px;
+  }
+  .inquiry-node strong { font-size: 14px; line-height: 1.2; letter-spacing: -.025em; }
+  .inquiry-node[data-project="qud-parsing"] { --label-x: 2%; --label-y: 2%; --label-width: 102px; }
+  .inquiry-node[data-project="qudeval"] { --label-x: 27%; --label-y: 15%; --label-width: 92px; }
+  .inquiry-node[data-project="qudsim"] { --label-x: 71%; --label-y: 23%; --label-width: 85px; }
+  .inquiry-node[data-project="elabqud"] { --label-x: 1%; --label-y: 38%; --label-width: 90px; }
+  .inquiry-node[data-project="qsalience"] { --label-x: 44%; --label-y: 44%; --label-width: 100px; }
+  .inquiry-node[data-project="mqud"] { --label-x: 75%; --label-y: 55%; --label-width: 68px; }
+  .inquiry-node[data-project="bilingual-disfluencies"] { --label-x: 1%; --label-y: 70%; --label-width: 132px; }
+  .inquiry-node[data-project="contextweaver"] { --label-x: 57%; --label-y: 88%; --label-width: 126px; }
+}
+/* Keep the text aligned with the homepage while the river has its full width. */
+.inquiry-map .inquiry-heading,
+.inquiry-map .inquiry-filters,
+.inquiry-map .inquiry-map-caption,
+.inquiry-map .inquiry-details {
+  width: 100%;
+  max-width: 700px;
+  margin-inline: auto;
+  padding-inline: 0;
+}
+@media print {
+  .inquiry-canvas { print-color-adjust: exact; -webkit-print-color-adjust: exact; box-shadow: none; }
+}

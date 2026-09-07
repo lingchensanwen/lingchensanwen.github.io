@@ -1,0 +1,171 @@
+{
+  "projects": [
+    {
+      "id": "qud-parsing",
+      "name": "QUD parsing",
+      "branch": "discourse",
+      "x": 9.7656,
+      "y": 18.457,
+      "label": "Discourse structure",
+      "note": "A parser connects each sentence to an earlier sentence through the implicit question it answers.",
+      "label_position": "above",
+      "river_point": [
+        150,
+        189
+      ]
+    },
+    {
+      "id": "qudeval",
+      "name": "QUDeval",
+      "branch": "discourse",
+      "x": 36.3281,
+      "y": 25.4883,
+      "label": "Evaluating the questions",
+      "note": "Four linguistic criteria test whether a generated question fits its anchor, answer, and preceding text.",
+      "label_position": "above",
+      "river_point": [
+        558,
+        261
+      ]
+    },
+    {
+      "id": "qudsim",
+      "name": "QUDsim",
+      "branch": "discourse",
+      "x": 71.2891,
+      "y": 34.2773,
+      "label": "Comparing texts",
+      "note": "The questions answered by two documents reveal similarities in how they develop their ideas.",
+      "label_position": "above",
+      "river_point": [
+        1095,
+        351
+      ]
+    },
+    {
+      "id": "elabqud",
+      "name": "ElabQUD",
+      "branch": "discourse",
+      "x": 29.1016,
+      "y": 33.9844,
+      "label": "Explaining added details",
+      "note": "Implicit questions describe the explanations editors add when simplifying an article.",
+      "label_position": "left",
+      "river_point": [
+        447,
+        348
+      ]
+    },
+    {
+      "id": "qsalience",
+      "name": "QSalience",
+      "branch": "discourse",
+      "x": 52.1484,
+      "y": 35.4492,
+      "label": "Which questions matter?",
+      "note": "We predict how much answering a question would help a reader understand the preceding text.",
+      "label_position": "below",
+      "river_point": [
+        801,
+        363
+      ]
+    },
+    {
+      "id": "mqud",
+      "name": "MQUD",
+      "branch": "science",
+      "branches": [
+        "discourse",
+        "science"
+      ],
+      "x": 72.6562,
+      "y": 48.6328,
+      "label": "Questions from figures",
+      "note": "Scientific figures raise questions about a paper’s argument. MQUD studies those questions with annotations from the papers’ authors.",
+      "label_position": "below",
+      "river_point": [
+        1116,
+        498
+      ]
+    },
+    {
+      "id": "bilingual-disfluencies",
+      "name": "Bilingual disfluencies",
+      "branch": "speech",
+      "x": 10.1562,
+      "y": 58.0078,
+      "label": "Predictability in speech",
+      "note": "Language model surprisal and linguistic features help us study disfluencies in monolingual and bilingual speech.",
+      "label_position": "below",
+      "river_point": [
+        156,
+        594
+      ]
+    },
+    {
+      "id": "contextweaver",
+      "name": "ContextWeaver",
+      "branch": "agents",
+      "x": 81.6406,
+      "y": 87.0117,
+      "label": "Memory for agents",
+      "note": "Dependencies between an agent’s reasoning steps guide which observations and decisions to retain in context.",
+      "label_position": "left",
+      "river_point": [
+        1254,
+        891
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "qud-parsing",
+      "to": "qudeval",
+      "label": "Evaluating QUD parsing",
+      "description": "QUDeval develops a human evaluation protocol for QUD parsing and examines the questions produced by parsing systems.",
+      "source": "https://aclanthology.org/2023.emnlp-main.325/",
+      "section": "Abstract"
+    },
+    {
+      "from": "qudeval",
+      "to": "qudsim",
+      "label": "QUD generation for text comparison",
+      "description": "QUDsim cites QUDeval in its question generation procedure, then uses answerability across documents to measure discourse similarity.",
+      "source": "https://arxiv.org/html/2504.09373v2#S4",
+      "section": "Section 4"
+    },
+    {
+      "from": "qud-parsing",
+      "to": "qsalience",
+      "label": "From discourse structure to reader salience",
+      "kind": "conceptual",
+      "description": "QUD parsing recovers the questions a text answers. QSalience asks which questions would most help a reader understand that text.",
+      "source": "https://arxiv.org/html/2404.10917v2#S2",
+      "section": "Section 2"
+    },
+    {
+      "from": "qudeval",
+      "to": "qsalience",
+      "label": "Question validity",
+      "description": "QSalience follows QUDeval’s constraint that a question must be grounded in its anchor sentence when judging question validity.",
+      "source": "https://arxiv.org/html/2404.10917v2#S3",
+      "section": "Section 3"
+    },
+    {
+      "from": "elabqud",
+      "to": "qsalience",
+      "label": "Choosing what to explain",
+      "description": "QSalience cites ElabQUD to motivate choosing which concepts need an explanation, beyond generating possible elaborations.",
+      "source": "https://arxiv.org/html/2404.10917v2#S2",
+      "section": "Section 2"
+    },
+    {
+      "from": "qsalience",
+      "to": "mqud",
+      "label": "From reader salience to scientific utility",
+      "description": "MQUD draws on QSalience when extending question salience from news text to scientific figures and a paper’s research goals.",
+      "source": "https://arxiv.org/html/2604.23733v3#S2",
+      "section": "Section 2"
+    }
+  ]
+}

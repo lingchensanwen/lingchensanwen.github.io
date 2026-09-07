@@ -4,10 +4,99 @@
 
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
 
-        <title>Yating Wu</title>
+        <title>Yating Wu | NLP, Questions Under Discussion, and LLM Agents</title>
+        <meta name="description" content="Yating Wu’s research in natural language processing: Questions Under Discussion, scientific figure reasoning, text generation evaluation, and memory for LLM agents.">
+        <link rel="canonical" href="https://yatingwu.info/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Yating Wu | NLP, Questions Under Discussion, and LLM Agents">
+        <meta property="og:description" content="Yating Wu’s research in natural language processing: Questions Under Discussion, scientific figure reasoning, text generation evaluation, and memory for LLM agents.">
+        <meta property="og:url" content="https://yatingwu.info/">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Yating Wu | NLP, Questions Under Discussion, and LLM Agents">
+        <meta name="twitter:description" content="Yating Wu’s research in natural language processing: Questions Under Discussion, scientific figure reasoning, text generation evaluation, and memory for LLM agents.">
+        <link rel="alternate" hreflang="en" href="https://yatingwu.info/">
+        <link rel="alternate" hreflang="ja" href="https://yatingwu.info/index_jp.html">
+        <link rel="alternate" hreflang="x-default" href="https://yatingwu.info/">
         <link href="./files/bootstrap.css" rel="stylesheet">
         <link href="./files/myedit.css" rel="stylesheet">
+        <link href="./research/inquiry-map.css?v=20260906" rel="stylesheet">
+        <link href="./research/inquiry-landscape.css?v=20260907u" rel="stylesheet">
+        <script src="./research/inquiry-map.js?v=20260907u" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": "https://yatingwu.info/#profile",
+  "url": "https://yatingwu.info/",
+  "name": "Yating Wu",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://yatingwu.info/#yating-wu",
+    "name": "Yating Wu",
+    "url": "https://yatingwu.info/",
+    "sameAs": [
+      "https://github.com/lingchensanwen",
+      "https://scholar.google.com/citations?user=aQ_UyzsAAAAJ",
+      "https://www.semanticscholar.org/author/Yating-Wu/2174327114"
+    ]
+  },
+  "hasPart": {
+    "@type": "ItemList",
+    "name": "Publications and preprints",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Multimodal QUD: Inquisitive Questions from Scientific Figures",
+        "url": "https://yatingwu.info/multimodal-qud/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents",
+        "url": "https://yatingwu.info/contextweaver/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "QUDsim: Quantifying Discourse Similarities in LLM-Generated Text",
+        "url": "https://yatingwu.info/qudsim/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Which questions should I answer? Salience Prediction of Inquisitive Questions",
+        "url": "https://yatingwu.info/qsalience/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing",
+        "url": "https://yatingwu.info/qudeval/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Elaborative Simplification as Implicit Questions Under Discussion",
+        "url": "https://yatingwu.info/elabqud/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion",
+        "url": "https://yatingwu.info/qud-parsing/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 8,
+        "name": "Modeling Bilingual Disfluencies with Large Language Models",
+        "url": "https://yatingwu.info/bilingual-disfluencies/"
+      }
+    ]
+  }
+}
+</script>
     </head>
     <body>
 
@@ -40,7 +129,10 @@
         <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=aQ_UyzsAAAAJ"><i class="fas fa-graduation-cap" style="font-size:36px"></i></a>
         <a href="https://www.semanticscholar.org/author/Yating-Wu/2174327114" target="_blank"><i class="ai ai-semantic-scholar ai-3x" style="font-size:38px"></i></a>
 
-        <h3>Research Overview</h3>
+        <div class="research-overview-heading">
+          <h3 id="research-overview">Research Overview</h3>
+          <a class="research-map-jump" href="#research-map">Research Delta <span aria-hidden="true">↓</span></a>
+        </div>
         <ul>
           <li>Build computational frameworks to reveal implicit reasoning structures and trace how ideas connect in text, specifically through <strong>Questions Under Discussion</strong>.</li>
           <li>Develop evaluation methods to enable better and more efficient model training through structured reasoning feedback.</li>
@@ -76,74 +168,67 @@
 
       <h3 id="preprints">Preprints</h3>
       <ul>
-        <li>
-        <p><a href="https://arxiv.org/abs/2604.23733"><strong>Multimodal QUD: Inquisitive Questions from Scientific Figures</strong></a>
-        <br/>
-        <span class="under">Yating Wu</span>, William Rudman, Venkata S Govindarajan, Alexandros G. Dimakis and Junyi Jessy Li
-        <br/>Preprint, 2026.</p>
+        <li id="mqud">
+          <p><a href="https://arxiv.org/abs/2604.23733"><strong>Multimodal QUD: Inquisitive Questions from Scientific Figures</strong></a>
+          [<a href="./multimodal-qud/">project website</a>] [<a href="https://huggingface.co/datasets/lingchensanwen/mqud">dataset</a>]<br>
+          <span class="under">Yating Wu</span>, William Rudman, Venkata S Govindarajan, Alexandros G. Dimakis, Junyi Jessy Li<br>
+          Preprint, 2026.</p>
         </li>
-        <li>
-        <p><a href="https://arxiv.org/abs/2604.23069"><strong>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</strong></a>
-        <br/>
-        <span class="under">Yating Wu</span>, Yuhao Zhang, Sayan Ghosh, Sourya Basu, Anoop Deoras, Jun Huan and Gaurav Gupta
-        <br/>Preprint, 2026.</p>
+        <li id="contextweaver">
+          <p><a href="https://arxiv.org/abs/2604.23069"><strong>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</strong></a> [<a href="./contextweaver/">project</a>]
+          <br>
+          <span class="under">Yating Wu</span>, Yuhao Zhang, Sayan Ghosh, Sourya Basu, Anoop Deoras, Jun Huan, Gaurav Gupta<br>
+          Preprint, 2026.</p>
         </li>
       </ul>
 
-      <h3 id="selected publications">Selected Publications</h3>
-      (<sup>†</sup>Indicates equal contribution)
-
-      <p><a name="publications"></a>
+      <h3 id="publications">Selected Publications</h3>
+      <p><sup>†</sup>Indicates equal contribution.</p>
       <ul>
-        <li>
-        <p><a href="https://arxiv.org/abs/2504.09373"><strong>QUDsim: Quantifying Discourse Similarities in LLM-Generated Text</strong></a>
-        [<a href="https://github.com/AlliteraryAlligator/QUDsim">code and data</a>]
-        <br/>
-        Ramya Namuduri, <span class="under">Yating Wu</span>, Asher Zheng, Manya Wadhwa, Greg Durrett and Junyi Jessy Li.
-        <br/>Conference on Language Modeling (COLM), 2025.
+        <li id="qudsim">
+          <p><a href="https://openreview.net/forum?id=zFz1BJu211"><strong>QUDsim: Quantifying Discourse Similarities in LLM-Generated Text</strong></a> [<a href="./qudsim/">project</a>]
+          [<a href="https://github.com/AlliteraryAlligator/QUDsim">code and data</a>] [<a href="https://arxiv.org/abs/2504.09373">paper</a>]<br>
+          Ramya Namuduri, <span class="under">Yating Wu</span>, Anshun Asher Zheng, Manya Wadhwa, Greg Durrett, Junyi Jessy Li<br>
+          Conference on Language Modeling (COLM), 2025.</p>
         </li>
-        <li>
-        <p><a href="https://arxiv.org/abs/2404.10917"><strong>Which questions should I answer? Salience Prediction of Inquisitive Questions</strong></a>
-        [<a href="https://github.com/ritikamangla/QSalience">code and data</a>]
-        <br/>
-        <span class="under">Yating Wu</span><sup>†</sup>, Ritika Mangla<sup>†</sup>, Alexandros G. Dimakis, Greg Durrett and Junyi Jessy Li
-        <br/>Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024. <strong>(Oral)</strong> <br/><strong style="color: red;"> Outstanding Paper Award 🏅</strong>
+        <li id="qsalience">
+          <p><a href="https://aclanthology.org/2024.emnlp-main.1114/"><strong>Which questions should I answer? Salience Prediction of Inquisitive Questions</strong></a> [<a href="./qsalience/">project</a>]
+          [<a href="https://github.com/ritikamangla/QSalience">code and data</a>] [<a href="https://arxiv.org/abs/2404.10917">paper</a>]<br>
+          <span class="under">Yating Wu</span><sup>†</sup>, Ritika Mangla<sup>†</sup>, Alexandros G. Dimakis, Greg Durrett, Junyi Jessy Li<br>
+          Conference on Empirical Methods in Natural Language Processing (EMNLP), 2024. <strong>(Oral)</strong><br><strong style="color: red;">Outstanding Paper Award 🏅</strong></p>
         </li>
-        <li>
-        <p><a href="https://arxiv.org/abs/2310.14520"><strong>QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing</strong></a>
-        [<a href="https://github.com/lingchensanwen/QUDeval">code and data</a>]
-        <br/>
-        <span class="under">Yating Wu</span>, Ritika Mangla, Greg Durrett and Junyi Jessy Li
-        <br/>Conference on Empirical Methods in Natural Language Processing (EMNLP), 2023. <strong>(Oral)</strong>
+        <li id="qudeval">
+          <p><a href="https://aclanthology.org/2023.emnlp-main.325/"><strong>QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing</strong></a> [<a href="./qudeval/">project</a>]
+          [<a href="https://github.com/lingchensanwen/QUDeval">code and data</a>] [<a href="https://arxiv.org/abs/2310.14520">paper</a>]<br>
+          <span class="under">Yating Wu</span>, Ritika Mangla, Greg Durrett, Junyi Jessy Li<br>
+          Conference on Empirical Methods in Natural Language Processing (EMNLP), 2023. <strong>(Oral)</strong></p>
         </li>
-        <li>
-        <p><a href="https://arxiv.org/abs/2305.10387"><strong>Elaborative Simplification as Implicit Questions Under Discussion</strong></a>
-        [<a href="https://github.com/sheffwb/elabQUD">code and data</a>]
-        <br/>
-        <span class="under">Yating Wu</span><sup>†</sup>, William Sheffield<sup>†</sup>, Kyle Mahowald and Junyi Jessy Li 
-        <br/>Conference on Empirical Methods in Natural Language Processing (EMNLP), 2023.
+        <li id="elabqud">
+          <p><a href="https://aclanthology.org/2023.emnlp-main.336/"><strong>Elaborative Simplification as Implicit Questions Under Discussion</strong></a> [<a href="./elabqud/">project</a>]
+          [<a href="https://github.com/sheffwb/elabQUD">code and data</a>] [<a href="https://arxiv.org/abs/2305.10387">paper</a>]<br>
+          <span class="under">Yating Wu</span><sup>†</sup>, William Sheffield<sup>†</sup>, Kyle Mahowald, Junyi Jessy Li<br>
+          Conference on Empirical Methods in Natural Language Processing (EMNLP), 2023.</p>
         </li>
-        <li>
-        <p><a href="https://arxiv.org/abs/2210.05905"><strong>Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion</strong></a>
-        [<a href="https://github.com/lingchensanwen/DCQA-QUD-parsing">code</a>]
-        <br/>
-        Wei-Jen Ko, <span class="under">Yating Wu</span>, Cutter Dalton, Dananjay Srinivas, Greg Durrett and Junyi Jessy Li
-        <br/>
-        Findings of the Association for Computational Linguistics (ACL), 2023.</p>
+        <li id="qud-parsing">
+          <p><a href="https://aclanthology.org/2023.findings-acl.710/"><strong>Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion</strong></a> [<a href="./qud-parsing/">project</a>]
+          [<a href="https://github.com/lingchensanwen/DCQA-QUD-parsing">code</a>] [<a href="https://arxiv.org/abs/2210.05905">paper</a>]<br>
+          Wei-Jen Ko, <span class="under">Yating Wu</span>, Cutter Dalton, Dananjay Srinivas, Greg Durrett, Junyi Jessy Li<br>
+          Findings of the Association for Computational Linguistics (ACL), 2023.</p>
         </li>
       </ul>
 
       <h3 id="workshops">Workshops</h3>
-      (<sup>†</sup>Indicates equal contribution)
-          <ul>
-        <li>
-        <p><a href="https://openreview.net/forum?id=rrNAqNYRLA"><strong>Modeling Bilingual Disfluencies with Large Language Models</strong></a>
-        <br/>
-        Negin Raoof<sup>†</sup>, <span class="under">Yating Wu</span><sup>†</sup>,  Carlos Bonilla<sup>†</sup>, Junyi Jessy Li, Stephanie M Grasso, Alexandros G. Dimakis and Zoi Gkalitsiou
-        <br/>
-        ICML Workshop on LLMs and Cognition, 2024.</p>
-        </li> 
+      <p><sup>†</sup>Indicates equal contribution.</p>
+      <ul>
+        <li id="bilingual-disfluencies">
+          <p><a href="https://openreview.net/forum?id=rrNAqNYRLA"><strong>Modeling Bilingual Disfluencies with Large Language Models</strong></a> [<a href="./bilingual-disfluencies/">project</a>]
+          <br>
+          Negin Raoof<sup>†</sup>, <span class="under">Yating Wu</span><sup>†</sup>, Carlos Bonilla<sup>†</sup>, Junyi Jessy Li, Stephanie M Grasso, Alexandros G. Dimakis, Zoi Gkalitsiou<br>
+          ICML Workshop on LLMs and Cognition, 2024.</p>
+        </li>
       </ul>
+
+
 
 
       <h3 id="experience">Experience</h3>
@@ -213,12 +298,92 @@
           <li>Outstanding graduates, Jun. 2014</li>
         </ul>
 
+<!-- BEGIN LINES OF INQUIRY -->
+        <details class="inquiry-map" id="research-map" aria-labelledby="inquiry-title">
+          <summary class="inquiry-heading"><h3 id="inquiry-title"><span class="inquiry-eyebrow">RESEARCH</span><span class="inquiry-summary-line"><span>Research Delta</span><span class="inquiry-toggle" aria-hidden="true"><span class="inquiry-when-closed">Unroll ↔</span><span class="inquiry-when-open">Roll up ↔</span></span></span><span class="inquiry-preview" aria-hidden="true"><img src="./research/assets/research-delta-flat.jpg" srcset="./research/assets/research-delta-flat-768.jpg 768w, ./research/assets/research-delta-flat.jpg 1536w" sizes="(max-width: 720px) calc(100vw - 24px), 700px" width="1536" height="1024" alt="" loading="lazy" decoding="async"></span></h3></summary>
+          <div class="inquiry-sheet">
+          <div class="inquiry-filters" role="group" aria-label="Research branches" hidden>
+            <button type="button" data-filter="all" aria-pressed="true">All work</button>
+            <button type="button" data-filter="discourse" aria-pressed="false"><i class="inquiry-key inquiry-discourse" aria-hidden="true"></i>Discourse &amp; reasoning</button>
+            <button type="button" data-filter="agents" aria-pressed="false"><i class="inquiry-key inquiry-agents" aria-hidden="true"></i>LLM agents</button>
+            <button type="button" data-filter="science" aria-pressed="false"><i class="inquiry-key inquiry-science" aria-hidden="true"></i>AI4Science</button>
+            <button type="button" data-filter="speech" aria-pressed="false"><i class="inquiry-key inquiry-speech" aria-hidden="true"></i>Language &amp; cognition</button>
+          </div>
+          <div class="inquiry-canvas">
+            <img class="inquiry-scenery" src="./research/assets/research-delta-flat.jpg" srcset="./research/assets/research-delta-flat-768.jpg 768w, ./research/assets/research-delta-flat.jpg 1536w" sizes="(max-width: 720px) calc(100vw - 24px), (max-width: 1080px) calc(100vw - 40px), 1040px" width="1536" height="1024" alt="" loading="lazy" decoding="async">
+            <svg class="inquiry-routes" viewBox="0 0 1536 1024" preserveAspectRatio="none" fill="none" aria-hidden="true">
+              <defs><marker id="inquiry-arrow" markerWidth="18" markerHeight="16" refX="22" refY="8" orient="auto" markerUnits="userSpaceOnUse"><path d="M3 2 L14 8 L3 14" stroke="context-stroke" stroke-width="2" fill="none"/></marker></defs>
+              <g class="inquiry-stream" data-route-branch="discourse" data-route-branches="discourse science" data-route-projects="qud-parsing qudeval qudsim elabqud qsalience mqud" data-route-name="Questions under discussion" style="--stream:#256883"><path d="M 3 66 Q 42 90 52.5 100.5 Q 63 111 69 120 Q 75 129 75 139.5 Q 75 150 84 159 Q 93 168 109.5 177 Q 126 186 138 187.5 L 150 189 Q 168 204 172.5 204 Q 177 204 192 214.5 Q 207 225 222 225 Q 237 225 244.5 228 Q 252 231 262.5 241.5 Q 273 252 279 255 Q 285 258 310.5 261 L 336 264"/></g><g class="inquiry-stream" data-route-branch="discourse" data-route-branches="discourse science" data-route-projects="qudeval qudsim qsalience mqud" data-route-name="Question generation and evaluation" style="--stream:#256883"><path d="M 336 264 Q 357 264 373.5 250.5 Q 390 237 420 231 Q 450 225 474 225 Q 498 225 513 235.5 Q 528 246 531 246 Q 534 246 546 253.5 L 558 261 Q 600 279 612 280.5 Q 624 282 628.5 285 Q 633 288 646.5 291 L 660 294"/></g><g class="inquiry-stream" data-route-branch="discourse" data-route-branches="discourse" data-route-projects="qudsim" data-route-name="Discourse similarity" style="--stream:#256883"><path d="M 660 294 Q 666 294 685.5 277.5 Q 705 261 708 261 Q 711 261 720 253.5 Q 729 246 735 244.5 Q 741 243 747 238.5 Q 753 234 780 228 Q 807 222 811.5 219 Q 816 216 828 216 Q 840 216 841.5 217.5 L 843 219 Q 858 219 870 226.5 Q 882 234 886.5 234 Q 891 234 901.5 238.5 Q 912 243 919.5 247.5 Q 927 252 943.5 268.5 L 960 285 Q 960 312 972 324 Q 984 336 1008 342 Q 1032 348 1044 354 Q 1056 360 1071 360 Q 1086 360 1090.5 355.5 L 1095 351 Q 1101 357 1126.5 357 Q 1152 357 1165.5 352.5 Q 1179 348 1189.5 342 L 1200 336"/></g><g class="inquiry-stream" data-route-branch="discourse" data-route-branches="discourse science" data-route-projects="elabqud qsalience mqud" data-route-name="Elaboration and reader questions" style="--stream:#3b795b"><path d="M 336 264 Q 357 270 396 309 Q 435 348 441 348 L 447 348 Q 477 378 492 379.5 Q 507 381 523.5 394.5 Q 540 408 550.5 409.5 L 561 411 Q 567 417 591 417 Q 615 417 627 408 Q 639 399 672 366 L 705 333"/></g><g class="inquiry-stream" data-route-branch="discourse" data-route-branches="discourse science" data-route-projects="qsalience mqud" data-route-name="Question salience and scientific utility" style="--stream:#345f9b"><path d="M 660 294 L 705 333 Q 723 336 733.5 343.5 Q 744 351 756 354 Q 768 357 781.5 357 Q 795 357 798 360 L 801 363 Q 840 366 859.5 384 Q 879 402 879 406.5 L 879 411 Q 912 447 916.5 448.5 Q 921 450 927 456 Q 933 462 933 465 L 933 468 Q 954 468 967.5 475.5 Q 981 483 1005 490.5 Q 1029 498 1072.5 498 L 1116 498 Q 1116 507 1138.5 529.5 Q 1161 552 1185 552 L 1209 552"/></g><g class="inquiry-stream" data-route-branch="speech" data-route-branches="speech" data-route-projects="bilingual-disfluencies" data-route-name="Language and cognition" style="--stream:#955565"><path d="M 3 474 Q 33 477 48 481.5 Q 63 486 75 498 Q 87 510 87 523.5 Q 87 537 94.5 544.5 Q 102 552 121.5 562.5 Q 141 573 148.5 580.5 Q 156 588 156 591 L 156 594 Q 171 591 175.5 594 Q 180 597 199.5 600 Q 219 603 234 609 Q 249 615 255 621 Q 261 627 274.5 628.5 L 288 630"/></g><g class="inquiry-stream" data-route-branch="agents" data-route-branches="agents" data-route-projects="contextweaver" data-route-name="LLM agents" style="--stream:#956231"><path d="M 1056 1020 Q 1125 1002 1141.5 993 Q 1158 984 1164 984 Q 1170 984 1173 981 Q 1176 978 1182 978 Q 1188 978 1204.5 970.5 Q 1221 963 1243.5 942 Q 1266 921 1266 910.5 Q 1266 900 1260 895.5 L 1254 891 Q 1260 885 1260 880.5 Q 1260 876 1243.5 861 Q 1227 846 1224 841.5 Q 1221 837 1221 828 Q 1221 819 1231.5 808.5 Q 1242 798 1255.5 790.5 Q 1269 783 1275 777 L 1281 771"/></g>
+              <g class="inquiry-evidence" marker-end="url(#inquiry-arrow)">
+                <path data-from="qud-parsing" data-to="qudeval" d="M 150 189 Q 168 204 172.5 204 Q 177 204 192 214.5 Q 207 225 222 225 Q 237 225 244.5 228 Q 252 231 262.5 241.5 Q 273 252 279 255 Q 285 258 310.5 261 L 336 264 Q 357 264 373.5 250.5 Q 390 237 420 231 Q 450 225 474 225 Q 498 225 513 235.5 Q 528 246 531 246 Q 534 246 546 253.5 L 558 261"/><path data-from="qudeval" data-to="qudsim" d="M 558 261 Q 600 279 612 280.5 Q 624 282 628.5 285 Q 633 288 646.5 291 L 660 294 Q 666 294 685.5 277.5 Q 705 261 708 261 Q 711 261 720 253.5 Q 729 246 735 244.5 Q 741 243 747 238.5 Q 753 234 780 228 Q 807 222 811.5 219 Q 816 216 828 216 Q 840 216 841.5 217.5 L 843 219 Q 858 219 870 226.5 Q 882 234 886.5 234 Q 891 234 901.5 238.5 Q 912 243 919.5 247.5 Q 927 252 943.5 268.5 L 960 285 Q 960 312 972 324 Q 984 336 1008 342 Q 1032 348 1044 354 Q 1056 360 1071 360 Q 1086 360 1090.5 355.5 L 1095 351"/><path data-from="qud-parsing" data-to="qsalience" d="M 150 189 Q 168 204 172.5 204 Q 177 204 192 214.5 Q 207 225 222 225 Q 237 225 244.5 228 Q 252 231 262.5 241.5 Q 273 252 279 255 Q 285 258 310.5 261 L 336 264 Q 357 264 373.5 250.5 Q 390 237 420 231 Q 450 225 474 225 Q 498 225 513 235.5 Q 528 246 531 246 Q 534 246 546 253.5 L 558 261 Q 600 279 612 280.5 Q 624 282 628.5 285 Q 633 288 646.5 291 L 660 294 L 705 333 Q 723 336 733.5 343.5 Q 744 351 756 354 Q 768 357 781.5 357 Q 795 357 798 360 L 801 363"/><path data-from="qudeval" data-to="qsalience" d="M 558 261 Q 600 279 612 280.5 Q 624 282 628.5 285 Q 633 288 646.5 291 L 660 294 L 705 333 Q 723 336 733.5 343.5 Q 744 351 756 354 Q 768 357 781.5 357 Q 795 357 798 360 L 801 363"/><path data-from="elabqud" data-to="qsalience" d="M 447 348 Q 477 378 492 379.5 Q 507 381 523.5 394.5 Q 540 408 550.5 409.5 L 561 411 Q 567 417 591 417 Q 615 417 627 408 Q 639 399 672 366 L 705 333 Q 723 336 733.5 343.5 Q 744 351 756 354 Q 768 357 781.5 357 Q 795 357 798 360 L 801 363"/><path data-from="qsalience" data-to="mqud" d="M 801 363 Q 840 366 859.5 384 Q 879 402 879 406.5 L 879 411 Q 912 447 916.5 448.5 Q 921 450 927 456 Q 933 462 933 465 L 933 468 Q 954 468 967.5 475.5 Q 981 483 1005 490.5 Q 1029 498 1072.5 498 L 1116 498"/>
+              </g>
+            </svg>
+            <div class="inquiry-root">Questions under discussion</div>
+            <div class="inquiry-nodes"><a class="inquiry-node inquiry-discourse" data-project="qud-parsing" data-branch="discourse" data-branches="discourse" data-label="above" href="./qud-parsing/" style="--x:9.7656%;--y:18.457%" aria-label="QUD parsing, 2023" title="Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2023</span><strong>QUD parsing</strong><span class="inquiry-node-label">Discourse structure</span></span>
+        </a><a class="inquiry-node inquiry-discourse" data-project="qudeval" data-branch="discourse" data-branches="discourse" data-label="above" href="./qudeval/" style="--x:36.3281%;--y:25.4883%" aria-label="QUDeval, 2023" title="QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2023</span><strong>QUDeval</strong><span class="inquiry-node-label">Evaluating the questions</span></span>
+        </a><a class="inquiry-node inquiry-discourse" data-project="qudsim" data-branch="discourse" data-branches="discourse" data-label="above" href="./qudsim/" style="--x:71.2891%;--y:34.2773%" aria-label="QUDsim, 2025" title="QUDsim: Quantifying Discourse Similarities in LLM-Generated Text">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2025</span><strong>QUDsim</strong><span class="inquiry-node-label">Comparing texts</span></span>
+        </a><a class="inquiry-node inquiry-discourse" data-project="elabqud" data-branch="discourse" data-branches="discourse" data-label="left" href="./elabqud/" style="--x:29.1016%;--y:33.9844%" aria-label="ElabQUD, 2023" title="Elaborative Simplification as Implicit Questions Under Discussion">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2023</span><strong>ElabQUD</strong><span class="inquiry-node-label">Explaining added details</span></span>
+        </a><a class="inquiry-node inquiry-discourse" data-project="qsalience" data-branch="discourse" data-branches="discourse" data-label="below" href="./qsalience/" style="--x:52.1484%;--y:35.4492%" aria-label="QSalience, 2024" title="Which questions should I answer? Salience Prediction of Inquisitive Questions">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2024</span><strong>QSalience</strong><span class="inquiry-node-label">Which questions matter?</span></span>
+        </a><a class="inquiry-node inquiry-science is-selected" data-project="mqud" data-branch="science" data-branches="discourse science" data-label="below" href="./multimodal-qud/" style="--x:72.6562%;--y:48.6328%" aria-label="MQUD, 2026" title="Multimodal QUD: Inquisitive Questions from Scientific Figures">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2026</span><strong>MQUD</strong><span class="inquiry-node-label">Questions from figures</span></span>
+        </a><a class="inquiry-node inquiry-speech" data-project="bilingual-disfluencies" data-branch="speech" data-branches="speech" data-label="below" href="./bilingual-disfluencies/" style="--x:10.1562%;--y:58.0078%" aria-label="Bilingual disfluencies, 2024" title="Modeling Bilingual Disfluencies with Large Language Models">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2024</span><strong>Bilingual disfluencies</strong><span class="inquiry-node-label">Predictability in speech</span></span>
+        </a><a class="inquiry-node inquiry-agents" data-project="contextweaver" data-branch="agents" data-branches="agents" data-label="left" href="./contextweaver/" style="--x:81.6406%;--y:87.0117%" aria-label="ContextWeaver, 2026" title="ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents">
+          <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
+          <span class="inquiry-node-copy"><span class="inquiry-node-meta">2026</span><strong>ContextWeaver</strong><span class="inquiry-node-label">Memory for agents</span></span>
+        </a></div>
+          </div>
+          <div class="inquiry-map-caption"><span>Rivers group research themes.</span><span><i class="inquiry-legend-arrow" aria-hidden="true">→</i>Arrows mark connections between papers.</span></div>
+          <div class="inquiry-details" tabindex="-1" aria-label="Selected project"><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-qud-parsing" aria-labelledby="inquiry-title-qud-parsing">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2023 · Findings of ACL</p><h4 id="inquiry-title-qud-parsing">QUD parsing</h4><div class="inquiry-detail-links"><a href="./qud-parsing/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2023.findings-acl.710/">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>A parser connects each sentence to an earlier sentence through the implicit question it answers.</p><p class="inquiry-connection"><span>Connection to <a href="./qudeval/">QUDeval</a></span> QUDeval develops a human evaluation protocol for QUD parsing and examines the questions produced by parsing systems. <a class="inquiry-source" href="https://aclanthology.org/2023.emnlp-main.325/">Abstract ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> QUD parsing recovers the questions a text answers. QSalience asks which questions would most help a reader understand that text. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p></div>
+        </article><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-qudeval" aria-labelledby="inquiry-title-qudeval">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2023 · EMNLP</p><h4 id="inquiry-title-qudeval">QUDeval</h4><div class="inquiry-detail-links"><a href="./qudeval/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2023.emnlp-main.325/">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>Four linguistic criteria test whether a generated question fits its anchor, answer, and preceding text.</p><p class="inquiry-connection"><span>Connection to <a href="./qud-parsing/">QUD dependency parsing</a></span> QUDeval develops a human evaluation protocol for QUD parsing and examines the questions produced by parsing systems. <a class="inquiry-source" href="https://aclanthology.org/2023.emnlp-main.325/">Abstract ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qudsim/">QUDsim</a></span> QUDsim cites QUDeval in its question generation procedure, then uses answerability across documents to measure discourse similarity. <a class="inquiry-source" href="https://arxiv.org/html/2504.09373v2#S4">Section 4 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> QSalience follows QUDeval’s constraint that a question must be grounded in its anchor sentence when judging question validity. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S3">Section 3 ↗</a></p></div>
+        </article><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-qudsim" aria-labelledby="inquiry-title-qudsim">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2025 · COLM</p><h4 id="inquiry-title-qudsim">QUDsim</h4><div class="inquiry-detail-links"><a href="./qudsim/">Project <span aria-hidden="true">↗</span></a><a href="https://openreview.net/forum?id=zFz1BJu211">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>The questions answered by two documents reveal similarities in how they develop their ideas.</p><p class="inquiry-connection"><span>Connection to <a href="./qudeval/">QUDeval</a></span> QUDsim cites QUDeval in its question generation procedure, then uses answerability across documents to measure discourse similarity. <a class="inquiry-source" href="https://arxiv.org/html/2504.09373v2#S4">Section 4 ↗</a></p></div>
+        </article><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-elabqud" aria-labelledby="inquiry-title-elabqud">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2023 · EMNLP</p><h4 id="inquiry-title-elabqud">ElabQUD</h4><div class="inquiry-detail-links"><a href="./elabqud/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2023.emnlp-main.336/">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>Implicit questions describe the explanations editors add when simplifying an article.</p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> QSalience cites ElabQUD to motivate choosing which concepts need an explanation, beyond generating possible elaborations. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p></div>
+        </article><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-qsalience" aria-labelledby="inquiry-title-qsalience">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2024 · EMNLP</p><h4 id="inquiry-title-qsalience">QSalience</h4><span class="inquiry-award">Outstanding Paper Award</span><div class="inquiry-detail-links"><a href="./qsalience/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2024.emnlp-main.1114/">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>We predict how much answering a question would help a reader understand the preceding text.</p><p class="inquiry-connection"><span>Connection to <a href="./qud-parsing/">QUD dependency parsing</a></span> QUD parsing recovers the questions a text answers. QSalience asks which questions would most help a reader understand that text. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qudeval/">QUDeval</a></span> QSalience follows QUDeval’s constraint that a question must be grounded in its anchor sentence when judging question validity. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S3">Section 3 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./elabqud/">ElabQUD</a></span> QSalience cites ElabQUD to motivate choosing which concepts need an explanation, beyond generating possible elaborations. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./multimodal-qud/">MQUD</a></span> MQUD draws on QSalience when extending question salience from news text to scientific figures and a paper’s research goals. <a class="inquiry-source" href="https://arxiv.org/html/2604.23733v3#S2">Section 2 ↗</a></p></div>
+        </article><article class="inquiry-detail inquiry-science is-selected" id="inquiry-detail-mqud" aria-labelledby="inquiry-title-mqud">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2026 · Preprint</p><h4 id="inquiry-title-mqud">MQUD</h4><div class="inquiry-detail-links"><a href="./multimodal-qud/">Project <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2604.23733">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>Scientific figures raise questions about a paper’s argument. MQUD studies those questions with annotations from the papers’ authors.</p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> MQUD draws on QSalience when extending question salience from news text to scientific figures and a paper’s research goals. <a class="inquiry-source" href="https://arxiv.org/html/2604.23733v3#S2">Section 2 ↗</a></p></div>
+        </article><article class="inquiry-detail inquiry-speech" id="inquiry-detail-bilingual-disfluencies" aria-labelledby="inquiry-title-bilingual-disfluencies">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2024 · ICML · LLMs and Cognition Workshop</p><h4 id="inquiry-title-bilingual-disfluencies">Bilingual disfluencies</h4><div class="inquiry-detail-links"><a href="./bilingual-disfluencies/">Project <span aria-hidden="true">↗</span></a><a href="https://openreview.net/forum?id=rrNAqNYRLA">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>Language model surprisal and linguistic features help us study disfluencies in monolingual and bilingual speech.</p></div>
+        </article><article class="inquiry-detail inquiry-agents" id="inquiry-detail-contextweaver" aria-labelledby="inquiry-title-contextweaver">
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2026 · Preprint</p><h4 id="inquiry-title-contextweaver">ContextWeaver</h4><div class="inquiry-detail-links"><a href="./contextweaver/">Project <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2604.23069">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>Dependencies between an agent’s reasoning steps guide which observations and decisions to retain in context.</p></div>
+        </article></div>
+          <p class="inquiry-status" role="status" aria-live="polite"></p>
+          </div>
+        </details>
+        <!-- END LINES OF INQUIRY -->
+
       <h3 id="link">Links</h3>
         <dl>
           <dt><a href="https://www.ece.utexas.edu/">Department of Electrical and Computer Engineering</a></dt>
-          <dt><a href="https://www.utexas.edu">The University of Texas at Austin</dt>
+          <dt><a href="https://www.utexas.edu">The University of Texas at Austin</a></dt>
           <dt><a href="http://www.u-tokyo.ac.jp/en/">The University of Tokyo</a></dt>
         </dl>
+
+
 
         <hr>
         <footer>

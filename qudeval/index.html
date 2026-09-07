@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing | Yating Wu</title>
+<link rel="canonical" href="https://yatingwu.info/qudeval/">
+<meta name="description" content="QUDeval provides an evaluation protocol and human judgments of 2,190 discourse questions for assessing QUD parsing. EMNLP 2023.">
+<meta property="og:title" content="QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing | Yating Wu">
+<meta property="og:description" content="QUDeval provides an evaluation protocol and human judgments of 2,190 discourse questions for assessing QUD parsing. EMNLP 2023.">
+<meta property="og:url" content="https://yatingwu.info/qudeval/">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing | Yating Wu">
+<meta name="twitter:description" content="QUDeval provides an evaluation protocol and human judgments of 2,190 discourse questions for assessing QUD parsing. EMNLP 2023.">
+<meta name="citation_title" content="QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing">
+<meta name="citation_publication_date" content="2023">
+<meta name="citation_author" content="Yating Wu">
+<meta name="citation_author" content="Ritika Mangla">
+<meta name="citation_author" content="Greg Durrett">
+<meta name="citation_author" content="Junyi Jessy Li">
+<meta name="citation_conference_title" content="Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing">
+<meta name="citation_doi" content="10.18653/v1/2023.emnlp-main.325">
+<meta name="citation_arxiv_id" content="2310.14520">
+<meta name="citation_firstpage" content="5344">
+<meta name="citation_lastpage" content="5363">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://yatingwu.info/qudeval/#paper",
+      "name": "QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing",
+      "url": "https://yatingwu.info/qudeval/",
+      "sameAs": "https://aclanthology.org/2023.emnlp-main.325/",
+      "description": "QUDeval provides an evaluation protocol and human judgments of 2,190 discourse questions for assessing QUD parsing. EMNLP 2023.",
+      "datePublished": "2023",
+      "inLanguage": "en",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Yating Wu",
+          "@id": "https://yatingwu.info/#yating-wu",
+          "url": "https://yatingwu.info/"
+        },
+        {
+          "@type": "Person",
+          "name": "Ritika Mangla"
+        },
+        {
+          "@type": "Person",
+          "name": "Greg Durrett"
+        },
+        {
+          "@type": "Person",
+          "name": "Junyi Jessy Li"
+        }
+      ],
+      "identifier": {
+        "@type": "PropertyValue",
+        "propertyID": "DOI",
+        "value": "10.18653/v1/2023.emnlp-main.325"
+      },
+      "isPartOf": {
+        "@type": "CreativeWork",
+        "name": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Yating Wu",
+          "item": "https://yatingwu.info/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Research projects",
+          "item": "https://yatingwu.info/research/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "QUDeval",
+          "item": "https://yatingwu.info/qudeval/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="../research/project.css?v=20260906c"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
+</head><body class="project-page" style="--accent:#176964;--tint:#eaf5f3">
+<a class="skip-link" href="#main">Skip to content</a><nav class="site-nav" aria-label="Main"><div class="shell nav-inner"><a href="../" class="wordmark">Yating Wu</a><div class="nav-links"><a href="../research/">Research projects</a><a href="../#publications">Publications</a></div></div></nav>
+<main id="main" class="shell">
+<header class="hero"><div class="paper-heading"><p class="eyebrow">EMNLP</p><p class="paper-year">2023</p></div><h1>QUDeval</h1>
+<p class="paper-title">QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing</p>
+<div class="paper-details"><p class="authors"><a href="../">Yating Wu</a>, Ritika Mangla, Greg Durrett, Junyi Jessy Li</p><p class="venue">Conference on Empirical Methods in Natural Language Processing (EMNLP) · 2023 · Oral presentation</p>
+
+</div><div class="actions"><a href="https://aclanthology.org/2023.emnlp-main.325/" class="action primary">paper</a><a href="https://github.com/lingchensanwen/QUDeval" class="action">Code and data</a><a href="#citation" class="action">BibTeX</a></div></header>
+<div class="page-grid"><aside class="toc" aria-label="On this page"><a href="#overview">Overview</a><a href="#example">Example</a><a href="#resources">Annotations</a><a href="#related">Related projects</a><a href="#citation">Citation</a></aside><div class="content">
+<section id="overview"><div class="section-heading"><h2>Overview</h2></div><div class="study-copy"><p>A fluent question can still be wrong for its context. QUDeval assesses each question against its anchor, answer sentence, and preceding text, using four criteria: language quality, answer compatibility, question givenness, and anchor relevance.</p><p>The corpus contains human judgments of 2,040 system-generated questions and 150 crowdsourced questions. The evaluated parsers often satisfy language quality while violating other constraints; automatic metrics do not reliably reproduce the human judgments.</p></div><p class="source"><a href="https://aclanthology.org/2023.emnlp-main.325/">Paper</a></p></section>
+<section id="example" class="example-section"><div class="section-heading"><h2>When a question borrows from its answer</h2></div><p class="example-intro">The questions below are meant to be answered by sentence 7, which introduces restrictions on nuclear exports. The preceding sentences describe accumulated nuclear material and export licenses.</p><div class="example-layout layout-evaluation"><article class="example-item role-error"><div class="item-label"><h3>ChatGPT · Anchor: sentence 5</h3></div><blockquote cite="https://aclanthology.org/2023.emnlp-main.325.pdf#page=6">What are the restrictions on nuclear exports and <mark>transfer of nuclear materials to a third country</mark>?</blockquote><p class="example-note">The marked detail appears only in the answer sentence. The anchor discusses accumulated nuclear material and does not raise this question.</p></article><article class="example-item role-reference"><div class="item-label"><h3>Human DCQA annotation · Anchor: sentence 6</h3></div><blockquote cite="https://aclanthology.org/2023.emnlp-main.325.pdf#page=6">What restrictions exist on nuclear material exports?</blockquote><p class="example-note">The question follows the discussion of export licenses without introducing the later restriction.</p></article></div><div class="source-note"><span>Source</span><p><a href="https://aclanthology.org/2023.emnlp-main.325.pdf#page=6">Figure 3, page 6</a>. Questions, anchors, and error annotations from Figure 3; explanations paraphrased.</p></div></section>
+<section id="resources"><div class="section-heading"><h2>Human annotations</h2></div><div class="usage-notes usage-reference has-code">
+<p class="usage-intro">The CSV contains 2,190 questions and their human judgments. The source articles are linked separately in the data README.</p>
+<div class="usage-layout"><div class="usage-copy">
+<dl class="usage-facts">
+<div><dt>Question</dt><dd><code>questions</code> contains the text; <code>system</code> records where it came from.</dd></div>
+<div><dt>Context</dt><dd><code>essay_id</code>, <code>anchor_id</code>, and <code>answer_id</code> locate the article and the two sentences needed to evaluate the question.</dd></div>
+<div><dt>Judgments</dt><dd><code>criteria1</code> through <code>criteria4</code> contain the annotations. Label definitions are in the paper.</dd></div>
+</dl>
+</div>
+<div class="usage-examples">
+<details class="usage-code" open><summary><span>Read the CSV</span><span class="code-language">Python</span></summary>
+<p class="usage-code-note">Requires pandas.</p>
+<pre><code class="language-python"><span class="syntax-keyword">import</span> pandas <span class="syntax-keyword">as</span> pd
+
+revision = <span class="syntax-string">&quot;62eeb3df2ee3e382c878eb0eb92fecd2c1fe6d04&quot;</span>
+url = (
+    <span class="syntax-string">&quot;https://raw.githubusercontent.com/lingchensanwen/QUDeval/&quot;</span>
+    f&quot;{revision}/data/data-collection.csv&quot;
+)
+annotations = pd.read_csv(url, index_col=<span class="syntax-number">0</span>)
+columns = [<span class="syntax-string">&quot;essay_id&quot;</span>, <span class="syntax-string">&quot;anchor_id&quot;</span>, <span class="syntax-string">&quot;answer_id&quot;</span>, <span class="syntax-string">&quot;questions&quot;</span>, <span class="syntax-string">&quot;system&quot;</span>]
+print(annotations[columns].head())</code></pre>
+</details>
+</div>
+</div>
+<details class="usage-caveat"><summary>Data version</summary>
+<p>Some judgments were revised after submission to resolve annotator disagreement. The example uses a fixed data revision so the results can be checked.</p>
+</details>
+<div class="usage-sources"><span>Source</span><p><a href="https://github.com/lingchensanwen/QUDeval/blob/62eeb3df2ee3e382c878eb0eb92fecd2c1fe6d04/data/README.md">Data and revision note</a> · <a href="https://aclanthology.org/2023.emnlp-main.325.pdf#page=3">Evaluation protocol</a></p></div></div><dl class="resource-list"><div class="resource-row"><dt><a href="https://github.com/lingchensanwen/QUDeval/tree/main/data">Annotated data</a></dt><dd>Questions and human judgments.</dd></div><div class="resource-row"><dt><a href="https://github.com/lingchensanwen/QUDeval/tree/main/code">Evaluation code</a></dt><dd>Automatic evaluation scripts.</dd></div></dl></section>
+<section id="related"><div class="section-heading"><h2>Related projects</h2></div><div class="related"><article><h3><a href="../qud-parsing/">QUD dependency parsing</a></h3><p>We train a parser on DCQA to connect sentences through the implicit questions they answer. The resulting QUD dependency structures describe how a document develops its content.</p></article><article><h3><a href="../qsalience/">QSalience</a></h3><p>QSalience predicts how much answering a reader’s question would help them understand a text. It is trained on 1,766 context–question pairs annotated for salience.</p></article><article><h3><a href="../qudsim/">QUDsim</a></h3><p>QUDsim measures similarities in discourse structure between documents. We find that LLMs reuse these structures across texts, even when the topics differ.</p></article></div></section>
+<section id="citation"><div class="section-heading"><h2>Citation</h2></div><div class="citation-actions"><a class="action" href="citation.bib" download>Download BibTeX</a><button class="action" type="button" data-copy-citation="bibtex" aria-describedby="copy-status" hidden>Copy BibTeX</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></div><details class="bibtex-disclosure"><summary>View BibTeX</summary><pre><code id="bibtex">@inproceedings{qudeval2023,
+  title={{QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing}},
+  author={Wu, Yating and Mangla, Ritika and Durrett, Greg and Li, Junyi Jessy},
+  year={2023},
+  booktitle={Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing},
+  doi={10.18653/v1/2023.emnlp-main.325},
+  pages={5344--5363},
+  url={https://aclanthology.org/2023.emnlp-main.325/},
+  publisher={Association for Computational Linguistics}
+}</code></pre></details></section>
+</div></div></main><footer class="site-footer"><div class="shell"><a href="../">Yating Wu</a> · <a href="../research/">All research projects</a> · <a href="../publications.bib">Bibliography</a></div></footer></body></html>

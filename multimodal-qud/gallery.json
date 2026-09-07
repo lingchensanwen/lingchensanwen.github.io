@@ -1,0 +1,35 @@
+[
+  {
+    "id": 34,
+    "paper": "2108.07344v2",
+    "title": "IsoScore: Measuring the Uniformity of Embedding Space Utilization",
+    "figure": 3,
+    "image": "images/ex34_spec.png",
+    "alt": "Three two-dimensional point clouds, from a roughly circular cloud on the left to an increasingly narrow ellipse on the right.",
+    "caption": "IsoScore, Figure 3. Gaussian samples with covariance diag(x, 1), where x = 1, 3, and 75 from left to right.",
+    "context": "The three point clouds occupy the same two-dimensional space. Their shapes differ because variance becomes increasingly concentrated along one axis.",
+    "question": "What are the implications of the middle panel's shape on dimensional utilization?",
+    "answer": "The middle cloud uses about 1.61 dimensions under the paper’s dimension-use heuristic. It spreads along both axes, but unequally. This estimate describes how uniformly the space is used; the ambient space is still two-dimensional.",
+    "evidence_summary": "Section 4.2 interprets the middle case as using between one and two dimensions. The estimate comes from the paper’s definition of dimension use.",
+    "source_url": "https://arxiv.org/html/2108.07344v2#S4.SS2",
+    "source_label": "Rudman et al. (2022), Figure 3 and Section 4.2",
+    "provenance": "Question from this site’s MQUD example 34. Caption, context, and explanation adapted from the IsoScore paper.",
+    "dimension_rows": [
+      {
+        "panel": "Left",
+        "x": "1",
+        "dimensions": "1.9996"
+      },
+      {
+        "panel": "Middle",
+        "x": "3",
+        "dimensions": "1.6105"
+      },
+      {
+        "panel": "Right",
+        "x": "75",
+        "dimensions": "1.0281"
+      }
+    ]
+  }
+]

@@ -1,0 +1,458 @@
+[
+  {
+    "id": "mqud",
+    "title": "Multimodal QUD: Inquisitive Questions from Scientific Figures",
+    "short": "MQUD",
+    "authors": [
+      "Yating Wu",
+      "William Rudman",
+      "Venkata S Govindarajan",
+      "Alexandros G. Dimakis",
+      "Junyi Jessy Li"
+    ],
+    "year": 2026,
+    "venue": "Preprint",
+    "url": "https://arxiv.org/abs/2604.23733",
+    "arxiv": "2604.23733",
+    "summary": "MQUD contains 1,250 questions evoked by scientific figures, including 708 annotated by the papers’ original authors. We use it to study whether vision-language models can ask questions about a figure’s role in a paper.",
+    "resources": [
+      [
+        "project website",
+        "./multimodal-qud/"
+      ],
+      [
+        "dataset",
+        "https://huggingface.co/datasets/lingchensanwen/mqud"
+      ]
+    ],
+    "path": "multimodal-qud",
+    "page_url": "https://yatingwu.info/multimodal-qud/",
+    "topic": "Scientific figures and multimodal reasoning",
+    "description": "MQUD: 1,250 questions evoked by scientific figures, with author annotations and answers from the papers. A benchmark for multimodal question generation.",
+    "related": [
+      "qsalience",
+      "qudeval",
+      "qud-parsing"
+    ],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.23733",
+      "https://huggingface.co/datasets/lingchensanwen/mqud"
+    ]
+  },
+  {
+    "id": "contextweaver",
+    "title": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents",
+    "short": "ContextWeaver",
+    "authors": [
+      "Yating Wu",
+      "Yuhao Zhang",
+      "Sayan Ghosh",
+      "Sourya Basu",
+      "Anoop Deoras",
+      "Jun Huan",
+      "Gaurav Gupta"
+    ],
+    "year": 2026,
+    "venue": "Preprint",
+    "url": "https://arxiv.org/abs/2604.23069",
+    "arxiv": "2604.23069",
+    "summary": "ContextWeaver links an agent’s reasoning steps to the earlier steps they depend on. It uses these dependencies to select and summarize context for subsequent actions.",
+    "resources": [],
+    "path": "contextweaver",
+    "page_url": "https://yatingwu.info/contextweaver/",
+    "topic": "Memory for LLM agents",
+    "accent": "#275d77",
+    "tint": "#edf4f8",
+    "description": "ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on SWE-bench Verified and Lite.",
+    "overview": [
+      "A coding agent may need an observation made many steps earlier. ContextWeaver links each step to the observations and decisions it depends on, then uses those links to choose what to keep in the next context. Execution feedback tracks steps that have failed or been superseded.",
+      "On SWE-bench Verified and Lite, Claude Sonnet 4 improves over a sliding window. The model building the memory matters: GPT-5 benefits when Claude Sonnet 4 constructs its dependency graph."
+    ],
+    "resources_detail": [
+      [
+        "Preprint",
+        "https://arxiv.org/html/2604.23069v1",
+        "Method, experiments, ablations, and case studies."
+      ]
+    ],
+    "related": [],
+    "source_urls": [
+      "https://arxiv.org/abs/2604.23069",
+      "https://arxiv.org/html/2604.23069v1"
+    ],
+    "overview_source": "https://arxiv.org/html/2604.23069v1",
+    "deck": "Memory for coding agents, organized around the dependencies between their actions.",
+    "venue_short": "Preprint"
+  },
+  {
+    "id": "qudsim",
+    "title": "QUDsim: Quantifying Discourse Similarities in LLM-Generated Text",
+    "short": "QUDsim",
+    "authors": [
+      "Ramya Namuduri",
+      "Yating Wu",
+      "Anshun Asher Zheng",
+      "Manya Wadhwa",
+      "Greg Durrett",
+      "Junyi Jessy Li"
+    ],
+    "year": 2025,
+    "venue": "Conference on Language Modeling (COLM)",
+    "booktitle": "Second Conference on Language Modeling",
+    "url": "https://openreview.net/forum?id=zFz1BJu211",
+    "arxiv": "2504.09373",
+    "summary": "QUDsim measures similarities in discourse structure between documents. We find that LLMs reuse these structures across texts, even when the topics differ.",
+    "resources": [
+      [
+        "code and data",
+        "https://github.com/AlliteraryAlligator/QUDsim"
+      ]
+    ],
+    "path": "qudsim",
+    "page_url": "https://yatingwu.info/qudsim/",
+    "topic": "Evaluation of generated text",
+    "accent": "#4c538a",
+    "tint": "#f0f1f8",
+    "description": "QUDsim uses Questions Under Discussion to measure discourse similarity and study structural repetition in LLM-generated text. COLM 2025.",
+    "overview": [
+      "Two texts can develop their ideas in similar ways while discussing different subjects. QUDsim compares them through the questions their passages answer, measuring answerability in both directions.",
+      "We find more repetition in the discourse structures of LLM writing than in human writing. The questions make it possible to inspect which passages share a discourse role."
+    ],
+    "resources_detail": [
+      [
+        "Demo notebook",
+        "https://github.com/AlliteraryAlligator/QUDsim/blob/main/demo.ipynb",
+        "Compare a pair of documents."
+      ],
+      [
+        "Setup and input format",
+        "https://github.com/AlliteraryAlligator/QUDsim#installationsetup",
+        "Dependencies, API setup, and input format."
+      ],
+      [
+        "Data and annotations",
+        "https://github.com/AlliteraryAlligator/QUDsim#dataset",
+        "QUDs, human alignments, and published scores."
+      ]
+    ],
+    "related": [
+      "qudeval",
+      "qud-parsing"
+    ],
+    "source_urls": [
+      "https://openreview.net/forum?id=zFz1BJu211",
+      "https://github.com/AlliteraryAlligator/QUDsim",
+      "https://arxiv.org/abs/2504.09373v2"
+    ],
+    "overview_source": "https://arxiv.org/abs/2504.09373v2",
+    "deck": "Measuring repetition in how texts develop their ideas.",
+    "venue_short": "COLM"
+  },
+  {
+    "id": "qsalience",
+    "title": "Which questions should I answer? Salience Prediction of Inquisitive Questions",
+    "short": "QSalience",
+    "authors": [
+      "Yating Wu",
+      "Ritika Mangla",
+      "Alexandros G. Dimakis",
+      "Greg Durrett",
+      "Junyi Jessy Li"
+    ],
+    "equal": [
+      0,
+      1
+    ],
+    "year": 2024,
+    "venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    "booktitle": "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    "url": "https://aclanthology.org/2024.emnlp-main.1114/",
+    "doi": "10.18653/v1/2024.emnlp-main.1114",
+    "pages": "19969--19987",
+    "arxiv": "2404.10917",
+    "oral": true,
+    "award": true,
+    "summary": "QSalience predicts how much answering a reader’s question would help them understand a text. It is trained on 1,766 context–question pairs annotated for salience.",
+    "resources": [
+      [
+        "code and data",
+        "https://github.com/ritikamangla/QSalience"
+      ]
+    ],
+    "path": "qsalience",
+    "page_url": "https://yatingwu.info/qsalience/",
+    "topic": "Discourse and reader questions",
+    "accent": "#9a471d",
+    "tint": "#faf0e9",
+    "description": "QSalience predicts the salience of inquisitive questions from 1,766 annotated context–question pairs. EMNLP 2024 Outstanding Paper Award.",
+    "overview": [
+      "We rate questions by how much their answers would help a reader understand the preceding text. QSalience learns these judgments from 1,766 context–question pairs annotated by linguists.",
+      "More salient questions are more likely to be answered later in the article. In a summary-expansion experiment, readers also prefer summaries that answer more salient questions."
+    ],
+    "resources_detail": [
+      [
+        "Dataset",
+        "https://github.com/ritikamangla/QSalience#data-availability",
+        "Salience annotations and data splits."
+      ],
+      [
+        "Code and Colab",
+        "https://github.com/ritikamangla/QSalience#installation-and-usage",
+        "Setup instructions and example notebook."
+      ],
+      [
+        "Models",
+        "https://github.com/ritikamangla/QSalience#models",
+        "Mistral, Llama 2, T5, and TinyLlama checkpoints."
+      ]
+    ],
+    "related": [
+      "qudeval",
+      "mqud",
+      "elabqud"
+    ],
+    "source_urls": [
+      "https://aclanthology.org/2024.emnlp-main.1114/",
+      "https://github.com/ritikamangla/QSalience"
+    ],
+    "overview_source": "https://aclanthology.org/2024.emnlp-main.1114/",
+    "deck": "Predicting which questions would most help a reader understand a text.",
+    "venue_short": "EMNLP"
+  },
+  {
+    "id": "qudeval",
+    "title": "QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing",
+    "short": "QUDeval",
+    "authors": [
+      "Yating Wu",
+      "Ritika Mangla",
+      "Greg Durrett",
+      "Junyi Jessy Li"
+    ],
+    "year": 2023,
+    "venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    "booktitle": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    "url": "https://aclanthology.org/2023.emnlp-main.325/",
+    "doi": "10.18653/v1/2023.emnlp-main.325",
+    "pages": "5344--5363",
+    "arxiv": "2310.14520",
+    "oral": true,
+    "summary": "QUDeval assesses generated discourse questions against four linguistic criteria, using human annotations to evaluate both parsers and automatic metrics.",
+    "resources": [
+      [
+        "code and data",
+        "https://github.com/lingchensanwen/QUDeval"
+      ]
+    ],
+    "path": "qudeval",
+    "page_url": "https://yatingwu.info/qudeval/",
+    "topic": "Discourse and reader questions",
+    "accent": "#176964",
+    "tint": "#eaf5f3",
+    "description": "QUDeval provides an evaluation protocol and human judgments of 2,190 discourse questions for assessing QUD parsing. EMNLP 2023.",
+    "overview": [
+      "A fluent question can still be wrong for its context. QUDeval assesses each question against its anchor, answer sentence, and preceding text, using four criteria: language quality, answer compatibility, question givenness, and anchor relevance.",
+      "The corpus contains human judgments of 2,040 system-generated questions and 150 crowdsourced questions. The evaluated parsers often satisfy language quality while violating other constraints; automatic metrics do not reliably reproduce the human judgments."
+    ],
+    "resources_detail": [
+      [
+        "Annotated data",
+        "https://github.com/lingchensanwen/QUDeval/tree/main/data",
+        "Questions and human judgments."
+      ],
+      [
+        "Evaluation code",
+        "https://github.com/lingchensanwen/QUDeval/tree/main/code",
+        "Automatic evaluation scripts."
+      ]
+    ],
+    "related": [
+      "qud-parsing",
+      "qsalience",
+      "qudsim"
+    ],
+    "source_urls": [
+      "https://aclanthology.org/2023.emnlp-main.325/",
+      "https://github.com/lingchensanwen/QUDeval"
+    ],
+    "overview_source": "https://aclanthology.org/2023.emnlp-main.325/",
+    "deck": "Evaluating whether generated questions fit the discourse in which they arise.",
+    "venue_short": "EMNLP"
+  },
+  {
+    "id": "elabqud",
+    "title": "Elaborative Simplification as Implicit Questions Under Discussion",
+    "short": "ElabQUD",
+    "authors": [
+      "Yating Wu",
+      "William Sheffield",
+      "Kyle Mahowald",
+      "Junyi Jessy Li"
+    ],
+    "equal": [
+      0,
+      1
+    ],
+    "year": 2023,
+    "venue": "Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    "booktitle": "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
+    "url": "https://aclanthology.org/2023.emnlp-main.336/",
+    "doi": "10.18653/v1/2023.emnlp-main.336",
+    "pages": "5525--5537",
+    "arxiv": "2305.10387",
+    "summary": "ElabQUD pairs about 1,300 elaborations in simplified text with the implicit questions they answer. Modeling these questions improves elaboration generation.",
+    "resources": [
+      [
+        "code and data",
+        "https://github.com/sheffwb/elabQUD"
+      ]
+    ],
+    "path": "elabqud",
+    "page_url": "https://yatingwu.info/elabqud/",
+    "topic": "Discourse and reader questions",
+    "accent": "#316844",
+    "tint": "#edf5ef",
+    "description": "ElabQUD studies information added during text simplification through implicit Questions Under Discussion, with about 1,300 annotated elaborations.",
+    "overview": [
+      "Editors sometimes add an explanation when simplifying an article. ElabQUD asks which implicit question that explanation answers, and which earlier words prompted it. The dataset covers 1,299 elaborations in simplified news articles.",
+      "We use these annotations to study what editors explain. We also generate elaborations in two stages: first a question, then its answer. This improves the generated explanations in our experiments."
+    ],
+    "resources_detail": [
+      [
+        "ElabQUD data",
+        "https://github.com/sheffwb/elabQUD#data",
+        "Questions and targets for the Srikanth and Li (2021) data."
+      ],
+      [
+        "Code",
+        "https://github.com/sheffwb/elabQUD#code",
+        "Processing and experiment scripts; marked work in progress."
+      ]
+    ],
+    "related": [
+      "qsalience",
+      "qud-parsing"
+    ],
+    "source_urls": [
+      "https://aclanthology.org/2023.emnlp-main.336/",
+      "https://github.com/sheffwb/elabQUD"
+    ],
+    "overview_source": "https://aclanthology.org/2023.emnlp-main.336/",
+    "deck": "Understanding added explanations through the questions they answer.",
+    "venue_short": "EMNLP"
+  },
+  {
+    "id": "qud-parsing",
+    "title": "Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion",
+    "short": "QUD dependency parsing",
+    "authors": [
+      "Wei-Jen Ko",
+      "Yating Wu",
+      "Cutter Dalton",
+      "Dananjay Srinivas",
+      "Greg Durrett",
+      "Junyi Jessy Li"
+    ],
+    "year": 2023,
+    "venue": "Findings of the Association for Computational Linguistics (ACL)",
+    "booktitle": "Findings of the Association for Computational Linguistics: ACL 2023",
+    "url": "https://aclanthology.org/2023.findings-acl.710/",
+    "doi": "10.18653/v1/2023.findings-acl.710",
+    "pages": "11181--11195",
+    "arxiv": "2210.05905",
+    "summary": "We train a parser on DCQA to connect sentences through the implicit questions they answer. The resulting QUD dependency structures describe how a document develops its content.",
+    "resources": [
+      [
+        "code",
+        "https://github.com/lingchensanwen/DCQA-QUD-parsing"
+      ]
+    ],
+    "path": "qud-parsing",
+    "page_url": "https://yatingwu.info/qud-parsing/",
+    "topic": "Discourse and reader questions",
+    "accent": "#355a86",
+    "tint": "#edf2f8",
+    "description": "A QUD dependency parser trained on DCQA, representing discourse relations through questions and answers. Findings of ACL 2023.",
+    "overview": [
+      "The parser treats each sentence as an answer to a question raised earlier in the document. It predicts an earlier anchor and generates the question that connects them. Training uses DCQA, the crowdsourced dataset introduced by Ko et al. (2022).",
+      "We evaluate the questions with human readers, compare the resulting dependencies with Rhetorical Structure Theory trees, and use the parses to examine how simplified news articles add and reorganize information."
+    ],
+    "resources_detail": [
+      [
+        "Parser code",
+        "https://github.com/lingchensanwen/DCQA-QUD-parsing#introduction",
+        "Anchor prediction, question generation, and reranking."
+      ],
+      [
+        "Models and setup",
+        "https://github.com/lingchensanwen/DCQA-QUD-parsing#prepare-requirements-and-download-models",
+        "Checkpoints and the original environment."
+      ],
+      [
+        "Colab",
+        "https://github.com/lingchensanwen/DCQA-QUD-parsing#quick-setup",
+        "Run the pipeline in a notebook."
+      ]
+    ],
+    "related": [
+      "qudeval",
+      "elabqud"
+    ],
+    "source_urls": [
+      "https://aclanthology.org/2023.findings-acl.710/",
+      "https://github.com/lingchensanwen/DCQA-QUD-parsing"
+    ],
+    "overview_source": "https://aclanthology.org/2023.findings-acl.710/",
+    "deck": "A discourse parser whose dependency labels are questions.",
+    "venue_short": "Findings of ACL"
+  },
+  {
+    "id": "bilingual-disfluencies",
+    "title": "Modeling Bilingual Disfluencies with Large Language Models",
+    "short": "Bilingual disfluencies",
+    "authors": [
+      "Negin Raoof",
+      "Yating Wu",
+      "Carlos Bonilla",
+      "Junyi Jessy Li",
+      "Stephanie M Grasso",
+      "Alexandros G. Dimakis",
+      "Zoi Gkalitsiou"
+    ],
+    "equal": [
+      0,
+      1,
+      2
+    ],
+    "year": 2024,
+    "venue": "ICML Workshop on LLMs and Cognition",
+    "booktitle": "ICML 2024 Workshop on LLMs and Cognition",
+    "url": "https://openreview.net/forum?id=rrNAqNYRLA",
+    "summary": "We use language model surprisal and linguistic features to predict disfluencies in monolingual and bilingual speech, and compare the patterns associated with each group.",
+    "resources": [],
+    "path": "bilingual-disfluencies",
+    "page_url": "https://yatingwu.info/bilingual-disfluencies/",
+    "topic": "Speech and language processing",
+    "accent": "#744c73",
+    "tint": "#f6eff6",
+    "description": "A study of language model surprisal and linguistic predictors of monolingual and bilingual speech disfluencies. ICML 2024 Workshop on LLMs and Cognition.",
+    "overview": [
+      "We study which properties of words predict disfluencies in monolingual and bilingual speech. Separate models combine linguistic features with GPT-2 surprisal, a measure of how unexpected a word is in its preceding context.",
+      "Higher surprisal is associated with disfluencies in both groups. Other predictors differ, including word frequency and phonological neighborhood density. We examine words on both sides of each disfluency."
+    ],
+    "resources_detail": [
+      [
+        "PDF",
+        "https://openreview.net/pdf?id=rrNAqNYRLA",
+        "Features, models, and results."
+      ]
+    ],
+    "related": [],
+    "source_urls": [
+      "https://openreview.net/forum?id=rrNAqNYRLA"
+    ],
+    "overview_source": "https://openreview.net/forum?id=rrNAqNYRLA",
+    "deck": "Word predictability and linguistic features in monolingual and bilingual speech.",
+    "venue_short": "ICML · LLMs and Cognition Workshop"
+  }
+]

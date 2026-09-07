@@ -4,7 +4,70 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Multimodal QUD — Inquisitive Questions from Scientific Figures</title>
+        <meta name="description" content="MQUD: 1,250 questions evoked by scientific figures, with author annotations and answers from the papers. A benchmark for multimodal question generation.">
+        <link rel="canonical" href="https://yatingwu.info/multimodal-qud/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Multimodal QUD: Inquisitive Questions from Scientific Figures">
+        <meta property="og:description" content="MQUD: 1,250 questions evoked by scientific figures, with author annotations and answers from the papers. A benchmark for multimodal question generation.">
+        <meta property="og:url" content="https://yatingwu.info/multimodal-qud/">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Multimodal QUD: Inquisitive Questions from Scientific Figures">
+        <meta name="twitter:description" content="MQUD: 1,250 questions evoked by scientific figures, with author annotations and answers from the papers. A benchmark for multimodal question generation.">
+        <meta name="citation_title" content="Multimodal QUD: Inquisitive Questions from Scientific Figures">
+        <meta name="citation_author" content="Yating Wu">
+        <meta name="citation_author" content="William Rudman">
+        <meta name="citation_author" content="Venkata S Govindarajan">
+        <meta name="citation_author" content="Alexandros G. Dimakis">
+        <meta name="citation_author" content="Junyi Jessy Li">
+        <meta name="citation_publication_date" content="2026/04/26">
+        <meta name="citation_arxiv_id" content="2604.23733">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "@id": "https://yatingwu.info/multimodal-qud/#paper",
+  "name": "Multimodal QUD: Inquisitive Questions from Scientific Figures",
+  "url": "https://yatingwu.info/multimodal-qud/",
+  "sameAs": "https://arxiv.org/abs/2604.23733",
+  "identifier": "arXiv:2604.23733",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yating Wu",
+      "@id": "https://yatingwu.info/#yating-wu",
+      "url": "https://yatingwu.info/"
+    },
+    {
+      "@type": "Person",
+      "name": "William Rudman"
+    },
+    {
+      "@type": "Person",
+      "name": "Venkata S Govindarajan"
+    },
+    {
+      "@type": "Person",
+      "name": "Alexandros G. Dimakis"
+    },
+    {
+      "@type": "Person",
+      "name": "Junyi Jessy Li"
+    }
+  ],
+  "datePublished": "2026-04-26",
+  "creativeWorkStatus": "Preprint",
+  "inLanguage": "en",
+  "description": "MQUD: 1,250 questions evoked by scientific figures, with author annotations and answers from the papers. A benchmark for multimodal question generation.",
+  "encoding": {
+    "@type": "MediaObject",
+    "contentUrl": "https://arxiv.org/pdf/2604.23733",
+    "encodingFormat": "application/pdf"
+  }
+}
+</script>
 <link rel="stylesheet" href="style.css?v=20260503a">
+<link rel="stylesheet" href="refinement.css?v=20260906c">
+  <link rel="stylesheet" href="../research/usage.css?v=20260906c">
 </head>
 <body>
 <nav class="topbar">
@@ -13,6 +76,7 @@
       <img class="brand-mark" src="images/mqud_project_mark.png" alt="" aria-hidden="true">
       <span>Multimodal QUD</span>
     </a>
+    <a href="../research/">All research</a>
   </div>
 </nav>
 
@@ -24,44 +88,27 @@
           <img class="hero-mark" src="images/mqud_project_mark.png" alt="" aria-hidden="true">
           <h1>Multimodal QUD: Inquisitive Questions from Scientific Figures</h1>
         </div>
+        <p class="sub"><a href="../">Yating Wu</a>, William Rudman, Venkata S Govindarajan, Alexandros G. Dimakis, and Junyi Jessy Li · 2026 preprint</p>
         <p class="sub">
-          A dataset and benchmark for questions that arise from figure-text interaction
-          in scientific papers and require reasoning across both modalities.
+          A dataset of 1,250 questions evoked by scientific figures, with answers from the papers.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="https://arxiv.org/abs/2604.23733" target="_blank" rel="noopener">arXiv paper</a>
-          <a class="button ghost" href="#overview">Overview</a>
+          <a class="button primary" href="https://arxiv.org/abs/2604.23733" target="_blank" rel="noopener">paper</a>
+          <a class="button ghost" href="https://huggingface.co/datasets/lingchensanwen/mqud" target="_blank" rel="noopener">Dataset</a>
+          <a class="button ghost" href="#resources">Citation</a>
           <a class="button ghost" href="#gallery">Examples</a>
         </div>
-        <p class="release-note">Paper and data are available; code and model release links will be added when available.</p>
       </div>
 
-      <div class="overview-board" aria-label="Example scientific figures and Multimodal QUD questions">
-        <figure class="board-card wide">
+      <div class="overview-board" aria-label="IsoScore example">
+        <figure class="board-card" style="grid-column:1 / -1">
           <div class="board-image">
-            <img src="images/ex423_strawberry_attention_map_2.png" alt="Attention map scientific figure">
+            <img src="images/ex34_spec.png" alt="Three point clouds with increasingly uneven variance across two dimensions">
           </div>
           <figcaption class="board-question">
-            <span>MQUD question</span>
-            <q>Why does the attention shift from the text to the image after the intervention?</q>
-          </figcaption>
-        </figure>
-        <figure class="board-card">
-          <div class="board-image">
-            <img src="images/ex506_disease_rank_demographic.png" alt="Disease ranking figure">
-          </div>
-          <figcaption class="board-question">
-            <span>MQUD question</span>
-            <q>Why do Llama3's logits show a different pattern from real-world disease prevalence?</q>
-          </figcaption>
-        </figure>
-        <figure class="board-card">
-          <div class="board-image">
-            <img src="images/ex34_spec.png" alt="Embedding utilization figure">
-          </div>
-          <figcaption class="board-question">
-            <span>MQUD question</span>
+            <span>MQUD question · IsoScore, Figure 3</span>
             <q>What are the implications of the middle panel's shape on dimensional utilization?</q>
+            <a href="#example-34">Read the example and explanation</a>
           </figcaption>
         </figure>
       </div>
@@ -74,31 +121,37 @@
     <div class="intro-top">
       <div>
         <p class="section-kicker">Overview</p>
-        <h2>Existing figure QA often asks what is directly visible. Multimodal QUD asks what scientific readers wonder next.</h2>
+        <h2>Questions evoked by scientific figures</h2>
       </div>
-      <div id="meta" class="meta"></div>
     </div>
     <p>
-      Existing scientific figure QA benchmarks often focus on extracting visible information:
-      labels, values, captions, or direct visual comparisons. Multimodal QUD instead targets
-      questions raised by figure-text interaction, including mechanisms, evidence, implications,
-      and the role a figure plays in the paper's argument.
+      A figure in a scientific paper can raise questions that its caption and the preceding text
+      have not yet answered. We extend Questions Under Discussion (QUD) to study these questions
+      and how they connect a figure to the paper’s argument.
     </p>
+    <p>
+      We introduce MQUD, a dataset of <strong>1,250 questions from 56 scientific papers</strong>,
+      including <strong>708 questions annotated by the papers’ original authors</strong>.
+      The questions concern visual observations whose scientific relevance is explained later
+      in the paper. Each is paired with an answer and supporting text.
+    </p>
+    <p>We ask models to generate questions with three properties, defined in the
+      <a href="https://arxiv.org/abs/2604.23733v3">paper</a>:</p>
     <div class="promise-grid">
       <article>
-        <span>Input</span>
-        <strong>Figure plus paper context</strong>
-        <p>Questions are conditioned on the title, abstract, figure, caption, and surrounding paper passages.</p>
+        <span>01</span>
+        <strong>Inquisitive</strong>
+        <p>The question is not already resolved by the preceding context.</p>
       </article>
       <article>
-        <span>Target</span>
-        <strong>Researcher-like curiosity</strong>
-        <p>The task captures open-ended questions that emerge when visual patterns interact with a paper's claims.</p>
+        <span>02</span>
+        <strong>Salient</strong>
+        <p>It concerns the paper’s research claims and is addressed later in the paper.</p>
       </article>
       <article>
-        <span>Grounding</span>
-        <strong>Answer traces</strong>
-        <p>Each example pairs the visible figure with answer evidence from the surrounding paper context.</p>
+        <span>03</span>
+        <strong>Visually grounded</strong>
+        <p>It arises from an observation in the figure.</p>
       </article>
     </div>
   </section>
@@ -106,8 +159,8 @@
   <section class="question-band">
     <div>
       <p class="section-kicker">Representative questions</p>
-      <h2>From extracting answers to asking why</h2>
-      <p class="band-note">Representative questions show how MQUD moves beyond reading off values or best-performing methods toward explaining why a figure pattern matters.</p>
+      <h2>Questions from figure QA benchmarks</h2>
+      <p class="band-note">These examples illustrate the kinds of questions in ChartQA, SPIQA, and MQUD.</p>
     </div>
     <ul class="compare-list">
       <li>
@@ -123,36 +176,94 @@
       <li>
         <span class="src">Multimodal QUD</span>
         <span class="contrast-type">figure-text inquiry</span>
-        <q>Why does the attention shift from text to image after the intervention?</q>
+        <q>What are the implications of the middle panel’s shape on dimensional utilization?</q>
       </li>
     </ul>
   </section>
 
-  <section class="toolbar" aria-label="Example filters">
+  <section class="toolbar" aria-label="Example walkthrough">
     <div>
-      <p class="section-kicker">Example gallery</p>
-      <h2>Filter the sample gallery</h2>
+      <p class="section-kicker">Worked example</p>
+      <h2>Reading the IsoScore figure</h2>
     </div>
-    <div id="filters" class="filters"></div>
+
   </section>
 
-  <section id="gallery"></section>
+  <section id="gallery">
+<!-- MQUD_STATIC_GALLERY_START -->
+<details class="card" id="example-34" open>
+<summary class="card-summary"><div class="summary-meta"><span class="example-num">Example 1</span><span class="paper-id">2108.07344v2</span></div><h2 class="summary-title">IsoScore: Measuring the Uniformity of Embedding Space Utilization</h2><p class="summary-q">What are the implications of the middle panel&#x27;s shape on dimensional utilization?</p><span class="expand-hint" aria-hidden="true">⌄</span></summary>
+<div class="card-body"><section class="panel panel-trigger"><h3 class="panel-title">Figure and context</h3><p>The three point clouds occupy the same two-dimensional space. Their shapes differ because variance becomes increasingly concentrated along one axis.</p><div class="figure"><img src="images/ex34_spec.png" alt="Three two-dimensional point clouds, from a roughly circular cloud on the left to an increasingly narrow ellipse on the right." loading="lazy"><p class="caption">IsoScore, Figure 3. Gaussian samples with covariance diag(x, 1), where x = 1, 3, and 75 from left to right.</p></div></section>
+<section class="panel panel-question"><h3 class="panel-title">Question</h3><blockquote class="question-box">What are the implications of the middle panel&#x27;s shape on dimensional utilization?</blockquote></section>
+<section class="panel panel-answer"><h3 class="panel-title">Interpretation</h3><div class="answer-box">The middle cloud uses about 1.61 dimensions under the paper’s dimension-use heuristic. It spreads along both axes, but unequally. This estimate describes how uniformly the space is used; the ambient space is still two-dimensional.</div><div class="dimension-table"><table><caption>Dimension-use estimates reported in the paper</caption><thead><tr><th scope="col">Panel</th><th scope="col">x</th><th scope="col">Dimensions used</th></tr></thead><tbody><tr><th scope="row">Left</th><td>1</td><td>1.9996</td></tr><tr><th scope="row">Middle</th><td>3</td><td>1.6105</td></tr><tr><th scope="row">Right</th><td>75</td><td>1.0281</td></tr></tbody></table></div><div class="subsection"><p>Section 4.2 interprets the middle case as using between one and two dimensions. The estimate comes from the paper’s definition of dimension use.</p><p><a href="https://arxiv.org/html/2108.07344v2#S4.SS2">Rudman et al. (2022), Figure 3 and Section 4.2</a></p></div><p class="panel-sub">Question from this site’s MQUD example 34. Caption, context, and explanation adapted from the IsoScore paper.</p></section></div></details>
+<!-- MQUD_STATIC_GALLERY_END -->
+</section>
+
+  <section id="using-mqud" class="intro">
+    <h2>Model experiments</h2>
+    <p>In our experiments, open-source vision-language models such as Qwen 3.5 mostly ask questions
+      answerable from the figure alone. Fine-tuning on MQUD helps the model generate inquisitive
+      questions about the figure’s role in the paper’s argument.
+      The <a href="https://arxiv.org/abs/2604.23733v3">paper</a> describes the training and evaluation;
+      the <a href="https://huggingface.co/datasets/lingchensanwen/mqud">dataset card</a> documents the released data.</p>
+  </section>
+  <section id="project-questions" class="intro">
+    <h2>Related projects</h2>
+    <p><a href="../qsalience/">QSalience</a> predicts how much a question’s answer would help a reader
+      understand a text. <a href="../qudeval/">QUDeval</a> evaluates generated QUDs, and our
+      <a href="../qud-parsing/">QUD parser</a> represents dependencies between sentences through questions and answers.</p>
+  </section>
 
   <section id="resources" class="end-resources">
+    <h2>The dataset</h2>
+    <!-- MQUD_USAGE_START -->
+<div class="usage-notes usage-reference has-code">
+<p class="usage-intro">Download the JSONL for a flat table of questions, figures, and paper passages. The Hub viewer groups the same information into nested fields.</p>
+<div class="usage-layout"><div class="usage-copy">
+<dl class="usage-facts">
+<div><dt>Questions</dt><dd><code>question</code>, <code>answer</code>, <code>question_type</code>, and <code>difficulty</code>. Each answer is extracted from the paper.</dd></div>
+<div><dt>Figures</dt><dd><code>image</code> gives the image path. <code>paper_title</code>, <code>paper_abstract</code>, and <code>figure_caption</code> supply the context.</dd></div>
+<div><dt>Evidence</dt><dd><code>source_text</code> and <code>source_paragraphs</code> contain the supporting passages. Use <code>paper_id</code> to group questions from the same paper.</dd></div>
+<div><dt>Split</dt><dd>All 1,250 examples are in the Hub’s <code>train</code> split; the release has no separate test split.</dd></div>
+</dl>
+</div>
+<div class="usage-examples">
+<details class="usage-code" open><summary><span>Read one question</span><span class="code-language">Python</span></summary>
+<p class="usage-code-note">Uses the Python standard library.</p>
+<pre><code class="language-python"><span class="syntax-keyword">import</span> json
+<span class="syntax-keyword">from</span> urllib.request <span class="syntax-keyword">import</span> urlopen
+
+revision = <span class="syntax-string">&quot;295b4efc36226ad19429edcd4bccc151b72971d0&quot;</span>
+url = (
+    <span class="syntax-string">&quot;https://huggingface.co/datasets/lingchensanwen/mqud/&quot;</span>
+    f&quot;resolve/{revision}/data/mqud.jsonl&quot;
+)
+<span class="syntax-keyword">with</span> urlopen(url) <span class="syntax-keyword">as</span> response:
+    row = json.loads(response.readline())
+
+print(row[<span class="syntax-string">&quot;id&quot;</span>], row[<span class="syntax-string">&quot;paper_id&quot;</span>])
+print(row[<span class="syntax-string">&quot;question&quot;</span>])
+print(row[<span class="syntax-string">&quot;answer&quot;</span>])
+print(row[<span class="syntax-string">&quot;image&quot;</span>])</code></pre>
+<p class="usage-code-note code-after">The <code>image</code> value is a path in the dataset repository.</p>
+</details>
+</div>
+</div>
+<div class="usage-sources"><span>Source</span><p><a href="https://huggingface.co/datasets/lingchensanwen/mqud/blob/295b4efc36226ad19429edcd4bccc151b72971d0/README.md">Dataset card</a> · <a href="https://huggingface.co/datasets/lingchensanwen/mqud/blob/295b4efc36226ad19429edcd4bccc151b72971d0/metadata/dataset_summary.json">Release counts</a> · <a href="https://huggingface.co/datasets/lingchensanwen/mqud/viewer/default/train">Dataset viewer</a></p></div></div>
+<!-- MQUD_USAGE_END -->
+    <p><a href="citation.bib" download>Download BibTeX</a>.</p>
     <div class="end-resource-head">
       <p class="section-kicker">Project links</p>
       <div class="end-links" aria-label="Project resources">
         <a href="https://arxiv.org/abs/2604.23733" target="_blank" rel="noopener">Paper</a>
         <a href="https://huggingface.co/datasets/lingchensanwen/mqud" target="_blank" rel="noopener">Data</a>
-        <span>Code soon</span>
-        <span>Model soon</span>
       </div>
     </div>
     <details class="compact-bibtex">
-      <summary>arXiv preprint BibTeX</summary>
-      <pre><code>@misc{wu2026multimodalqud,
-  title={Multimodal QUD: Inquisitive Questions from Scientific Figures},
-  author={Wu, Yating and Rudman, William and Govindarajan, Venkata S. and Dimakis, Alexandros G. and Li, Junyi Jessy},
+      <summary>BibTeX</summary>
+      <pre><code>@misc{mqud2026,
+  title={{Multimodal QUD: Inquisitive Questions from Scientific Figures}},
+  author={Wu, Yating and Rudman, William and Govindarajan, Venkata S and Dimakis, Alexandros G. and Li, Junyi Jessy},
   year={2026},
   eprint={2604.23733},
   archivePrefix={arXiv},
@@ -165,10 +276,10 @@
 
 <footer>
   <div class="wrap">
-    <span>Multimodal QUD · <span id="count"></span> curated examples</span>
+    <span>Multimodal QUD · 1 worked example · <a href="../research/">More research by Yating Wu</a></span>
   </div>
 </footer>
 
-<script src="app.js"></script>
+
 </body>
 </html>

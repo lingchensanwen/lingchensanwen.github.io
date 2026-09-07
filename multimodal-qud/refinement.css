@@ -1,0 +1,100 @@
+/* Shared reading conventions with the research pages; retain the MQUD layout. */
+:root {
+  --bg: #fff;
+  --ink: #202734;
+  --muted: #596574;
+  --line: #dde2e8;
+  --teal: #286d67;
+  --rose: #286d67;
+  --shadow: none;
+  --reading-serif: Iowan Old Style, Palatino Linotype, Book Antiqua, Georgia, serif;
+}
+html { scroll-padding-top: 5rem; }
+body { font-size: 17px; line-height: 1.75; -webkit-font-smoothing: antialiased; }
+a { text-underline-offset: 4px; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--teal); outline-offset: 5px; }
+.wrap { max-width: 1160px; padding-left: 40px; padding-right: 40px; }
+.topbar { background: rgba(255,255,255,.97); border-color: var(--line); }
+.nav-wrap { min-height: 78px; }
+.brand { font: 1.25rem var(--reading-serif); }
+.brand-mark { width: 30px; height: 30px; border: 0; border-radius: 0; }
+.nav-wrap > a:last-child { color: var(--muted); font-size: .88rem; }
+header { background: #f6f9f9; color: var(--ink); border-bottom: 1px solid var(--line); }
+.hero { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 3rem; min-height: 0; padding: 4.5rem 0; }
+.hero-title-row { display: block; }
+.hero-mark { width: 48px; height: 46px; border: 0; border-radius: 0; box-shadow: none; margin-bottom: 1rem; }
+header h1 { font: 500 clamp(2.25rem, 3.7vw, 3.2rem)/1.12 var(--reading-serif); letter-spacing: -.035em; }
+.sub { color: var(--muted); font-size: .95rem; line-height: 1.8; }
+.hero-actions { gap: .75rem; }
+.button { font-weight: 600; font-size: .85rem; border-radius: 3px; padding: 0 1rem; }
+.button.primary { background: var(--teal); color: #fff; }
+.button.ghost { color: var(--teal); border-color: var(--line); background: #fff; }
+.release-note { color: var(--muted); font-size: .85rem; }
+.overview-board { display: block; }
+.board-card { border: 1px solid var(--line); border-radius: 3px; box-shadow: none; min-height: 0; grid-template-rows: auto auto; }
+.board-image { padding: 1.2rem .75rem; min-height: 150px; }
+.board-card img { height: auto; padding: 0; }
+.board-question { background: #fff; color: var(--ink); padding: 1.4rem; border-top: 1px solid var(--line); }
+.board-question span { color: var(--teal); font-size: .8rem; font-weight: 600; text-transform: none; letter-spacing: 0; }
+.board-question q { color: var(--ink); font: 1.2rem/1.6 var(--reading-serif); }
+.board-question a { margin-top: 1rem; color: var(--teal); font-size: .85rem; }
+.intro, .question-band, .toolbar, .end-resources { background: #fff; border: 0; border-radius: 0; box-shadow: none; margin-top: 0; padding: 3rem 0; border-bottom: 1px solid var(--line); }
+.intro p { max-width: 79ch; }
+.intro h2, .question-band h2, .toolbar h2, .end-resources h2 { font: 500 2rem/1.25 var(--reading-serif); letter-spacing: -.02em; }
+.section-kicker { color: var(--teal); font-weight: 600; font-size: .82rem; text-transform: none; letter-spacing: .03em; }
+.promise-grid { gap: 1.75rem; }
+.promise-grid article { background: #fff; border: 0; border-top: 2px solid var(--teal); border-radius: 0; padding: 1rem 0 0; }
+.promise-grid article > span { font-size: .8rem; font-weight: 600; }
+.promise-grid strong { font-weight: 600; font-size: 1rem; }
+.promise-grid p { font-size: .92rem; }
+.question-band { grid-template-columns: 1fr; gap: 1rem; }
+.compare-list { gap: 1.4rem; }
+.compare-list li, .compare-list li:last-child { border: 0; border-top: 1px solid var(--line); border-radius: 0; background: #fff; box-shadow: none; padding: 1rem 0; min-height: 0; }
+.src { font-family: inherit; font-size: .85rem; line-height: 1.5; font-weight: 600; color: var(--teal); text-transform: none; }
+.contrast-type, .compare-list li:last-child .contrast-type { background: transparent; padding: 0; color: var(--muted); text-transform: none; letter-spacing: 0; font-size: .82rem; font-weight: 400; }
+.compare-list q { font: 1.1rem/1.6 var(--reading-serif); }
+.toolbar { border: 0; padding-bottom: 1.5rem; }
+#gallery { padding-bottom: 3rem; border-bottom: 1px solid var(--line); }
+.card, .card[open] { border: 1px solid var(--line); border-radius: 3px; box-shadow: none; background: #fff; }
+.card-summary { padding: 1.5rem 2rem; }
+.summary-title { font: 500 1.45rem/1.35 var(--reading-serif); }
+.card[open] .summary-q { display: none; }
+.example-num, .paper-id { font-size: .82rem; font-weight: 500; }
+.card-body { gap: 0; padding: 0 2rem 1.5rem; }
+.panel, .panel-trigger, .panel-question, .panel-answer { padding: 1.75rem 0; margin: 0; border: 0; border-radius: 0; background: #fff; }
+.panel + .panel { border-top: 1px solid var(--line); }
+.panel .panel-title { color: var(--teal); font: 600 .85rem/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin-bottom: 1rem; }
+.figure { padding: 1rem 0 0; border: 0; border-radius: 0; background: #fff; }
+.caption { color: var(--muted); font-size: .85rem; line-height: 1.7; text-align: left; }
+.question-box { margin: 0; padding: 0 0 0 1.2rem; border: 0; border-left: 3px solid var(--teal); border-radius: 0; background: #fff; color: var(--ink); font: 1.5rem/1.55 var(--reading-serif); }
+.answer-box { color: var(--ink); padding: 0; background: #fff; border: 0; font-size: 1rem; line-height: 1.75; margin-bottom: 1.4rem; }
+.dimension-table { overflow-x: auto; margin: 1.5rem 0; }
+.dimension-table table { border-collapse: collapse; width: 100%; text-align: left; font-size: .9rem; font-variant-numeric: tabular-nums; }
+.dimension-table caption { text-align: left; color: var(--muted); font-size: .85rem; margin-bottom: .75rem; }
+.dimension-table th, .dimension-table td { padding: .6rem .75rem; border-bottom: 1px solid var(--line); }
+.dimension-table th { font-weight: 600; }
+.dimension-table tbody tr:nth-child(2) { background: #edf5f3; }
+.panel-answer a { color: var(--teal); }
+.panel-sub { font-size: .85rem; line-height: 1.7; padding-top: 1rem; border-top: 1px solid var(--line); margin: 0; }
+.compact-bibtex { border-radius: 3px; background: #f6f8fa; box-shadow: none; }
+footer { background: #fff; font-size: .85rem; }
+@media (max-width: 850px) {
+  .wrap { padding-left: 25px; padding-right: 25px; }
+  .hero { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 0; }
+  .overview-board { max-width: 650px; }
+  .hero-title-row { gap: 1rem; }
+}
+@media (max-width: 540px) {
+  body { font-size: 16px; }
+  .wrap { padding-left: 19px; padding-right: 19px; }
+  .nav-wrap { min-height: 68px; }
+  .hero { padding: 2rem 0; }
+  header h1 { font-size: 2.2rem; }
+  .intro, .question-band, .end-resources { padding: 2.2rem 0; }
+  .compare-list, .promise-grid { grid-template-columns: 1fr; }
+  .card-summary { padding: 1.2rem; }
+  .card-body { padding: 0 1.2rem 1rem; }
+  .question-box { font-size: 1.25rem; }
+  .dimension-table th, .dimension-table td { padding: .5rem; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
