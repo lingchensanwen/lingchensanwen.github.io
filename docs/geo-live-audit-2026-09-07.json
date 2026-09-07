@@ -1,0 +1,310 @@
+{
+  "recorded_at_utc": "2026-09-07T17:48:55.936208+00:00",
+  "scope": "HTTP and static HTML prerequisites; not search ranking, indexing, AI citations, or uplift.",
+  "local": {
+    "projects": [
+      {
+        "id": "mqud",
+        "url": "https://yatingwu.info/multimodal-qud/",
+        "http_status": null,
+        "content_available": true,
+        "title": "Multimodal QUD — Inquisitive Questions from Scientific Figures",
+        "canonical": [
+          "https://yatingwu.info/multimodal-qud/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 1
+      },
+      {
+        "id": "contextweaver",
+        "url": "https://yatingwu.info/contextweaver/",
+        "http_status": null,
+        "content_available": true,
+        "title": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/contextweaver/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qudsim",
+        "url": "https://yatingwu.info/qudsim/",
+        "http_status": null,
+        "content_available": true,
+        "title": "QUDsim: Quantifying Discourse Similarities in LLM-Generated Text | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qudsim/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qsalience",
+        "url": "https://yatingwu.info/qsalience/",
+        "http_status": null,
+        "content_available": true,
+        "title": "Which questions should I answer? Salience Prediction of Inquisitive Questions | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qsalience/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qudeval",
+        "url": "https://yatingwu.info/qudeval/",
+        "http_status": null,
+        "content_available": true,
+        "title": "QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qudeval/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "elabqud",
+        "url": "https://yatingwu.info/elabqud/",
+        "http_status": null,
+        "content_available": true,
+        "title": "Elaborative Simplification as Implicit Questions Under Discussion | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/elabqud/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qud-parsing",
+        "url": "https://yatingwu.info/qud-parsing/",
+        "http_status": null,
+        "content_available": true,
+        "title": "Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qud-parsing/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "bilingual-disfluencies",
+        "url": "https://yatingwu.info/bilingual-disfluencies/",
+        "http_status": null,
+        "content_available": true,
+        "title": "Modeling Bilingual Disfluencies with Large Language Models | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/bilingual-disfluencies/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      }
+    ],
+    "project_pages_available": 8,
+    "project_pages_with_bibliographic_metadata": 8,
+    "project_pages_with_scholarly_article_jsonld": 8,
+    "project_pages_linked_from_homepage": 8,
+    "project_urls_in_sitemap": 8,
+    "sitemap_urls": [
+      "https://yatingwu.info/",
+      "https://yatingwu.info/index_jp.html",
+      "https://yatingwu.info/research/",
+      "https://yatingwu.info/multimodal-qud/",
+      "https://yatingwu.info/contextweaver/",
+      "https://yatingwu.info/qudsim/",
+      "https://yatingwu.info/qsalience/",
+      "https://yatingwu.info/qudeval/",
+      "https://yatingwu.info/elabqud/",
+      "https://yatingwu.info/qud-parsing/",
+      "https://yatingwu.info/bilingual-disfluencies/"
+    ],
+    "robots_content": "User-agent: *\nDisallow:\n\nSitemap: https://yatingwu.info/sitemap.xml\n",
+    "robots_advertises_current_sitemap": true,
+    "public_http_statuses": null
+  },
+  "public_source": "fresh HTTP fetch",
+  "public": {
+    "projects": [
+      {
+        "id": "mqud",
+        "url": "https://yatingwu.info/multimodal-qud/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "Multimodal QUD — Inquisitive Questions from Scientific Figures",
+        "canonical": [
+          "https://yatingwu.info/multimodal-qud/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 1
+      },
+      {
+        "id": "contextweaver",
+        "url": "https://yatingwu.info/contextweaver/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/contextweaver/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qudsim",
+        "url": "https://yatingwu.info/qudsim/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "QUDsim: Quantifying Discourse Similarities in LLM-Generated Text | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qudsim/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qsalience",
+        "url": "https://yatingwu.info/qsalience/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "Which questions should I answer? Salience Prediction of Inquisitive Questions | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qsalience/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qudeval",
+        "url": "https://yatingwu.info/qudeval/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "QUDeval: The Evaluation of Questions Under Discussion Discourse Parsing | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qudeval/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "elabqud",
+        "url": "https://yatingwu.info/elabqud/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "Elaborative Simplification as Implicit Questions Under Discussion | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/elabqud/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "qud-parsing",
+        "url": "https://yatingwu.info/qud-parsing/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "Discourse Analysis via Questions and Answers: Parsing Dependency Structures of Questions Under Discussion | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/qud-parsing/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      },
+      {
+        "id": "bilingual-disfluencies",
+        "url": "https://yatingwu.info/bilingual-disfluencies/",
+        "http_status": 200,
+        "content_available": true,
+        "title": "Modeling Bilingual Disfluencies with Large Language Models | Yating Wu",
+        "canonical": [
+          "https://yatingwu.info/bilingual-disfluencies/"
+        ],
+        "has_description": true,
+        "has_bibliographic_metadata": true,
+        "has_scholarly_article_jsonld": true,
+        "linked_from_homepage": true,
+        "static_gallery_examples": 0
+      }
+    ],
+    "project_pages_available": 8,
+    "project_pages_with_bibliographic_metadata": 8,
+    "project_pages_with_scholarly_article_jsonld": 8,
+    "project_pages_linked_from_homepage": 8,
+    "project_urls_in_sitemap": 8,
+    "sitemap_urls": [
+      "https://yatingwu.info/",
+      "https://yatingwu.info/index_jp.html",
+      "https://yatingwu.info/research/",
+      "https://yatingwu.info/multimodal-qud/",
+      "https://yatingwu.info/contextweaver/",
+      "https://yatingwu.info/qudsim/",
+      "https://yatingwu.info/qsalience/",
+      "https://yatingwu.info/qudeval/",
+      "https://yatingwu.info/elabqud/",
+      "https://yatingwu.info/qud-parsing/",
+      "https://yatingwu.info/bilingual-disfluencies/"
+    ],
+    "robots_content": "User-agent: *\nDisallow:\n\nSitemap: https://yatingwu.info/sitemap.xml\n",
+    "robots_advertises_current_sitemap": true,
+    "public_http_statuses": {
+      "": 200,
+      "index_jp.html": 200,
+      "research/": 200,
+      "multimodal-qud/": 200,
+      "contextweaver/": 200,
+      "qudsim/": 200,
+      "qsalience/": 200,
+      "qudeval/": 200,
+      "elabqud/": 200,
+      "qud-parsing/": 200,
+      "bilingual-disfluencies/": 200,
+      "robots.txt": 200,
+      "sitemap.xml": 200,
+      "publications.bib": 200
+    }
+  }
+}

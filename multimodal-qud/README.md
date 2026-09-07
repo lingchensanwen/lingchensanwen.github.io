@@ -1,59 +1,42 @@
-# Multimodal QUD — Web Preview
+# Multimodal QUD: Inquisitive Questions from Scientific Figures
 
-A tiny static site showcasing 5 curated examples from the Multimodal QUD dataset. Designed to drop into
-[`lingchensanwen.github.io`](https://lingchensanwen.github.io) as a subpage.
+[Project website](https://yatingwu.info/multimodal-qud/) · [Paper](https://arxiv.org/abs/2604.23733) · [Dataset](https://huggingface.co/datasets/lingchensanwen/mqud)
 
-## Files
+Yating Wu, William Rudman, Venkata S Govindarajan, Alexandros G. Dimakis, and Junyi Jessy Li. Preprint, 2026.
 
-- `index.html` / `style.css` / `app.js` — the page (no build step, no framework, all paths relative)
-- `data.json` — the 5 selected examples: title, abstract, figure, caption, question, answer, supporting passage, type, difficulty, evaluation metadata
-- `images/` — local copies of the figures referenced by `data.json`
-- `firebase.json` — optional, unused for GitHub Pages; kept in case you ever want to deploy to Firebase Hosting instead
+MQUD contains 1,250 questions evoked by scientific figures, including 708 annotated by the papers’ original authors. It studies questions about a figure’s role in its paper, with answers extracted from the paper. See the [dataset card](https://huggingface.co/datasets/lingchensanwen/mqud) for the released files and their format.
 
-## Preview locally
+This directory contains the project website. The page presents one worked example based on IsoScore Figure 3, with the question, figure, interpretation, and supporting source. Its explanation is adapted from that paper and is labeled accordingly.
 
-Because `app.js` uses `fetch()`, the page must be served over HTTP (not opened as a `file://`):
+## Citation
 
-```bash
-cd path/to/web
-python3 -m http.server 8080     # then open http://localhost:8080
+The citation is also available as [citation.bib](citation.bib).
+
+```bibtex
+@misc{mqud2026,
+  title={{Multimodal QUD: Inquisitive Questions from Scientific Figures}},
+  author={Wu, Yating and Rudman, William and Govindarajan, Venkata S and Dimakis, Alexandros G. and Li, Junyi Jessy},
+  year={2026},
+  eprint={2604.23733},
+  archivePrefix={arXiv},
+  primaryClass={cs.CL},
+  url={https://arxiv.org/abs/2604.23733}
+}
 ```
 
-## Deploy to GitHub Pages (as a subpage of lingchensanwen.github.io)
+## Page sources
 
-Your user-site repo is `lingchensanwen/lingchensanwen.github.io`. Drop this folder in as a subdirectory and push:
+- `index.html` contains the rendered page, including the example and dataset usage notes. Its text is available without JavaScript.
+- `gallery.json` contains the current walkthrough and its source attribution. `images/` contains the local figures.
+- `data.json` preserves the five original example records; it is not the released 1,250-question dataset or the current gallery selection.
+- `style.css`, `refinement.css`, and shared styles in `../research/` control the presentation.
+- `../research/usage.json` supplies the dataset fields and loading example.
 
-```bash
-# from your Mac, inside a clone of lingchensanwen.github.io:
-git clone git@github.com:lingchensanwen/lingchensanwen.github.io.git
-cd lingchensanwen.github.io
+From the repository root, regenerate the marked example and usage sections with:
 
-# copy the web folder in under any subpath you like (e.g. "astroqud")
-scp -r yw23374@<compling-host>:~/astroqud/web ./astroqud
-
-git add astroqud
-git commit -m "Add Multimodal QUD example gallery subpage"
-git push
+```sh
+python3 scripts/build_mqud_gallery.py
+python3 scripts/build_mqud_gallery.py --check
 ```
 
-The page will then be live at:
-
-```
-https://lingchensanwen.github.io/astroqud/
-```
-
-Link to it from your homepage with `<a href="/astroqud/">Multimodal QUD demo</a>`.
-
-### Why this works as a subpage
-
-Every asset reference in the site is relative (`style.css`, `app.js`, `data.json`, `images/...`),
-so the page works unchanged at any subpath. If you rename the folder (e.g. `astroqud-demo/` instead
-of `astroqud/`), nothing inside needs to change.
-
-## Updating the examples
-
-`data.json` is plain JSON — edit in place to swap examples, tweak text, or add more.
-
-To regenerate from scratch, rerun the selector (reads `~/astroqud/data/gpt5_mini_evaluated_all.json`,
-keeps only `gpt5_mini_evaluation.pass == true`, picks 2 caption-free + 3 captioned examples across
-diverse papers and question types).
+For a local preview, run `python3 -m http.server 8080` from the repository root and visit `http://localhost:8080/multimodal-qud/`.

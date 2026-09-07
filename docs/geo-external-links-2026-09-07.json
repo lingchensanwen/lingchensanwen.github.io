@@ -1,0 +1,35 @@
+[
+  {
+    "name": "MQUD dataset README",
+    "url": "https://huggingface.co/datasets/lingchensanwen/mqud/raw/main/README.md",
+    "status": 200,
+    "has_project_link": false,
+    "has_bibtex": true
+  },
+  {
+    "name": "QUDeval README",
+    "url": "https://raw.githubusercontent.com/lingchensanwen/QUDeval/HEAD/README.md",
+    "status": 200,
+    "has_project_link": false,
+    "has_bibtex": true
+  },
+  {
+    "name": "QUDeval citation",
+    "url": "https://raw.githubusercontent.com/lingchensanwen/QUDeval/HEAD/CITATION.cff",
+    "status": 404,
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "name": "QUD parsing README",
+    "url": "https://raw.githubusercontent.com/lingchensanwen/DCQA-QUD-parsing/HEAD/README.md",
+    "status": 200,
+    "has_project_link": false,
+    "has_bibtex": true
+  },
+  {
+    "name": "QUD parsing citation",
+    "url": "https://raw.githubusercontent.com/lingchensanwen/DCQA-QUD-parsing/HEAD/CITATION.cff",
+    "status": 404,
+    "error": "HTTP Error 404: Not Found"
+  }
+]
