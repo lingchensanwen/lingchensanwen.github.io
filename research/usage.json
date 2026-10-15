@@ -282,12 +282,21 @@
       ]
     ],
     "notes": [
-      "During warmup, the agent receives the full history. Algorithm 1 gives the complete procedure."
+      "During warmup, the agent receives the full history. Algorithm 1 gives the complete procedure.",
+      "The experiments use a lower-cost configuration. Parents are scored by shared files, shared identifiers, and recency instead of an LLM call. Observations outside the selected set are replaced by their node summaries."
     ],
     "sources": [
       [
-        "Algorithm 1 and Section 3.1",
-        "https://arxiv.org/html/2604.23069v1#S3.SS1"
+        "Section 3.1",
+        "https://arxiv.org/html/2604.23069v2#S3.SS1"
+      ],
+      [
+        "Low-cost configuration",
+        "https://arxiv.org/html/2604.23069v2#S3.SS3.SSS0.Px3"
+      ],
+      [
+        "Algorithm 1",
+        "https://arxiv.org/html/2604.23069v2#alg1"
       ]
     ],
     "layout": "process"

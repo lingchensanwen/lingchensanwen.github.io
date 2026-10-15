@@ -75,8 +75,54 @@ def footer():
     return '<footer class="site-footer"><div class="shell">'+a('Yating Wu','../')+' · '+a('All research projects','../research/')+' · '+a('Bibliography','../publications.bib')+'</div></footer>'
 
 
+def table_view(columns, rows, ours_col=None, ours_row=None):
+    head = ''.join('<th scope="col"' + (' class="ours"' if i == ours_col else '') + '>' + E(c) + '</th>' for i, c in enumerate(columns))
+    body = ''.join('<tr' + (' class="ours"' if r[0] == ours_row else '') + '><th scope="row">' + E(r[0]) + '</th>'
+                   + ''.join('<td' + (' class="ours"' if i == ours_col else '') + '>' + E(v) + '</td>' for i, v in enumerate(r[1:], 1)) + '</tr>' for r in rows)
+    return ('<details class="table-view"><summary>Show table</summary><div class="results-scroll"><table class="results-table"><thead><tr>'
+            + head + '</tr></thead><tbody>' + body + '</tbody></table></div></details>')
+
+
+def bar(series, value, kind, scale, extra=''):
+    return ('<div class="bar-row ' + kind + '" title="' + E(series, quote=True) + ': ' + f'{value:.1f}' + '%"><span class="bar" style="--f:' + f'{value / scale:.4f}'
+            + '" aria-hidden="true"></span><span class="bar-value">' + f'{value:.1f}' + extra + '</span></div>')
+
+
+def result_chart(c, scale):
+    if c['type'] == 'paired':
+        base, ours = c['series']
+        legend = '<div class="chart-legend"><span><i class="key base"></i>' + E(base) + '</span><span><i class="key ours"></i>' + E(ours) + '</span></div>'
+        groups, rows = [], []
+        for g in c['groups']:
+            b, o = g['values']
+            delta = f'{o - b:+.1f}' + g.get('sig', '')
+            groups.append('<div class="bar-group"><div class="bar-label"><strong>' + E(g['label']) + '</strong><span>' + E(g['detail']) + '</span></div><div class="bars">'
+                          + bar(base, b, 'base', scale) + bar(ours, o, 'ours', scale, ' <em>' + E(delta) + '</em>') + '</div></div>')
+            rows.append([g['label'] + ' (' + g['detail'] + ')', f'{b:.1f}', f'{o:.1f}', delta])
+        body = legend + '<div class="bar-chart">' + ''.join(groups) + '</div>'
+        table = table_view([c['group_label'], base, ours, 'Δ'], rows, ours_col=2)
+    else:
+        panels = []
+        for p in c['panels']:
+            items = ''.join('<div class="bar-group compact"><div class="bar-label"><strong>' + E(name) + '</strong></div><div class="bars">'
+                            + bar(name, v, 'ours' if name == c['highlight'] else 'base', scale) + '</div></div>' for name, v in p['rows'])
+            panels.append('<div class="chart-panel"><p class="panel-title"><strong>' + E(p['label']) + '</strong> <span>' + E(p['detail']) + '</span></p><div class="bar-chart">' + items + '</div></div>')
+        body = '<div class="chart-panels">' + ''.join(panels) + '</div>'
+        names = [name for name, _ in c['panels'][0]['rows']]
+        rows = [[name] + [f'{dict(p["rows"])[name]:.1f}' for p in c['panels']] for name in names]
+        table = table_view([c['group_label']] + [p['label'] + ' (' + p['detail'] + ')' for p in c['panels']], rows, ours_row=c['highlight'])
+    note = '<p class="results-note">' + E(c['note']) + '</p>' if c.get('note') else ''
+    return ('<div class="result-block"><h3>' + E(c['title']) + '</h3><p class="result-text">' + E(c['text']) + '</p><figure class="result-figure"><figcaption>'
+            + E(c['subtitle']) + '</figcaption>' + body + note + table + '</figure></div>')
+
+
 def example_section(id):
     ex = EXAMPLES[id]
+    if ex.get('charts'):
+        kpis = ''.join('<div class="kpi"><p class="kpi-value">' + E(k['value']) + '</p><p class="kpi-label">' + E(k['label']) + '</p></div>' for k in ex['kpis'])
+        return ('<section id="' + E(ex.get('id', 'example')) + '" class="example-section results-section"><div class="section-heading"><h2>' + E(ex['title']) + '</h2></div><p class="example-intro">' + E(ex['intro']) + '</p>'
+                + '<div class="kpi-row">' + kpis + '</div>' + ''.join(result_chart(c, ex['scale']) for c in ex['charts']) + '<div class="source-note"><span>Source</span><p>'
+                + ' · '.join(a(label, url) for label, url in ex['sources']) + '. ' + E(ex['provenance']) + '</p></div></section>')
     blocks = []
     for block in ex['blocks']:
         value = E(block['text'])
@@ -112,15 +158,23 @@ def page(w, initial=False):
     resources=''.join('<div class="resource-row"><dt>'+a(t,u)+'</dt><dd>'+E(p)+'</dd></div>' for t,u,p in w['resources_detail'])
     related=''.join('<article><h3>'+a(BY_ID[x]['short'],'../'+BY_ID[x]['path']+'/')+'</h3><p>'+E(BY_ID[x]['summary'])+'</p></article>' for x in w['related'])
     bib=BIBS[w['id'].replace('-','')+str(w['year'])]
-    sections=[('overview','Overview'),('example','Example'),('resources',USAGE[w['id']]['nav'])]
+    ex=EXAMPLES[w['id']]
+    middle=[(ex.get('id','example'),ex.get('nav','Example')),('resources',USAGE[w['id']]['nav'])]
+    if ex.get('after_method'): middle.reverse()
+    sections=[('overview','Overview')]+middle
     if related: sections.append(('related','Related projects'))
     sections.append(('citation','Citation'))
     toc=''.join('<a href="#'+id+'">'+E(label)+'</a>' for id,label in sections)
     source=a('Paper',w['overview_source'])
+    fig=w.get('figure')
+    figure=('<figure class="paper-figure"><img src="'+E(fig['src'],quote=True)+'" width="'+str(fig['width'])+'" height="'+str(fig['height'])+'" alt="'+E(fig['alt'],quote=True)+'" loading="lazy">'
+            '<figcaption>'+E(fig['caption'])+' '+a(fig['source_label'],fig['source_url'])+'</figcaption></figure>') if fig else ''
+    blocks=[example_section(w['id']),f'''<section id="resources"><div class="section-heading"><h2>{E(USAGE[w['id']]['title'])}</h2></div>{figure}{render_usage(w['id'])}<dl class="resource-list">{resources}</dl></section>''']
+    if ex.get('after_method'): blocks.reverse()
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 {metadata(w['title']+' | Yating Wu',w['description'],w['page_url'],w)}
-<link rel="stylesheet" href="../research/project.css?v=20260906c"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
+<link rel="stylesheet" href="../research/project.css?v=20261014b"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
 </head><body class="project-page" style="--accent:{w['accent']};--tint:{w['tint']}">
 {nav('../#publications' if initial else '../research/')}
 <main id="main" class="shell">
@@ -131,8 +185,7 @@ def page(w, initial=False):
 </div><div class="actions">{links}</div></header>
 <div class="page-grid"><aside class="toc" aria-label="On this page">{toc}</aside><div class="content">
 <section id="overview"><div class="section-heading"><h2>Overview</h2></div><div class="study-copy">{overview}</div><p class="source">{source}</p></section>
-{example_section(w['id'])}
-<section id="resources"><div class="section-heading"><h2>{E(USAGE[w['id']]['title'])}</h2></div>{render_usage(w['id'])}<dl class="resource-list">{resources}</dl></section>
+{chr(10).join(blocks)}
 {('<section id="related"><div class="section-heading"><h2>Related projects</h2></div><div class="related">'+related+'</div></section>' if related else '')}
 <section id="citation"><div class="section-heading"><h2>Citation</h2></div><div class="citation-actions"><a class="action" href="citation.bib" download>Download BibTeX</a><button class="action" type="button" data-copy-citation="bibtex" aria-describedby="copy-status" hidden>Copy BibTeX</button><span id="copy-status" class="copy-status" role="status" aria-live="polite"></span></div><details class="bibtex-disclosure"><summary>View BibTeX</summary><pre><code id="bibtex">{E(bib)}</code></pre></details></section>
 </div></div></main>{footer()}</body></html>
@@ -149,7 +202,7 @@ def hub():
             rows.append('<article class="project-row"><div class="project-meta">'+str(w['year'])+'<br>'+('Preprint' if w['venue']=='Preprint' else ('Workshop' if w['id']=='bilingual-disfluencies' else 'Conference paper'))+'</div><div><h3>'+a(w['short'],'../'+w['path']+'/')+'</h3><p>'+E(w['summary'])+'</p><p class="project-meta">'+E(w['title'])+'</p><div class="actions">'+a('Project page','../'+w['path']+'/','action primary')+a('Paper',w['url'],'action')+'</div></div></article>')
         sections.append('<section id="'+id+'" class="topic-section"><h2>'+title+'</h2>'+''.join(rows)+'</section>')
     data={'@context':'https://schema.org','@type':'CollectionPage','name':'Research projects by Yating Wu and collaborators','url':ORIGIN+'/research/','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':w['title'],'url':w['page_url']} for i,w in enumerate(WORKS)]}}
-    return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n'+metadata('Research projects | Yating Wu','Explore research on scientific figures, LLM agent memory, Questions Under Discussion, text generation evaluation, and bilingual speech. Papers, resources, and citations.',ORIGIN+'/research/')+'\n'+jsonld(data)+'\n<link rel="stylesheet" href="project.css?v=20260906c"></head><body>'+nav('./')+'<main id="main" class="shell"><header class="hero hub-intro"><p class="eyebrow">Yating Wu &amp; collaborators</p><h1>Research projects</h1><nav class="topic-nav" aria-label="Research topics">'+''.join(a(t,'#'+id) for id,t in topics)+'</nav></header>'+''.join(sections)+'</main>'+footer()+'</body></html>\n'
+    return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n'+metadata('Research projects | Yating Wu','Explore research on scientific figures, LLM agent memory, Questions Under Discussion, text generation evaluation, and bilingual speech. Papers, resources, and citations.',ORIGIN+'/research/')+'\n'+jsonld(data)+'\n<link rel="stylesheet" href="project.css?v=20261014b"></head><body>'+nav('./')+'<main id="main" class="shell"><header class="hero hub-intro"><p class="eyebrow">Yating Wu &amp; collaborators</p><h1>Research projects</h1><nav class="topic-nav" aria-label="Research topics">'+''.join(a(t,'#'+id) for id,t in topics)+'</nav></header>'+''.join(sections)+'</main>'+footer()+'</body></html>\n'
 
 
 def outputs(only=None):

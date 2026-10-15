@@ -1,28 +1,231 @@
 {
   "contextweaver": {
-    "title": "Two debugging trajectories",
-    "intro": "The paper compares these SWE-bench tasks over five paired runs each.",
-    "blocks": [
+    "id": "results",
+    "nav": "Results",
+    "after_method": true,
+    "title": "Results",
+    "intro": "Every method runs in SWE-agent with the same prompt, tools, and budget per task. Unless noted, the agent model is Claude Sonnet 4.5 with a $3 cap per task.",
+    "scale": 80,
+    "kpis": [
       {
-        "label": "Django · Changes across files",
-        "role": "case",
-        "text": "The fix requires coordinated edits to several components. ContextWeaver retains the early architectural analysis; the sliding window often loses it and repeats exploration or makes incompatible partial fixes.",
-        "note": "django__django-14631",
-        "outcome": "ContextWeaver wins 4 of 5 comparisons"
+        "value": "72.6%",
+        "label": "SWE-Bench Pro Python resolve rate, up from 66.5% with a sliding window"
       },
       {
-        "label": "pytest · A change in one location",
-        "role": "case",
-        "text": "The fix is confined to one location in one file. Recent edit history is sufficient here. Extra branches in ContextWeaver’s memory divert attention from the immediate change.",
-        "note": "pytest-dev__pytest-7205",
-        "outcome": "Sliding window wins 4 of 5 comparisons"
+        "value": "5 of 5",
+        "label": "benchmarks where ContextWeaver resolves more tasks than a sliding window"
+      },
+      {
+        "value": "13–18%",
+        "label": "fewer agent steps than a sliding window on each benchmark"
       }
     ],
-    "conclusion": "",
-    "source_url": "https://arxiv.org/html/2604.23069v1#S4.SS3",
-    "source_label": "Section 4.3, case studies",
-    "provenance": "Case descriptions and comparison outcomes paraphrased from Section 4.3.",
-    "layout": "cases"
+    "charts": [
+      {
+        "type": "paired",
+        "title": "Higher resolve rates on all five benchmarks",
+        "text": "With the same budget, ContextWeaver resolves more tasks than a sliding window on every benchmark. The largest gains are on the SWE-Bench Pro large-change subset and SWE-EVO, the longest tasks.",
+        "subtitle": "Resolve rate (%), Claude Sonnet 4.5, mean of three runs",
+        "group_label": "Benchmark",
+        "series": [
+          "Sliding window",
+          "ContextWeaver"
+        ],
+        "groups": [
+          {
+            "label": "SWE-Bench Pro, Python",
+            "detail": "186 tasks",
+            "values": [
+              66.5,
+              72.6
+            ],
+            "sig": "***"
+          },
+          {
+            "label": "SWE-Bench Pro, large change",
+            "detail": "22 tasks",
+            "values": [
+              60.6,
+              71.2
+            ]
+          },
+          {
+            "label": "SWE-Bench Pro, Go/JS/TS",
+            "detail": "175 tasks",
+            "values": [
+              37.5,
+              41.3
+            ]
+          },
+          {
+            "label": "SWE-Bench Multilingual",
+            "detail": "262–289 tasks",
+            "values": [
+              43.2,
+              46.7
+            ],
+            "sig": "*"
+          },
+          {
+            "label": "SWE-EVO",
+            "detail": "42 tasks",
+            "values": [
+              23.8,
+              31.7
+            ]
+          },
+          {
+            "label": "SWE-rebench",
+            "detail": "212 tasks",
+            "values": [
+              27.2,
+              30.3
+            ],
+            "sig": "*"
+          },
+          {
+            "label": "Terminal-Bench 2.0",
+            "detail": "61 tasks",
+            "values": [
+              43.2,
+              44.8
+            ]
+          }
+        ],
+        "note": "Tasks graded in every run of both methods. Large change: the gold patch touches at least 4 files or 150 lines. * p < 0.05, *** p < 0.001, exact McNemar test pooled over runs."
+      },
+      {
+        "type": "paired",
+        "title": "Consistent across backbones",
+        "text": "On SWE-Bench Pro Python, the gain is significant with all three backbones. The summaries add cost, so we also gave the sliding window the same total budget with Kimi-K2.5. It resolves 53.4%, still below ContextWeaver.",
+        "subtitle": "Resolve rate (%) on 186 SWE-Bench Pro Python tasks, mean of three runs",
+        "group_label": "Backbone",
+        "series": [
+          "Sliding window",
+          "ContextWeaver"
+        ],
+        "groups": [
+          {
+            "label": "Claude Sonnet 4.5",
+            "detail": "$3.00 cap per task",
+            "values": [
+              66.5,
+              72.6
+            ],
+            "sig": "***"
+          },
+          {
+            "label": "Kimi-K2.5",
+            "detail": "$0.60 cap per task",
+            "values": [
+              54.1,
+              62.7
+            ],
+            "sig": "***"
+          },
+          {
+            "label": "GLM-5",
+            "detail": "$1.00 cap per task",
+            "values": [
+              61.6,
+              69.5
+            ],
+            "sig": "***"
+          }
+        ],
+        "note": "The caps give each backbone the same token budget. *** p < 0.001, exact McNemar test pooled over runs."
+      },
+      {
+        "type": "panels",
+        "title": "Against other context management",
+        "text": "We also compare with keeping the full history, LLM summarization, BM25 retrieval, and a hybrid of summarization and a sliding window. On the large-change tasks, ContextWeaver resolves 71.2%, and the next best method resolves 63.6%. On the Pro sample, it ties with the sliding window.",
+        "subtitle": "Resolve rate (%) on two SWE-Bench Pro task sets, same budget for every method",
+        "group_label": "Method",
+        "highlight": "ContextWeaver",
+        "panels": [
+          {
+            "label": "Large change",
+            "detail": "22 tasks",
+            "rows": [
+              [
+                "ContextWeaver",
+                71.2
+              ],
+              [
+                "Sliding window",
+                60.6
+              ],
+              [
+                "Full history",
+                63.6
+              ],
+              [
+                "LLM summarization",
+                62.1
+              ],
+              [
+                "Retrieval (BM25)",
+                62.1
+              ],
+              [
+                "Hybrid",
+                59.1
+              ]
+            ]
+          },
+          {
+            "label": "Pro sample",
+            "detail": "26 tasks",
+            "rows": [
+              [
+                "ContextWeaver",
+                72.3
+              ],
+              [
+                "Sliding window",
+                72.3
+              ],
+              [
+                "Full history",
+                67.9
+              ],
+              [
+                "LLM summarization",
+                64.1
+              ],
+              [
+                "Retrieval (BM25)",
+                71.8
+              ],
+              [
+                "Hybrid",
+                67.9
+              ]
+            ]
+          }
+        ],
+        "note": "Mean of three runs; five for the sliding window and ContextWeaver on the Pro sample. Hybrid: a sliding window with periodic LLM summarization (Lindenbauer et al., 2025)."
+      }
+    ],
+    "sources": [
+      [
+        "Table 1",
+        "https://arxiv.org/html/2604.23069v2#S4.T1"
+      ],
+      [
+        "Table 2",
+        "https://arxiv.org/html/2604.23069v2#S4.T2"
+      ],
+      [
+        "Table 7",
+        "https://arxiv.org/html/2604.23069v2#A1.T7"
+      ],
+      [
+        "Table 11",
+        "https://arxiv.org/html/2604.23069v2#A1.T11"
+      ]
+    ],
+    "provenance": "Values are taken from these tables; Δ is ContextWeaver minus the sliding window."
   },
   "qudsim": {
     "title": "Different explanations, the same discourse role",

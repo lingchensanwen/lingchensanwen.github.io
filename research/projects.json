@@ -63,26 +63,35 @@
     "topic": "Memory for LLM agents",
     "accent": "#275d77",
     "tint": "#edf4f8",
-    "description": "ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on SWE-bench Verified and Lite.",
+    "description": "ContextWeaver constructs memory for LLM agents from dependencies between reasoning steps, with experiments on five software-engineering and terminal benchmarks.",
     "overview": [
       "A coding agent may need an observation made many steps earlier. ContextWeaver links each step to the observations and decisions it depends on, then uses those links to choose what to keep in the next context. Execution feedback tracks steps that have failed or been superseded.",
-      "On SWE-bench Verified and Lite, Claude Sonnet 4 improves over a sliding window. The model building the memory matters: GPT-5 benefits when Claude Sonnet 4 constructs its dependency graph."
+      "We evaluate ContextWeaver on five software-engineering and terminal benchmarks, with a fixed budget per task. It improves the resolve rate over a sliding window on all five and needs fewer agent steps. The largest gains are on long repository tasks. On SWE-Bench Pro Python tasks with Claude Sonnet 4.5, the resolve rate rises from 66.5% to 72.6%. The gains hold with two open-weight backbones and, with Kimi-K2.5, against a sliding window given the same total budget."
     ],
     "resources_detail": [
       [
         "Preprint",
-        "https://arxiv.org/html/2604.23069v1",
-        "Method, experiments, ablations, and case studies."
+        "https://arxiv.org/html/2604.23069v2",
+        "Method, experiments, comparisons with other context management, and case studies."
       ]
     ],
     "related": [],
     "source_urls": [
       "https://arxiv.org/abs/2604.23069",
-      "https://arxiv.org/html/2604.23069v1"
+      "https://arxiv.org/html/2604.23069v2"
     ],
-    "overview_source": "https://arxiv.org/html/2604.23069v1",
+    "overview_source": "https://arxiv.org/html/2604.23069v2",
     "deck": "Memory for coding agents, organized around the dependencies between their actions.",
-    "venue_short": "Preprint"
+    "venue_short": "Preprint",
+    "figure": {
+      "src": "framework.svg",
+      "width": 557,
+      "height": 220,
+      "alt": "Pipeline diagram. The latest message of the growing agent context is summarized into a node n_t and linked into a dependency graph rooted at n_0. On the right, a sliding window keeps only the most recent messages, while ContextWeaver serializes earlier messages selected through the graph.",
+      "caption": "The latest message is summarized into a node and linked to the earlier steps it depends on. Following these dependencies, ContextWeaver keeps a few earlier observations in full alongside the most recent steps and replaces the others with their node summaries (bottom right). A sliding window keeps only the most recent observations (top right).",
+      "source_label": "Figure 1",
+      "source_url": "https://arxiv.org/html/2604.23069v2#S1.F1"
+    }
   },
   {
     "id": "qudsim",
