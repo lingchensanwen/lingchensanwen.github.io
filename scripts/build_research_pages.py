@@ -174,7 +174,7 @@ def page(w, initial=False):
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 {metadata(w['title']+' | Yating Wu',w['description'],w['page_url'],w)}
-<link rel="stylesheet" href="../research/project.css?v=20261014b"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
+<link rel="stylesheet" href="../research/project.css?v=20261014c"><link rel="stylesheet" href="../research/usage.css?v=20260906c"><script src="../research/project.js" defer></script>
 </head><body class="project-page" style="--accent:{w['accent']};--tint:{w['tint']}">
 {nav('../#publications' if initial else '../research/')}
 <main id="main" class="shell">
@@ -202,7 +202,7 @@ def hub():
             rows.append('<article class="project-row"><div class="project-meta">'+str(w['year'])+'<br>'+('Preprint' if w['venue']=='Preprint' else ('Workshop' if w['id']=='bilingual-disfluencies' else 'Conference paper'))+'</div><div><h3>'+a(w['short'],'../'+w['path']+'/')+'</h3><p>'+E(w['summary'])+'</p><p class="project-meta">'+E(w['title'])+'</p><div class="actions">'+a('Project page','../'+w['path']+'/','action primary')+a('Paper',w['url'],'action')+'</div></div></article>')
         sections.append('<section id="'+id+'" class="topic-section"><h2>'+title+'</h2>'+''.join(rows)+'</section>')
     data={'@context':'https://schema.org','@type':'CollectionPage','name':'Research projects by Yating Wu and collaborators','url':ORIGIN+'/research/','mainEntity':{'@type':'ItemList','itemListElement':[{'@type':'ListItem','position':i+1,'name':w['title'],'url':w['page_url']} for i,w in enumerate(WORKS)]}}
-    return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n'+metadata('Research projects | Yating Wu','Explore research on scientific figures, LLM agent memory, Questions Under Discussion, text generation evaluation, and bilingual speech. Papers, resources, and citations.',ORIGIN+'/research/')+'\n'+jsonld(data)+'\n<link rel="stylesheet" href="project.css?v=20261014b"></head><body>'+nav('./')+'<main id="main" class="shell"><header class="hero hub-intro"><p class="eyebrow">Yating Wu &amp; collaborators</p><h1>Research projects</h1><nav class="topic-nav" aria-label="Research topics">'+''.join(a(t,'#'+id) for id,t in topics)+'</nav></header>'+''.join(sections)+'</main>'+footer()+'</body></html>\n'
+    return '<!doctype html>\n<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">\n'+metadata('Research projects | Yating Wu','Explore research on scientific figures, LLM agent memory, Questions Under Discussion, text generation evaluation, and bilingual speech. Papers, resources, and citations.',ORIGIN+'/research/')+'\n'+jsonld(data)+'\n<link rel="stylesheet" href="project.css?v=20261014c"></head><body>'+nav('./')+'<main id="main" class="shell"><header class="hero hub-intro"><p class="eyebrow">Yating Wu &amp; collaborators</p><h1>Research projects</h1><nav class="topic-nav" aria-label="Research topics">'+''.join(a(t,'#'+id) for id,t in topics)+'</nav></header>'+''.join(sections)+'</main>'+footer()+'</body></html>\n'
 
 
 def outputs(only=None):

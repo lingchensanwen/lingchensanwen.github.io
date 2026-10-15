@@ -84,7 +84,7 @@
     "deck": "Memory for coding agents, organized around the dependencies between their actions.",
     "venue_short": "Preprint",
     "figure": {
-      "src": "framework.svg",
+      "src": "framework.svg?v=20261014",
       "width": 557,
       "height": 220,
       "alt": "Pipeline diagram. The latest message of the growing agent context is summarized into a node n_t and linked into a dependency graph rooted at n_0. On the right, a sliding window keeps only the most recent messages, while ContextWeaver serializes earlier messages selected through the graph.",
