@@ -18,7 +18,7 @@ def render():
     for item in data['projects']:
         p = metadata[item['id']]
         selected = ' is-selected' if p['id'] == 'mqud' else ''
-        venue = p.get('venue_short', 'Preprint' if p['id'] == 'mqud' else p['venue'])
+        venue = item.get('venue') or p.get('venue_short', 'Preprint' if p['id'] == 'mqud' else p['venue'])
         branches = ' '.join(item.get('branches', [item['branch']]))
         nodes.append(f'''<a class="inquiry-node inquiry-{item['branch']}{selected}" data-project="{p['id']}" data-branch="{item['branch']}" data-branches="{e(branches)}" data-label="{item['label_position']}" href="./{p['path']}/" style="--x:{item['x']}%;--y:{item['y']}%" aria-label="{e(item['name'])}, {p['year']}" title="{e(p['title'])}">
           <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>

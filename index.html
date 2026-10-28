@@ -18,9 +18,9 @@
         <link rel="alternate" hreflang="ja" href="https://yatingwu.info/index_jp.html">
         <link rel="alternate" hreflang="x-default" href="https://yatingwu.info/">
         <link href="./files/bootstrap.css" rel="stylesheet">
-        <link href="./files/myedit.css" rel="stylesheet">
+        <link href="./files/myedit.css?v=20261028j" rel="stylesheet">
         <link href="./research/inquiry-map.css?v=20260906" rel="stylesheet">
-        <link href="./research/inquiry-landscape.css?v=20260907u" rel="stylesheet">
+        <link href="./research/inquiry-landscape.css?v=20261028" rel="stylesheet">
         <script src="./research/inquiry-map.js?v=20260907u" defer></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
 <script type="application/ld+json">
@@ -100,95 +100,64 @@
     </head>
     <body>
 
-      <div class="container-narrow"> <!-- define by myself -->
-        <div class="pull-right">
-          <a href="./index.html">English</a>/
-          <a href="./index_jp.html">日本語</a>
-        </div>
-        <br>
+      <div class="container-narrow home"> <!-- define by myself -->
 
-      <h2>Yating Wu</h2>
-      <div class="row" style="margin-bottom: 20px; margin-left: 0px;">
-      <div class="col-lg-2">
-                <img src="photo/yating.jpg" class="img-max-height" alt="Responsive image">
-            </div>
-        <div class="col-lg-10">
+      <div class="home-title">
+        <h2>Yating Wu</h2>
+        <nav class="home-nav"><a href="#research-overview">Research</a> <a href="#publications">Publications</a> <a href="#research-map">Research Delta</a> <a href="CV/CV.pdf?v=20261026">CV</a> <a class="home-lang" href="./index_jp.html" lang="ja">日本語</a></nav>
+      </div>
+      <div class="home-intro">
+        <img src="photo/yating-square.jpg" alt="Yating Wu">
+        <div>
         <b>Hi, y'all, I'm a Ph.D. candidate from the ECE department at UT Austin, supervised by <a href="https://jessyli.com">Prof. Jessy Li</a> and <a href="https://users.ece.utexas.edu/~dimakis/">Prof. Alex Dimakis</a></b>. My research interests focus on natural language processing and computational linguistics. Outside research, I love soccer, table tennis and Japanese. You can find my <a href="CV/CV.pdf?v=20261026">CV<i class="fa fa-download" aria-hidden="true" style="font-size:12px"></i></a> here.<br>
-        <span style="color: #bf5700; font-weight: 600;">I am on the 2026-2027 academic and industry job markets. Please feel free to reach out by email if there may be a fit.</span>
-
+        <span class="home-job">I am on the 2026-2027 academic and industry job markets. Please feel free to reach out by email if there may be a fit.</span>
+        <div class="home-links">
+          <a href="mailto:yating.wu@utexas.edu" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/wuyating" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://bsky.app/profile/yatingwu.bsky.social" target="_blank" title="Bluesky" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+          <a href="https://twitter.com/YatingWu96" target="_blank" title="X" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=aQ_UyzsAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://www.semanticscholar.org/author/Yating-Wu/2174327114" target="_blank" title="Semantic Scholar" aria-label="Semantic Scholar"><i class="ai ai-semantic-scholar"></i></a>
+        </div>
+        </div>
       </div>
-      </div>
 
-
-        <a href="mailto:yating.wu@utexas.edu"><i class="fas fa-envelope" style="font-size:36px"></i></a> 
-        <a href="https://github.com/lingchensanwen"><i class="fab fa-github" style="font-size:36px"></i></a>
-        <a href="https://www.linkedin.com/in/wuyating" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="font-size:36px"></i></a>
-        <a href="https://bsky.app/profile/yatingwu.bsky.social" target="_blank" title="Bluesky">
- <i class="fa-brands fa-bluesky" style="font-size:36px"></i></a>
-        <a href="https://twitter.com/YatingWu96" target="_blank" title="X"><i class="fa-brands fa-x-twitter" style="font-size:36px"></i></a>
-        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=aQ_UyzsAAAAJ"><i class="fas fa-graduation-cap" style="font-size:36px"></i></a>
-        <a href="https://www.semanticscholar.org/author/Yating-Wu/2174327114" target="_blank"><i class="ai ai-semantic-scholar ai-3x" style="font-size:38px"></i></a>
 
         <div class="research-overview-heading">
           <h3 id="research-overview">Research Overview</h3>
           <a class="research-map-jump" href="#research-map">Research Delta <span aria-hidden="true">↓</span></a>
         </div>
-        <p>I study how discourse structure can improve evaluation and learning in language models and AI agents.</p>
-        <ul>
-          <li><strong>Discourse structure and evaluation.</strong> I use <strong>Questions Under Discussion</strong> (QUD) to find interpretation errors that standard metrics miss. I also predict which questions readers find important and use implicit questions to improve explanations in simplified text.<br>
-            Selected work: <a href="./qsalience/">QSalience</a> (EMNLP 2024, Outstanding Paper Award) · <a href="./qudsim/">QUDsim</a> (COLM 2025) · <a href="./qudeval/">QUDeval</a> (EMNLP 2023) · <a href="./elabqud/">ElabQUD</a> (EMNLP 2023)</li>
-          <li><strong>Memory and learning from experience.</strong> I build memory for LLM agents from the dependencies between reasoning steps. Ongoing work makes this memory adaptive and reduces redundant training data and repeated exploration across agents.<br>
-            Selected work: <a href="./contextweaver/">ContextWeaver</a> (under submission, 2026) · ContextGraph (in progress)</li>
-          <li><strong>AI for scientific discovery.</strong> I study whether vision-language models can ask questions about a figure's role in a paper. As part of <a href="https://cosmicai.org/">CosmicAI</a>, I am building agents for astronomy that select observations and revise research plans as results become available.<br>
-            Selected work: <a href="./multimodal-qud/">Multimodal QUD</a> (under submission, 2026)</li>
-          <li><strong>Collaboration with humans and AI safety</strong> (in progress). I study how agents work with people and follow safety constraints.</li>
+        <p>Language models are increasingly used in tasks ranging from software development to scientific research. These tasks often require models to explain how evidence supports a conclusion, decide which information matters, and build on earlier findings. My research focuses on the structure of explanations and reasoning. I use this structure to evaluate and improve how AI systems reason and learn.</p>
+        <ul class="home-areas">
+          <li><strong>Understanding and preserving context.</strong> I develop frameworks based on <strong>Questions Under Discussion</strong> (QUD) that model relationships across a text through questions and answers. For agents, I build memory that preserves earlier findings along with the evidence and reasoning behind them.
+            <span class="home-selected">Selected work: <a href="./qud-parsing/">QUD parsing</a> (Findings of ACL 2023); <a href="./contextweaver/">ContextWeaver</a> (under submission, 2026); ContextGraph (in progress)</span></li>
+          <li><strong>Evaluating understanding and generation.</strong> I evaluate whether a model's interpretation is supported by its context. This evaluation reveals interpretation errors that common metrics miss. I also measure structural repetition in model outputs.
+            <span class="home-selected">Selected work: <a href="./qudeval/">QUDeval</a> (EMNLP 2023); <a href="./qudsim/">QUDsim</a> (COLM 2025)</span></li>
+          <li><strong>Learning what information matters.</strong> I use questions to separate what to explain from how to explain it. I predict which questions are important from their context, and I extend this framework to scientific figures.
+            <span class="home-selected">Selected work: <a href="./qsalience/">QSalience</a> (EMNLP 2024, Outstanding Paper Award); <a href="./elabqud/">ElabQUD</a> (EMNLP 2023); <a href="./multimodal-qud/">Multimodal QUD</a> (under submission, 2026)</span></li>
+        </ul>
+        <p class="home-subhead">Ongoing and future research</p>
+        <ul class="home-areas">
+          <li><strong>Learning efficiently from experience.</strong> <a href="./qudsim/">QUDsim</a> showed that models reuse the same discourse structures across topics. I study when such repetition helps learning and when it wastes computation, in training data and across agents.</li>
+          <li><strong>Collaboration between people and AI.</strong> Building on my <a href="./qudeval/">evaluation work</a>, I study how AI systems interpret and respond to human feedback. I also study how agents follow limits on their actions.</li>
+          <li><strong>AI for scientific discovery.</strong> I extend my work on <a href="./qsalience/">question importance</a> to scientific investigations, where the value of a question changes as new evidence arrives. I study how AI systems choose observations and revise research plans in light of the results. Ongoing work with <a href="https://cosmicai.org/">CosmicAI</a> in astronomy provides an initial setting.</li>
         </ul>
 
-        <h3>Education</h3>
-          <dl>
-            <dt>Ph.D., (Aug. 2022 - Now) in Computer Engineering</dt>
-            <dt>M.S., (Jan. 2020 - Aug. 2022) in Computer Engineering</dt>
-            <dd>Department of Electrical and Computer Engineering,<br>
-            <dd>University of Texas at Austin.<br>
-            Advisors: <a href="https://jessyli.com">Prof. Jessy Li</a>,
-            <a href="https://users.ece.utexas.edu/~dimakis/">Prof. Alex Dimakis</a><br>
-            Group: <a href="https://www.nlp.utexas.edu">UT NLP Group</a>, 
-            <a href="http://wncg.org/">Wireless Networking and Communications Group(WNCG)</a><br>
-            </a></dd>
-          </dl>
-          <dl>
-            <dt>B.Eng., (Spt. 2014 - Jul. 2019) in Computer Science and Technology</dt>
-            <dt>B.A., (Spt. 2014 - Jul. 2019) in Japanese</dt>
-            <dd>Department of Computer Science<br>
-            Dalian University of Technology.<br>
-          </dl>
-          <dl>
-            <dt>Undergraduate Exchange Student, (Spt. 2017 - Aug. 2018) in Computer Science</dt>
-            <dd>Department of Information & Communication Engineering,<br>
-            The University of Tokyo.<br>
-            Advisor: <a href="https://scholar.google.com/citations?hl=en&user=rE9iY5MAAAAJ">Prof. Toshihiko Yamasaki</a><br>
-            Group: <a href="https://www.hal.t.u-tokyo.ac.jp/lab/en/index_1.xhtml">Aizawa-Yamasaki Laboratory (now Aizawa-Yamakata-Matsui Laboratory)</a><br>
-          </dl>
-
-      <h3 id="preprints">Preprints</h3>
-      <ul>
+      <h3 id="publications">Selected Publications</h3>
+      <p><sup>†</sup>Indicates equal contribution.</p>
+      <ul class="home-pubs">
         <li id="mqud">
           <p><a href="https://arxiv.org/abs/2604.23733"><strong>Multimodal QUD: Inquisitive Questions from Scientific Figures</strong></a>
           [<a href="./multimodal-qud/">project website</a>] [<a href="https://huggingface.co/datasets/lingchensanwen/mqud">dataset</a>]<br>
           <span class="under">Yating Wu</span>, William Rudman, Venkata S Govindarajan, Alexandros G. Dimakis, Junyi Jessy Li<br>
-          Preprint, 2026.</p>
+          Under submission, 2026.</p>
         </li>
         <li id="contextweaver">
           <p><a href="https://arxiv.org/abs/2604.23069"><strong>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</strong></a> [<a href="./contextweaver/">project</a>]
           <br>
           <span class="under">Yating Wu</span>, Yuhao Zhang, Sayan Ghosh, Sourya Basu, Anoop Deoras, Jun Huan, Gaurav Gupta<br>
-          Preprint, 2026.</p>
+          Under submission, 2026.</p>
         </li>
-      </ul>
-
-      <h3 id="publications">Selected Publications</h3>
-      <p><sup>†</sup>Indicates equal contribution.</p>
-      <ul>
         <li id="qudsim">
           <p><a href="https://openreview.net/forum?id=zFz1BJu211"><strong>QUDsim: Quantifying Discourse Similarities in LLM-Generated Text</strong></a> [<a href="./qudsim/">project</a>]
           [<a href="https://github.com/AlliteraryAlligator/QUDsim">code and data</a>] [<a href="https://arxiv.org/abs/2504.09373">paper</a>]<br>
@@ -223,7 +192,7 @@
 
       <h3 id="workshops">Workshops</h3>
       <p><sup>†</sup>Indicates equal contribution.</p>
-      <ul>
+      <ul class="home-pubs">
         <li id="bilingual-disfluencies">
           <p><a href="https://openreview.net/forum?id=rrNAqNYRLA"><strong>Modeling Bilingual Disfluencies with Large Language Models</strong></a> [<a href="./bilingual-disfluencies/">project</a>]
           <br>
@@ -234,6 +203,15 @@
 
 
 
+
+      <h3 id="education">Education</h3>
+      <ul>
+        <li><strong>Ph.D. (Aug. 2022 - Now) and M.S. (Jan. 2020 - Aug. 2022) in Electrical and Computer Engineering</strong>, The University of Texas at Austin<br>
+          Advisors: <a href="https://jessyli.com">Prof. Jessy Li</a>, <a href="https://users.ece.utexas.edu/~dimakis/">Prof. Alex Dimakis</a>. Groups: <a href="https://www.nlp.utexas.edu">UT NLP Group</a>, <a href="http://wncg.org/">WNCG</a></li>
+        <li><strong>B.Eng. in Computer Science and Technology and B.A. in Japanese</strong> (Sept. 2014 - Jul. 2019), Dalian University of Technology</li>
+        <li><strong>Undergraduate Exchange Student in Computer Science</strong> (Sept. 2017 - Aug. 2018), The University of Tokyo<br>
+          Advisor: <a href="https://scholar.google.com/citations?hl=en&user=rE9iY5MAAAAJ">Prof. Toshihiko Yamasaki</a>. Group: <a href="https://www.hal.t.u-tokyo.ac.jp/lab/en/index_1.xhtml">Aizawa-Yamasaki Laboratory (now Aizawa-Yamakata-Matsui Laboratory)</a></li>
+      </ul>
 
       <h3 id="experience">Experience</h3>
         <h4>Working Experience</h4>
@@ -352,7 +330,7 @@
           <div class="inquiry-map-caption"><span>Rivers group research themes.</span><span><i class="inquiry-legend-arrow" aria-hidden="true">→</i>Arrows mark connections between papers.</span></div>
           <div class="inquiry-details" tabindex="-1" aria-label="Selected project"><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-qud-parsing" aria-labelledby="inquiry-title-qud-parsing">
           <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2023 · Findings of ACL</p><h4 id="inquiry-title-qud-parsing">QUD parsing</h4><div class="inquiry-detail-links"><a href="./qud-parsing/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2023.findings-acl.710/">paper <span aria-hidden="true">↗</span></a></div></div>
-          <div class="inquiry-detail-body"><p>A parser connects each sentence to an earlier sentence through the implicit question it answers.</p><p class="inquiry-connection"><span>Connection to <a href="./qudeval/">QUDeval</a></span> QUDeval develops a human evaluation protocol for QUD parsing and examines the questions produced by parsing systems. <a class="inquiry-source" href="https://aclanthology.org/2023.emnlp-main.325/">Abstract ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> QUD parsing recovers the questions a text answers. QSalience asks which questions would most help a reader understand that text. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p></div>
+          <div class="inquiry-detail-body"><p>A parser connects each sentence to an earlier sentence through the implicit question it answers.</p><p class="inquiry-connection"><span>Connection to <a href="./qudeval/">QUDeval</a></span> QUDeval develops a human evaluation protocol for QUD parsing and examines the questions produced by parsing systems. <a class="inquiry-source" href="https://aclanthology.org/2023.emnlp-main.325/">Abstract ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> QUD parsing recovers the questions a text answers. QSalience asks which questions would most help a reader understand that text. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./contextweaver/">ContextWeaver</a></span> QUD parsing connects each sentence to an earlier sentence through the implicit question it answers. ContextWeaver links each reasoning step of an agent to the earlier steps it depends on. <a class="inquiry-source" href="https://arxiv.org/html/2604.23069v2#S3">Section 3 ↗</a></p></div>
         </article><article class="inquiry-detail inquiry-discourse" id="inquiry-detail-qudeval" aria-labelledby="inquiry-title-qudeval">
           <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2023 · EMNLP</p><h4 id="inquiry-title-qudeval">QUDeval</h4><div class="inquiry-detail-links"><a href="./qudeval/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2023.emnlp-main.325/">paper <span aria-hidden="true">↗</span></a></div></div>
           <div class="inquiry-detail-body"><p>Four linguistic criteria test whether a generated question fits its anchor, answer, and preceding text.</p><p class="inquiry-connection"><span>Connection to <a href="./qud-parsing/">QUD dependency parsing</a></span> QUDeval develops a human evaluation protocol for QUD parsing and examines the questions produced by parsing systems. <a class="inquiry-source" href="https://aclanthology.org/2023.emnlp-main.325/">Abstract ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qudsim/">QUDsim</a></span> QUDsim cites QUDeval in its question generation procedure, then uses answerability across documents to measure discourse similarity. <a class="inquiry-source" href="https://arxiv.org/html/2504.09373v2#S4">Section 4 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> QSalience follows QUDeval’s constraint that a question must be grounded in its anchor sentence when judging question validity. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S3">Section 3 ↗</a></p></div>
@@ -366,14 +344,14 @@
           <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2024 · EMNLP</p><h4 id="inquiry-title-qsalience">QSalience</h4><span class="inquiry-award">Outstanding Paper Award</span><div class="inquiry-detail-links"><a href="./qsalience/">Project <span aria-hidden="true">↗</span></a><a href="https://aclanthology.org/2024.emnlp-main.1114/">paper <span aria-hidden="true">↗</span></a></div></div>
           <div class="inquiry-detail-body"><p>We predict how much answering a question would help a reader understand the preceding text.</p><p class="inquiry-connection"><span>Connection to <a href="./qud-parsing/">QUD dependency parsing</a></span> QUD parsing recovers the questions a text answers. QSalience asks which questions would most help a reader understand that text. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./qudeval/">QUDeval</a></span> QSalience follows QUDeval’s constraint that a question must be grounded in its anchor sentence when judging question validity. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S3">Section 3 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./elabqud/">ElabQUD</a></span> QSalience cites ElabQUD to motivate choosing which concepts need an explanation, beyond generating possible elaborations. <a class="inquiry-source" href="https://arxiv.org/html/2404.10917v2#S2">Section 2 ↗</a></p><p class="inquiry-connection"><span>Connection to <a href="./multimodal-qud/">MQUD</a></span> MQUD draws on QSalience when extending question salience from news text to scientific figures and a paper’s research goals. <a class="inquiry-source" href="https://arxiv.org/html/2604.23733v3#S2">Section 2 ↗</a></p></div>
         </article><article class="inquiry-detail inquiry-science is-selected" id="inquiry-detail-mqud" aria-labelledby="inquiry-title-mqud">
-          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2026 · Preprint</p><h4 id="inquiry-title-mqud">MQUD</h4><div class="inquiry-detail-links"><a href="./multimodal-qud/">Project <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2604.23733">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2026 · Under submission</p><h4 id="inquiry-title-mqud">MQUD</h4><div class="inquiry-detail-links"><a href="./multimodal-qud/">Project <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2604.23733">paper <span aria-hidden="true">↗</span></a></div></div>
           <div class="inquiry-detail-body"><p>Scientific figures raise questions about a paper’s argument. MQUD studies those questions with annotations from the papers’ authors.</p><p class="inquiry-connection"><span>Connection to <a href="./qsalience/">QSalience</a></span> MQUD draws on QSalience when extending question salience from news text to scientific figures and a paper’s research goals. <a class="inquiry-source" href="https://arxiv.org/html/2604.23733v3#S2">Section 2 ↗</a></p></div>
         </article><article class="inquiry-detail inquiry-speech" id="inquiry-detail-bilingual-disfluencies" aria-labelledby="inquiry-title-bilingual-disfluencies">
           <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2024 · ICML · LLMs and Cognition Workshop</p><h4 id="inquiry-title-bilingual-disfluencies">Bilingual disfluencies</h4><div class="inquiry-detail-links"><a href="./bilingual-disfluencies/">Project <span aria-hidden="true">↗</span></a><a href="https://openreview.net/forum?id=rrNAqNYRLA">paper <span aria-hidden="true">↗</span></a></div></div>
           <div class="inquiry-detail-body"><p>Language model surprisal and linguistic features help us study disfluencies in monolingual and bilingual speech.</p></div>
         </article><article class="inquiry-detail inquiry-agents" id="inquiry-detail-contextweaver" aria-labelledby="inquiry-title-contextweaver">
-          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2026 · Preprint</p><h4 id="inquiry-title-contextweaver">ContextWeaver</h4><div class="inquiry-detail-links"><a href="./contextweaver/">Project <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2604.23069">paper <span aria-hidden="true">↗</span></a></div></div>
-          <div class="inquiry-detail-body"><p>Dependencies between an agent’s reasoning steps guide which observations and decisions to retain in context.</p></div>
+          <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">2026 · Under submission</p><h4 id="inquiry-title-contextweaver">ContextWeaver</h4><div class="inquiry-detail-links"><a href="./contextweaver/">Project <span aria-hidden="true">↗</span></a><a href="https://arxiv.org/abs/2604.23069">paper <span aria-hidden="true">↗</span></a></div></div>
+          <div class="inquiry-detail-body"><p>Dependencies between an agent’s reasoning steps guide which observations and decisions to retain in context.</p><p class="inquiry-connection"><span>Connection to <a href="./qud-parsing/">QUD dependency parsing</a></span> QUD parsing connects each sentence to an earlier sentence through the implicit question it answers. ContextWeaver links each reasoning step of an agent to the earlier steps it depends on. <a class="inquiry-source" href="https://arxiv.org/html/2604.23069v2#S3">Section 3 ↗</a></p></div>
         </article></div>
           <p class="inquiry-status" role="status" aria-live="polite"></p>
           </div>

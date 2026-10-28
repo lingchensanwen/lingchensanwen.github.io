@@ -86,7 +86,8 @@
       "river_point": [
         1116,
         498
-      ]
+      ],
+      "venue": "Under submission"
     },
     {
       "id": "bilingual-disfluencies",
@@ -114,7 +115,8 @@
       "river_point": [
         1254,
         891
-      ]
+      ],
+      "venue": "Under submission"
     }
   ],
   "connections": [
@@ -166,6 +168,14 @@
       "description": "MQUD draws on QSalience when extending question salience from news text to scientific figures and a paper’s research goals.",
       "source": "https://arxiv.org/html/2604.23733v3#S2",
       "section": "Section 2"
+    },
+    {
+      "from": "qud-parsing",
+      "to": "contextweaver",
+      "label": "Linking to earlier context",
+      "description": "QUD parsing connects each sentence to an earlier sentence through the implicit question it answers. ContextWeaver links each reasoning step of an agent to the earlier steps it depends on.",
+      "source": "https://arxiv.org/html/2604.23069v2#S3",
+      "section": "Section 3"
     }
   ]
 }

@@ -19,3 +19,133 @@ body {
 .img-max-height {
     max-height: 200px;
 }
+/* Homepage layout */
+.container-narrow.home {
+    max-width: 760px;
+    padding: 0 16px;
+    font-size: 15px;
+    line-height: 24px;
+}
+.home li,
+.home dt,
+.home dd {
+    line-height: 24px;
+}
+.home ul > li {
+    margin-bottom: 6px;
+}
+.home .home-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    column-gap: 16px;
+    margin-bottom: 8px;
+}
+.home .home-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.home .home-nav a {
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: #f3effa;
+    color: #4b3486;
+    line-height: 20px;
+}
+.home .home-nav a:hover,
+.home .home-nav a:focus {
+    background: #e6ddf6;
+    color: #3a2670;
+    text-decoration: none;
+}
+.home .home-nav .home-lang {
+    font-weight: 600;
+}
+.home .home-intro {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.home .home-intro img {
+    width: 160px;
+    height: 160px;
+    flex: none;
+    border-radius: 4px;
+}
+@media (max-width: 600px) {
+    .home .home-intro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+.home .home-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: 12px;
+}
+.home .home-links a {
+    color: #0088cc;
+    font-size: 21px;
+    line-height: 1;
+}
+.home .home-links a:hover {
+    color: #005580;
+    text-decoration: none;
+}
+.home .home-links .ai {
+    font-size: 23px;
+}
+.home h2 {
+    font-size: 32px;
+    letter-spacing: -0.3px;
+}
+.home > h3,
+.home .research-overview-heading h3 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+}
+.home > h3 {
+    margin: 36px 0 12px;
+}
+.home .research-overview-heading {
+    margin-top: 32px;
+}
+.home .home-areas > li {
+    margin-bottom: 12px;
+}
+.home .home-selected {
+    display: block;
+    margin-top: 2px;
+    font-size: 14px;
+    color: #666;
+}
+.home .home-subhead {
+    margin: 22px 0 10px;
+    font-weight: 600;
+    color: #333;
+}
+.home .home-pubs > li {
+    margin-bottom: 14px;
+}
+.home .home-pubs p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 22px;
+    color: #555;
+}
+.home .home-pubs p > a:first-child {
+    font-size: 15px;
+}
+.home .home-job {
+    color: #bf5700;
+    font-weight: 600;
+}
