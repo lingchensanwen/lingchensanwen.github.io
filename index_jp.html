@@ -17,48 +17,50 @@
         <link rel="alternate" hreflang="ja" href="https://yatingwu.info/index_jp.html">
         <link rel="alternate" hreflang="x-default" href="https://yatingwu.info/">
         <link href="./files/bootstrap.css" rel="stylesheet">
-        <link href="./files/myedit.css" rel="stylesheet">
+        <link href="./files/myedit.css?v=20261028n" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
     </head>
     <body>
 
-      <div class="container-narrow"> <!-- define by myself -->
-        <div class="pull-right">
-          <a href="./index.html">English</a>/
-          <a href="./index_jp.html">日本語</a>
-        </div>
-        <br>
+      <div class="container-narrow home"> <!-- define by myself -->
 
-      <h2>呉雅婷（ゴガテイ）</h2>
-      <div class="row" style="margin-bottom: 20px; margin-left: 0px;">
-      <div class="col-lg-2">
-                <img src="photo/yating.jpg" class="img-max-height" alt="Responsive image">
-            </div>
-        <div class="col-lg-10">
+      <div class="home-title">
+        <h2>呉雅婷（ゴガテイ）</h2>
+        <nav class="home-nav"><a href="#研究概要">研究概要</a> <a href="#発表文献">論文</a> <a href="CV/CV.pdf?v=20261026">履歴書</a> <a href="./index.html" lang="en">English</a></nav>
+      </div>
+      <div class="home-intro">
+        <img src="photo/yating-square.jpg" alt="呉雅婷">
+        <div>
         <b>みなさん、こんにちは。呉雅婷と申します。テキサス大学に在籍する博士候補生です。今は<a href="https://jessyli.com">Jessy Li教授</a>と<a href="https://users.ece.utexas.edu/~dimakis/">Alex Dimakis教授</a>の指導をいただきます</b>。研究分野として、自然言語処理また計算言語学に興味を持っています。趣味はサッカー、卓球と日本語です。もっと詳しい履歴書は<a href="CV/CV.pdf?v=20261026">こちらから<i class="fa fa-download" aria-hidden="true" style="font-size:12px"></i></a>ご覧ください。<br>
-        <span style="color: #bf5700; font-weight: 600;">2026-2027年に向けて、アカデミア・企業で研究を続けられる機会を探しています。ご関心をお持ちいただけましたら、メールでお気軽にご連絡ください。</span>
-      </div>
+        <span class="home-job">2026-2027年に向けて、大学・企業で研究を続けられる機会を探しています。ご関心をお持ちいただけましたら、メールでお気軽にご連絡ください。</span>
+        <div class="home-links">
+          <a href="mailto:yating.wu@utexas.edu" title="Email" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://www.linkedin.com/in/wuyating" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://bsky.app/profile/yatingwu.bsky.social" target="_blank" title="Bluesky" aria-label="Bluesky"><i class="fa-brands fa-bluesky"></i></a>
+          <a href="https://twitter.com/YatingWu96" target="_blank" title="X" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=aQ_UyzsAAAAJ" title="Google Scholar" aria-label="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://www.semanticscholar.org/author/Yating-Wu/2174327114" target="_blank" title="Semantic Scholar" aria-label="Semantic Scholar"><i class="ai ai-semantic-scholar"></i></a>
+        </div>
+        </div>
       </div>
 
-
-        <a href="mailto:yating.wu@utexas.edu"><i class="fas fa-envelope" style="font-size:36px"></i></a> 
-        <a href="https://github.com/lingchensanwen"><i class="fab fa-github" style="font-size:36px"></i></a>
-        <a href="https://www.linkedin.com/in/wuyating" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" style="font-size:36px"></i></a>
-        <a href="https://bsky.app/profile/yatingwu.bsky.social" target="_blank" title="Bluesky">
- <i class="fa-brands fa-bluesky" style="font-size:36px"></i></a>
-        <a href="https://twitter.com/YatingWu96" target="_blank" title="X"><i class="fa-brands fa-x-twitter" style="font-size:36px"></i></a>
-        <a href="https://scholar.google.com/citations?view_op=list_works&hl=en&user=aQ_UyzsAAAAJ"><i class="fas fa-graduation-cap" style="font-size:36px"></i></a>
-        <a href="https://www.semanticscholar.org/author/Yating-Wu/2174327114" target="_blank"><i class="ai ai-semantic-scholar ai-3x" style="font-size:38px"></i></a>
-        <h3>研究概要</h3>
-        <p><a href="./research/">研究プロジェクト一覧（英語）</a></p>
-        <ul>
-          <li>テキスト内の暗黙的な推論構造や談話関係を明らかにする計算フレームワークの構築。特に<strong>Questions Under Discussion</strong>に関する研究に取り組んでいる。</li>
-          <li>構造化された推論フィードバックによる、効果的かつ効率的なモデル学習のための評価手法の開発。</li>
-          <li>要約・検索・詳細化テキスト簡略化など、実応用タスクへの構造化推論の適用。</li>
-          <li><a href="https://cosmicai.org/">CosmicAI</a>の一員として、科学的発見に向けたLLMの推論能力を向上させる。</li>
+        <h3 id="研究概要">研究概要</h3>
+        <p>言語モデルは、ソフトウェア開発から科学研究まで、さまざまなタスクで使われるようになっている。こうしたタスクでは、根拠が結論をどう支えるかを説明し、どの情報が重要かを判断し、それまでの知見を踏まえて次に進むことが求められる。私の研究は、説明と推論の構造に焦点を当てている。この構造を用いて、AIシステムの推論と学習を評価し、改善する。</p>
+        <ul class="home-areas">
+          <li><strong>文脈の理解と保持。</strong><strong>Questions Under Discussion</strong>（QUD）に基づき、テキスト内の関係を質問と回答によってモデル化するフレームワークを構築している。エージェントについては、それまでの知見をその根拠や推論とともに保持するメモリを開発している。
+            <span class="home-selected">主な研究：<a href="./qud-parsing/">QUD parsing</a>（Findings of ACL 2023）；<a href="./contextweaver/">ContextWeaver</a>（投稿中、2026）；ContextGraph（進行中）</span></li>
+          <li><strong>理解と生成の評価。</strong>モデルの解釈が文脈によって裏付けられているかを評価している。この評価によって、一般的な評価指標では見落とされる解釈の誤りを明らかにできる。また、モデルの出力に現れる構造の繰り返しを測定している。
+            <span class="home-selected">主な研究：<a href="./qudeval/">QUDeval</a>（EMNLP 2023）；<a href="./qudsim/">QUDsim</a>（COLM 2025）</span></li>
+          <li><strong>何が重要な情報かを学ぶ。</strong>質問を用いて、何を説明するかと、どう説明するかを切り分けている。また、質問の重要度を文脈から予測し、この枠組みを科学論文の図表にも広げている。
+            <span class="home-selected">主な研究：<a href="./qsalience/">QSalience</a>（EMNLP 2024、優秀論文賞）；<a href="./elabqud/">ElabQUD</a>（EMNLP 2023）；<a href="./multimodal-qud/">Multimodal QUD</a>（投稿中、2026）</span></li>
         </ul>
-
-
+        <p class="home-subhead">進行中・今後の研究</p>
+        <ul class="home-areas">
+          <li><strong>経験からの効率的な学習。</strong><a href="./qudsim/">QUDsim</a>では、モデルが話題の異なるテキストでも同じ談話構造を繰り返し使うことを示した。学習データやエージェント間での探索において、こうした繰り返しが学習に役立つ場合と、計算の無駄になる場合を研究している。</li>
+          <li><strong>人とAIの協働。</strong><a href="./qudeval/">評価に関する研究</a>をもとに、AIシステムが人からのフィードバックをどう解釈し、どう応答するかを研究している。また、エージェントが行動に課された制約をどう守るかも研究している。</li>
+          <li><strong>科学的発見のためのAI。</strong><a href="./qsalience/">質問の重要度</a>に関する研究を、新たな証拠によって質問の価値が変わる科学的探究へと広げている。AIシステムが観測対象をどう選び、結果に応じて研究計画をどう修正するかを研究している。まずは<a href="https://cosmicai.org/">CosmicAI</a>で天文学を対象に取り組んでいる。</li>
+        </ul>
+        <p><a href="./research/">研究プロジェクト一覧（英語）</a></p>
 
         <h3>大学</h3>
           <dl>
@@ -83,27 +85,21 @@
             指導教員：<a href="https://scholar.google.com/citations?hl=en&user=rE9iY5MAAAAJ">山﨑俊彦教授</a>、研究室：<a href="https://www.hal.t.u-tokyo.ac.jp/lab/en/index_1.xhtml">相澤山﨑研</a><br>
           </dl>
 
-      <h3 id="プレプリント">プレプリント</h3>
-      <p><a href="./publications.bib" download>BibTeX</a> · <a href="./multimodal-qud/">MQUD プロジェクト</a></p>
-      <ul>
+      <h3 id="発表文献">主な発表文献</h3>
+      <p>(<sup>†</sup>は等しく貢献した)　<a href="./publications.bib" download>BibTeX</a></p>
+      <ul class="home-pubs">
         <li>
         <p><a href="https://arxiv.org/abs/2604.23733"><strong>Multimodal QUD: Inquisitive Questions from Scientific Figures</strong></a> [<a href="./multimodal-qud/">プロジェクト</a>]
         <br/>
         <span class="under">Yating Wu</span>, William Rudman, Venkata S Govindarajan, Alexandros G. Dimakis and Junyi Jessy Li
-        <br/>Preprint, 2026.</p>
+        <br/>投稿中, 2026.</p>
         </li>
         <li>
         <p><a href="https://arxiv.org/abs/2604.23069"><strong>ContextWeaver: Selective and Dependency-Structured Memory Construction for LLM Agents</strong></a> [<a href="./contextweaver/">プロジェクト</a>]
         <br/>
         <span class="under">Yating Wu</span>, Yuhao Zhang, Sayan Ghosh, Sourya Basu, Anoop Deoras, Jun Huan and Gaurav Gupta
-        <br/>Preprint, 2026.</p>
+        <br/>投稿中, 2026.</p>
         </li>
-      </ul>
-
-      <h3 id="発表文献"> 選んだ発表文献</h3>
-      (<sup>†</sup>は等しく貢献した)
-            <p><a name="kovatchev2022longhorns"></a>
-      <ul>
         <li>
         <p><a href="https://arxiv.org/abs/2504.09373"><strong>QUDsim: Quantifying Discourse Similarities in LLM-Generated Text</strong></a> [<a href="./qudsim/">プロジェクト</a>]
         [<a href="https://github.com/AlliteraryAlligator/QUDsim">code and data</a>]
@@ -141,11 +137,6 @@
         <br/>
         Findings of the Association for Computational Linguistics (ACL), 2023. (査読あり)</p>
         </li>
-      </ul>
-
-      <h3 id="ワークショップ">ワークショップ</h3>
-      (<sup>†</sup>は等しく貢献した)
-          <ul>
         <li>
         <p><a href="https://openreview.net/forum?id=rrNAqNYRLA"><strong>Modeling Bilingual Disfluencies with Large Language Models</strong></a> [<a href="./bilingual-disfluencies/">プロジェクト</a>]
         <br/>
@@ -155,31 +146,26 @@
         </li> 
       </ul>
 
+      <h3>受賞</h3>
+        <ul>
+          <li>MIT EECS Rising Stars 2025</li>
+          <li>優秀論文賞、EMNLP2024</li>
+          <li>VMWare Codehouse Palo Alto 一等賞, 2021年7月</span></li>
+          <li>優秀卒業生, 2019年7月</li>
+          <li>優秀卒業生, 2014年7月</li>
+        </ul>
+
       <h3 id="経歴">経歴</h3>
         <h4>業界経歴</h4>
-
         <ul>
-            <li><span class="under">AWS AI Labs, Summer 2025</span><br>
-              <strong>Applied Scientist Intern. </strong>LLMコーディングエージェントのための長文脈メモリサポートの研究をしていた。<br> <ul>
-              </ul>
-            </li>
-          </ul>
-        <ul>
-            <li><span class="under">Amazon Alexa AGI, Summer 2024</span><br>
-              <strong>Applied Scientist Intern. </strong>LLMエージェントの計画能力をより良くするための研究をしていた。<br> <ul>
-              </ul>
-            </li>
-          </ul>
-        <ul>
-            <li><span class="under">Amazon Prime Video, Summer 2023 (9週間)</span><br>
-              <strong>Software Develop Engineer Intern. </strong> ルールに基づいて自動的にサービスを通知するシステムを作った。<br>
-            </li>
-          </ul>
-          <ul>
-            <li><span class="under">Amazon Prime Video, Summer 2021 (12週間)</span> </strong></br>
-              <strong>Software Develop Engineer Intern.</strong> 生放送イベントを人気順にランキングするシステムを開発した。 <a href="https://www.amazon.com/gp/video/storefront/ref=atv_cat_sports?contentType=merch&contentId=pvsports">この実装はPrime Videoの公式サイトで使用されている。</a>
-            </li>
-          </ul>
+          <li><span class="under">AWS AI Labs, Summer 2025</span><br>
+            <strong>Applied Scientist Intern. </strong>LLMコーディングエージェントのための長文脈メモリサポートの研究をしていた。</li>
+          <li><span class="under">Amazon Alexa AGI, Summer 2024</span><br>
+            <strong>Applied Scientist Intern. </strong>LLMエージェントの計画能力をより良くするための研究をしていた。</li>
+          <li><span class="under">Amazon Prime Video, Summer 2023 (9週間)</span><br>
+            <strong>Software Develop Engineer Intern. </strong> ルールに基づいて自動的にサービスを通知するシステムを作った。</li>
+          <li><span class="under">Amazon Prime Video, Summer 2021 (12週間)</span><br>
+            <strong>Software Develop Engineer Intern.</strong> 生放送イベントを人気順にランキングするシステムを開発した。 <a href="https://www.amazon.com/gp/video/storefront/ref=atv_cat_sports?contentType=merch&contentId=pvsports">この実装はPrime Videoの公式サイトで使用されている。</a></li>
         </ul>
         <h4>授業助手経歴</h4>
 <ul>
@@ -208,20 +194,18 @@
         <a href="http://users.ece.utexas.edu/~ethomaz/">Edison Thomaz</a>. -->
     </li>
 </ul>
+        <h4>指導経験</h4>
+        <ul>
+          <li>Ritika Mangla（修士課程、テキサス大学オースティン校、2022-2024年）。EMNLP論文2本を共著し、うち1本は優秀論文賞を受賞。</li>
+          <li>Ashwin Ram（修士課程、テキサス大学オースティン校、2024年）</li>
+          <li>Tianyang Xu（博士課程、TTIC）</li>
+        </ul>
+
       <h3>サービス</h3>
         <ul>
           <li><strong><a href="https://2026.emnlp.org/organization/">Workflow Chair, EMNLP 2026</a></strong></li>
           <li>Reviewer: ACL ARR 2024-2025, ACL 2024-2025, EMNLP 2024, COLM 2024-2025, ICML 2025 XAI4Science, AAAI 2025 MARW, NeurIPS 2024 Behavioral ML, ICML 2024 DMLR, ICML 2024 LLMs and Cognition</li>
         </ul>
-      <h3>その他</h3>
-        <ul>
-          <li>MIT EECS Rising Stars 2025</li>
-          <li>優秀論文賞、EMNLP2024</li>
-          <li>VMWare Codehouse Palo Alto 一等賞, 2021年7月</span></li>
-          <li>優秀卒業生, 2019年7月</li>
-          <li>優秀卒業生, 2014年7月</li>
-        </ul>
-
       <h3 id="link">リンク</h3>
         <dl>
           <!-- <dt><a href="https://jessyli.com/">Jessy Li</a></dt> -->
@@ -236,7 +220,5 @@
         </footer>
       </div><!-- container-narrow -->
       <script src="./files/bootstrap.js"></script>
-
-
 
 </body></html>

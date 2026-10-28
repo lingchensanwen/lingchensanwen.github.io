@@ -32,7 +32,7 @@ body {
     line-height: 24px;
 }
 .home ul > li {
-    margin-bottom: 6px;
+    margin-bottom: 3px;
 }
 .home .home-title {
     display: flex;
@@ -115,13 +115,17 @@ body {
     letter-spacing: -0.2px;
 }
 .home > h3 {
-    margin: 36px 0 12px;
+    margin: 26px 0 6px;
+    line-height: 30px;
 }
 .home .research-overview-heading {
-    margin-top: 32px;
+    margin-top: 24px;
+}
+.home .research-overview-heading h3 {
+    line-height: 30px;
 }
 .home .home-areas > li {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 .home .home-selected {
     display: block;
@@ -130,12 +134,12 @@ body {
     color: #666;
 }
 .home .home-subhead {
-    margin: 22px 0 10px;
+    margin: 14px 0 6px;
     font-weight: 600;
     color: #333;
 }
 .home .home-pubs > li {
-    margin-bottom: 14px;
+    margin-bottom: 8px;
 }
 .home .home-pubs p {
     margin: 0;
@@ -149,4 +153,20 @@ body {
 .home .home-job {
     color: #bf5700;
     font-weight: 600;
+}
+.home h4 {
+    margin: 14px 0 4px;
+}
+.home dl {
+    margin-bottom: 8px;
+}
+.home ul {
+    margin-bottom: 6px;
+}
+.home .inquiry-map:not([open]) {
+    margin-top: 26px;
+    margin-bottom: 8px;
+}
+.home .inquiry-map .inquiry-heading {
+    padding-bottom: 12px;
 }
