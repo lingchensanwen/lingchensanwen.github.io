@@ -53,17 +53,18 @@ body {
 .home .home-nav a {
     padding: 3px 12px;
     border-radius: 999px;
-    background: #f3effa;
-    color: #4b3486;
+    background: #e8f3fa;
+    color: #00669a;
     line-height: 20px;
 }
 .home .home-nav a:hover,
 .home .home-nav a:focus {
-    background: #e6ddf6;
-    color: #3a2670;
+    background: #d4eaf7;
+    color: #004f78;
     text-decoration: none;
 }
-.home .home-nav .home-lang {
+/* Japanese glyphs render lighter at the same weight */
+.home .home-nav a:lang(ja) {
     font-weight: 600;
 }
 .home .home-intro {
