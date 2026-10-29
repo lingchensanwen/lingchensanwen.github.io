@@ -18,7 +18,7 @@
         <link rel="alternate" hreflang="ja" href="https://yatingwu.info/index_jp.html">
         <link rel="alternate" hreflang="x-default" href="https://yatingwu.info/">
         <link href="./files/bootstrap.css" rel="stylesheet">
-        <link href="./files/myedit.css?v=20261028n" rel="stylesheet">
+        <link href="./files/myedit.css?v=20261029a" rel="stylesheet">
         <link href="./research/inquiry-map.css?v=20260906" rel="stylesheet">
         <link href="./research/inquiry-landscape.css?v=20261028b" rel="stylesheet">
         <script src="./research/inquiry-map.js?v=20260907u" defer></script>
@@ -127,21 +127,30 @@
           <h3 id="research-overview">Research Overview</h3>
           <a class="research-map-jump" href="#research-map">Research Delta <span aria-hidden="true">↓</span></a>
         </div>
-        <p>Language models are increasingly used in tasks ranging from software development to scientific research. These tasks often require models to explain how evidence supports a conclusion, decide which information matters, and build on earlier findings. My research focuses on the structure of explanations and reasoning. I use this structure to evaluate and improve how AI systems reason and learn.</p>
-        <ul class="home-areas">
-          <li><strong>Understanding and preserving context.</strong> I develop frameworks based on <strong>Questions Under Discussion</strong> (QUD) that model relationships across a text through questions and answers. For agents, I build memory that preserves earlier findings along with the evidence and reasoning behind them.
-            <span class="home-selected">Selected work: <a href="./qud-parsing/">QUD parsing</a> (Findings of ACL 2023); <a href="./contextweaver/">ContextWeaver</a> (under submission, 2026); ContextGraph (in progress)</span></li>
-          <li><strong>Evaluating understanding and generation.</strong> I evaluate whether a model's interpretation is supported by its context. This evaluation reveals interpretation errors that common metrics miss. I also measure structural repetition in model outputs.
-            <span class="home-selected">Selected work: <a href="./qudeval/">QUDeval</a> (EMNLP 2023); <a href="./qudsim/">QUDsim</a> (COLM 2025)</span></li>
-          <li><strong>Learning what information matters.</strong> I use questions to separate what to explain from how to explain it. I predict which questions are important from their context, and I extend this framework to scientific figures.
-            <span class="home-selected">Selected work: <a href="./qsalience/">QSalience</a> (EMNLP 2024, Outstanding Paper Award); <a href="./elabqud/">ElabQUD</a> (EMNLP 2023); <a href="./multimodal-qud/">Multimodal QUD</a> (under submission, 2026)</span></li>
-        </ul>
-        <p class="home-subhead">Ongoing and future research</p>
-        <ul class="home-areas">
-          <li><strong>Learning efficiently from experience.</strong> <a href="./qudsim/">QUDsim</a> showed that models reuse the same discourse structures across topics. I study when such repetition helps learning and when it wastes computation, in training data and across agents.</li>
-          <li><strong>Collaboration between people and AI.</strong> Building on my <a href="./qudeval/">evaluation work</a>, I study how AI systems interpret and respond to human feedback. I also study how agents follow limits on their actions.</li>
-          <li><strong>AI for scientific discovery.</strong> I extend my work on <a href="./qsalience/">question importance</a> to scientific investigations, where the value of a question changes as new evidence arrives. I study how AI systems choose observations and revise research plans in light of the results. Ongoing work with <a href="https://cosmicai.org/">CosmicAI</a> in astronomy provides an initial setting.</li>
-        </ul>
+        <p>I want AI systems to retain context, check their reasoning, and recognize what matters. I approach these goals through questions raised by texts and tasks, building on Questions Under Discussion (QUD).</p>
+        <ol class="home-areas">
+          <li>
+            <strong>Retaining context.</strong>
+            I use QUD to connect passages to preceding context.
+            Agent memory similarly preserves earlier findings with their evidence and reasoning.
+            Building on this work, I am now helping agents learn from experience without repeating earlier runs' work.
+            <span class="home-selected">Selected work: <a href="./qud-parsing/">QUD parsing</a>; <a href="./contextweaver/">ContextWeaver</a>; ContextGraph (in progress)</span>
+          </li>
+          <li>
+            <strong>Checking reasoning.</strong>
+            I check model interpretations against context, revealing errors common metrics miss.
+            I also measure structural repetition in model outputs.
+            Extending QUDeval, I now examine whether evidence supports AI responses to human feedback and whether agents follow action limits.
+            <span class="home-selected">Selected work: <a href="./qudeval/">QUDeval</a>; <a href="./qudsim/">QUDsim</a></span>
+          </li>
+          <li>
+            <strong>Recognizing what matters.</strong>
+            I separate what to explain from how to explain it.
+            I predict important questions, including for scientific figures.
+            I now study how AI chooses observations and revises research plans as evidence arrives, starting in astronomy with <a href="https://cosmicai.org/">CosmicAI</a>.
+            <span class="home-selected">Selected work: <a href="./qsalience/">QSalience</a> (EMNLP 2024 Outstanding Paper); <a href="./elabqud/">ElabQUD</a>; <a href="./multimodal-qud/">Multimodal QUD</a></span>
+          </li>
+        </ol>
 
         <h3>Education</h3>
           <dl>

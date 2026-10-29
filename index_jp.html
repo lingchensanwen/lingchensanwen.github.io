@@ -17,7 +17,7 @@
         <link rel="alternate" hreflang="ja" href="https://yatingwu.info/index_jp.html">
         <link rel="alternate" hreflang="x-default" href="https://yatingwu.info/">
         <link href="./files/bootstrap.css" rel="stylesheet">
-        <link href="./files/myedit.css?v=20261028n" rel="stylesheet">
+        <link href="./files/myedit.css?v=20261029a" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.0/css/academicons.min.css" integrity="sha512-W4yqoT1+8NLkinBLBZko+dFB2ZbHsYLDdr50VElllRcNt2Q4/GSs6u71UHKxB7S6JEMCp5Ve4xjh3eGQl/HRvg==" crossorigin="anonymous">
     </head>
     <body>
@@ -45,21 +45,15 @@
       </div>
 
         <h3 id="研究概要">研究概要</h3>
-        <p>言語モデルは、ソフトウェア開発から科学研究まで、さまざまなタスクで使われるようになっている。こうしたタスクでは、根拠が結論をどう支えるかを説明し、どの情報が重要かを判断し、それまでの知見を踏まえて次に進むことが求められる。私の研究は、説明と推論の構造に焦点を当てている。この構造を用いて、AIシステムの推論と学習を評価し、改善する。</p>
-        <ul class="home-areas">
-          <li><strong>文脈の理解と保持。</strong><strong>Questions Under Discussion</strong>（QUD）に基づき、テキスト内の関係を質問と回答によってモデル化するフレームワークを構築している。エージェントについては、それまでの知見をその根拠や推論とともに保持するメモリを開発している。
-            <span class="home-selected">主な研究：<a href="./qud-parsing/">QUD parsing</a>（Findings of ACL 2023）；<a href="./contextweaver/">ContextWeaver</a>（投稿中、2026）；ContextGraph（進行中）</span></li>
-          <li><strong>理解と生成の評価。</strong>モデルの解釈が文脈によって裏付けられているかを評価している。この評価によって、一般的な評価指標では見落とされる解釈の誤りを明らかにできる。また、モデルの出力に現れる構造の繰り返しを測定している。
-            <span class="home-selected">主な研究：<a href="./qudeval/">QUDeval</a>（EMNLP 2023）；<a href="./qudsim/">QUDsim</a>（COLM 2025）</span></li>
-          <li><strong>何が重要な情報かを学ぶ。</strong>質問を用いて、何を説明するかと、どう説明するかを切り分けている。また、質問の重要度を文脈から予測し、この枠組みを科学論文の図表にも広げている。
-            <span class="home-selected">主な研究：<a href="./qsalience/">QSalience</a>（EMNLP 2024、優秀論文賞）；<a href="./elabqud/">ElabQUD</a>（EMNLP 2023）；<a href="./multimodal-qud/">Multimodal QUD</a>（投稿中、2026）</span></li>
-        </ul>
-        <p class="home-subhead">進行中・今後の研究</p>
-        <ul class="home-areas">
-          <li><strong>経験からの効率的な学習。</strong><a href="./qudsim/">QUDsim</a>では、モデルが話題の異なるテキストでも同じ談話構造を繰り返し使うことを示した。学習データやエージェント間での探索において、こうした繰り返しが学習に役立つ場合と、計算の無駄になる場合を研究している。</li>
-          <li><strong>人とAIの協働。</strong><a href="./qudeval/">評価に関する研究</a>をもとに、AIシステムが人からのフィードバックをどう解釈し、どう応答するかを研究している。また、エージェントが行動に課された制約をどう守るかも研究している。</li>
-          <li><strong>科学的発見のためのAI。</strong><a href="./qsalience/">質問の重要度</a>に関する研究を、新たな証拠によって質問の価値が変わる科学的探究へと広げている。AIシステムが観測対象をどう選び、結果に応じて研究計画をどう修正するかを研究している。まずは<a href="https://cosmicai.org/">CosmicAI</a>で天文学を対象に取り組んでいる。</li>
-        </ul>
+        <p>私は、文脈を保持し、推論を検証し、何が重要かを見極めるAIシステムを目指している。Questions Under Discussion（QUD）を基盤に、テキストやタスクから生じる問いを通じて、これらの目標に取り組んでいる。</p>
+        <ol class="home-areas">
+          <li><strong>文脈を保持する。</strong>QUDを用いて、文章の各部分をそれまでの文脈と結び付けている。エージェントのメモリも同様に、それまでの知見を根拠や推論とともに保持する。この研究をもとに、現在はエージェントが過去の実行で行った作業を繰り返さずに、経験から学べるようにする研究に取り組んでいる。
+            <span class="home-selected">主な研究：<a href="./qud-parsing/">QUD parsing</a>；<a href="./contextweaver/">ContextWeaver</a>；ContextGraph（進行中）</span></li>
+          <li><strong>推論を検証する。</strong>モデルの解釈を文脈に照らして検証し、一般的な評価指標では見落とされる誤りを明らかにしている。また、モデルの出力に現れる構造の繰り返しを測定している。QUDevalを発展させ、現在は人からのフィードバックに対するAIの応答が根拠に支えられているか、エージェントが行動に課された制約を守っているかを調べている。
+            <span class="home-selected">主な研究：<a href="./qudeval/">QUDeval</a>；<a href="./qudsim/">QUDsim</a></span></li>
+          <li><strong>何が重要かを見極める。</strong>何を説明するかと、どう説明するかを切り分けている。科学論文の図表も対象に、どの問いが重要かを予測している。現在は、新たな証拠が得られる中で、AIが観測対象をどう選び、研究計画をどう修正するかを研究している。まずは<a href="https://cosmicai.org/">CosmicAI</a>で天文学を対象に取り組んでいる。
+            <span class="home-selected">主な研究：<a href="./qsalience/">QSalience</a>（EMNLP 2024、優秀論文賞）；<a href="./elabqud/">ElabQUD</a>；<a href="./multimodal-qud/">Multimodal QUD</a></span></li>
+        </ol>
         <p><a href="./research/">研究プロジェクト一覧（英語）</a></p>
 
         <h3>大学</h3>

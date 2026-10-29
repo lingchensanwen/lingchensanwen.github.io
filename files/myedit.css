@@ -127,6 +127,13 @@ body {
 .home .home-areas > li {
     margin-bottom: 8px;
 }
+.home ol.home-areas {
+    margin-left: 22px;
+}
+.home ol.home-areas > li::marker {
+    font-weight: 600;
+    color: #333;
+}
 .home .home-selected {
     display: block;
     margin-top: 2px;
