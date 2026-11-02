@@ -181,6 +181,16 @@
       if (event.key === 'Escape') { filter('all'); filters[0].focus(); }
     });
   });
+  // Paper links inside a card switch the map to that paper, where the connection is explained.
+  map.querySelectorAll('.inquiry-details [data-select]').forEach(link => {
+    link.addEventListener('click', event => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const node = nodes.find(item => item.dataset.project === link.dataset.select);
+      if (!node) return;
+      event.preventDefault();
+      node.click();
+    });
+  });
   filters.forEach(button => button.addEventListener('click', () => filter(button.dataset.filter)));
   select(selected, false);
   map.classList.add('is-interactive');

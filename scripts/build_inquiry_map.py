@@ -24,13 +24,16 @@ def render():
           <span class="inquiry-pin" aria-hidden="true"><span class="inquiry-dot"></span></span>
           <span class="inquiry-node-copy"><span class="inquiry-node-meta">{p['year']}</span><strong>{e(item['name'])}</strong><span class="inquiry-node-label">{e(item['label'])}</span></span>
         </a>''')
+        # Explain each connection once, on the later paper's card; the earlier card only links forward.
         connections = []
         for c in data['connections']:
-            if p['id'] in (c['from'], c['to']):
-                other = c['to'] if p['id'] == c['from'] else c['from']
-                other_p = metadata[other]
-                direction = 'Connection to'
-                connections.append(f'''<p class="inquiry-connection"><span>{direction} <a href="./{other_p['path']}/">{e(other_p['short'])}</a></span> {e(c['description'])} <a class="inquiry-source" href="{e(c['source'])}">{e(c['section'])} ↗</a></p>''')
+            if p['id'] == c['to']:
+                other_p = metadata[c['from']]
+                connections.append(f'''<p class="inquiry-connection"><span>Connection to <a href="./{other_p['path']}/" data-select="{c['from']}">{e(other_p['short'])}</a></span> {e(c['description'])} <a class="inquiry-source" href="{e(c['source'])}">{e(c['section'])} ↗</a></p>''')
+        later = [c['to'] for c in data['connections'] if c['from'] == p['id']]
+        if later:
+            links = '; '.join(f'''<a href="./{metadata[t]['path']}/" data-select="{t}">{e(metadata[t]['short'])}</a>''' for t in later)
+            connections.append(f'''<p class="inquiry-connection inquiry-later"><span>Later work</span> {links}</p>''')
         award = '<span class="inquiry-award">Outstanding Paper Award</span>' if p.get('award') else ''
         details.append(f'''<article class="inquiry-detail inquiry-{item['branch']}{selected}" id="inquiry-detail-{p['id']}" aria-labelledby="inquiry-title-{p['id']}">
           <div class="inquiry-detail-heading"><p class="inquiry-detail-meta">{p['year']} · {e(venue)}</p><h4 id="inquiry-title-{p['id']}">{e(item['name'])}</h4>{award}<div class="inquiry-detail-links"><a href="./{p['path']}/">Project <span aria-hidden="true">↗</span></a><a href="{e(p['url'])}">paper <span aria-hidden="true">↗</span></a></div></div>
